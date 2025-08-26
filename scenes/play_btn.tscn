@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://xgy4hr78bscc"]
+
+[ext_resource type="Texture2D" uid="uid://hs5wot1c2gnw" path="res://assets/UI/play_btn.png" id="1_mbc51"]
+
+[node name="play_btn" type="TextureButton"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("1_mbc51")

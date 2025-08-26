@@ -11,8 +11,18 @@ config_version=5
 [application]
 
 config/name="QuestAnswer"
+run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=412
+window/size/viewport_height=917
+
+[gui]
+
+theme/default_font_multichannel_signed_distance_field=true
 
 [rendering]
 

@@ -1,0 +1,92 @@
+[gd_scene load_steps=7 format=3 uid="uid://doobbb6shhgyn"]
+
+[ext_resource type="PackedScene" uid="uid://xgy4hr78bscc" path="res://scenes/play_btn.tscn" id="1_8ln24"]
+[ext_resource type="FontFile" uid="uid://bme4v7odch1u0" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Lexend_Deca/LexendDeca-VariableFont_wght.ttf" id="2_oa1go"]
+[ext_resource type="PackedScene" uid="uid://d2ixgs27fg2he" path="res://scenes/credits_btn.tscn" id="2_rtw2f"]
+[ext_resource type="PackedScene" uid="uid://hbxduxlw6qpf" path="res://scenes/exit_btn.tscn" id="3_oa1go"]
+[ext_resource type="Texture2D" uid="uid://dcvkmxe3f83qs" path="res://assets/UI/logo_name.png" id="4_tbmy8"]
+[ext_resource type="PackedScene" uid="uid://c6ghkyxcsppg2" path="res://scenes/background.tscn" id="5_jk1qb"]
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.478431, 0.960784, 1)
+
+[node name="background" parent="." instance=ExtResource("5_jk1qb")]
+layout_mode = 1
+anchors_preset = 15
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="footer_text" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.332524
+anchor_top = 0.97928
+anchor_right = 0.667476
+anchor_bottom = 0.97928
+offset_left = -0.5
+offset_top = -22.3333
+offset_right = 0.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_oa1go")
+text = "BETA VERSION 0.1"
+metadata/_edit_use_anchors_ = true
+
+[node name="buttons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.194
+anchor_top = 0.630582
+anchor_right = 0.806
+anchor_bottom = 0.898582
+offset_left = 0.0719986
+offset_top = -0.244019
+offset_right = -0.0720215
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="play_btn" parent="buttons" instance=ExtResource("1_8ln24")]
+layout_mode = 2
+
+[node name="credits_btn" parent="buttons" instance=ExtResource("2_rtw2f")]
+layout_mode = 2
+
+[node name="exit_btn" parent="buttons" instance=ExtResource("3_oa1go")]
+layout_mode = 2
+
+[node name="title" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.29771
+anchor_right = 0.5
+anchor_bottom = 0.29771
+offset_left = -182.0
+offset_top = -92.0
+offset_right = 182.0
+offset_bottom = 82.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_tbmy8")
+metadata/_edit_use_anchors_ = true
