@@ -1,0 +1,92 @@
+[gd_scene load_steps=5 format=3 uid="uid://4kjgnrt42cpu"]
+
+[ext_resource type="PackedScene" uid="uid://c6ghkyxcsppg2" path="res://scenes/background.tscn" id="1_0bpdh"]
+[ext_resource type="FontFile" uid="uid://bme4v7odch1u0" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Lexend_Deca/LexendDeca-VariableFont_wght.ttf" id="2_2ckv8"]
+[ext_resource type="PackedScene" uid="uid://cv0si3n712a5r" path="res://scenes/back_btn.tscn" id="2_2fbfq"]
+[ext_resource type="FontFile" uid="uid://6mkg44ynm87h" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Paytone_One/PaytoneOne-Regular.ttf" id="3_8gwij"]
+
+[node name="credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.996454, 1)
+
+[node name="color_background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.478431, 0.960784, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="background" parent="." instance=ExtResource("1_0bpdh")]
+layout_mode = 1
+anchors_preset = 15
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 34
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 21
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 22
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 17
+theme_override_constants/margin_right = 17
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="back_btn" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer" instance=ExtResource("2_2fbfq")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_8gwij")
+theme_override_font_sizes/font_size = 45
+text = "CREDITOS"
+horizontal_alignment = 1
+justification_flags = 161
+
+[node name="text_background" type="ColorRect" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0, 0.333333, 0.67451, 1)
+
+[node name="footer_text" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("2_2ckv8")
+text = "BETA VERSION 0.1"

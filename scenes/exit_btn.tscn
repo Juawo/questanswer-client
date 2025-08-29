@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://hbxduxlw6qpf"]
+[gd_scene load_steps=3 format=3 uid="uid://hbxduxlw6qpf"]
 
 [ext_resource type="Texture2D" uid="uid://b7ya1tjrvnn3f" path="res://assets/UI/exit_btn.png" id="1_lhmx1"]
+[ext_resource type="Script" uid="uid://cvnhqh8ksqs3q" path="res://scripts/exit_btn.gd" id="2_a7nc4"]
 
 [node name="exit_btn" type="TextureButton"]
 offset_right = 40.0
 offset_bottom = 40.0
 texture_normal = ExtResource("1_lhmx1")
+script = ExtResource("2_a7nc4")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

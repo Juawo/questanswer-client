@@ -4,8 +4,8 @@
 [ext_resource type="FontFile" uid="uid://bme4v7odch1u0" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Lexend_Deca/LexendDeca-VariableFont_wght.ttf" id="2_oa1go"]
 [ext_resource type="PackedScene" uid="uid://d2ixgs27fg2he" path="res://scenes/credits_btn.tscn" id="2_rtw2f"]
 [ext_resource type="PackedScene" uid="uid://hbxduxlw6qpf" path="res://scenes/exit_btn.tscn" id="3_oa1go"]
-[ext_resource type="Texture2D" uid="uid://dcvkmxe3f83qs" path="res://assets/UI/logo_name.png" id="4_tbmy8"]
 [ext_resource type="PackedScene" uid="uid://c6ghkyxcsppg2" path="res://scenes/background.tscn" id="5_jk1qb"]
+[ext_resource type="Texture2D" uid="uid://b6g4qi57ayain" path="res://assets/UI/logo_name_2.png" id="6_rtw2f"]
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -15,7 +15,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="color_background" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -88,5 +88,5 @@ offset_right = 182.0
 offset_bottom = 82.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_tbmy8")
+texture = ExtResource("6_rtw2f")
 metadata/_edit_use_anchors_ = true
