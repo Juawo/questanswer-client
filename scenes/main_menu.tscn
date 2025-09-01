@@ -39,13 +39,14 @@ offset_bottom = 0.0
 [node name="footer_text" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.332524
-anchor_top = 0.97928
-anchor_right = 0.667476
-anchor_bottom = 0.97928
-offset_left = -0.5
-offset_top = -22.3333
-offset_right = 0.5
+anchor_left = 0.491505
+anchor_top = 0.968
+anchor_right = 0.5
+anchor_bottom = 0.968
+offset_left = -69.5001
+offset_top = -9.65607
+offset_right = 73.0
+offset_bottom = 10.3439
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("2_oa1go")
@@ -55,16 +56,16 @@ metadata/_edit_use_anchors_ = true
 [node name="buttons" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.194
-anchor_top = 0.630582
-anchor_right = 0.806
-anchor_bottom = 0.898582
-offset_left = 0.0719986
-offset_top = -0.244019
-offset_right = -0.0720215
+anchor_left = 0.5
+anchor_top = 0.764
+anchor_right = 0.5
+anchor_bottom = 0.764
+offset_left = -126.0
+offset_top = -122.588
+offset_right = 126.0
+offset_bottom = 123.412
 grow_horizontal = 2
-grow_vertical = 0
-metadata/_edit_use_anchors_ = true
+grow_vertical = 2
 
 [node name="play_btn" parent="buttons" instance=ExtResource("1_8ln24")]
 layout_mode = 2

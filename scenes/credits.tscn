@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://4kjgnrt42cpu"]
+[gd_scene load_steps=7 format=3 uid="uid://4kjgnrt42cpu"]
 
 [ext_resource type="PackedScene" uid="uid://c6ghkyxcsppg2" path="res://scenes/background.tscn" id="1_0bpdh"]
 [ext_resource type="FontFile" uid="uid://bme4v7odch1u0" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Lexend_Deca/LexendDeca-VariableFont_wght.ttf" id="2_2ckv8"]
 [ext_resource type="PackedScene" uid="uid://cv0si3n712a5r" path="res://scenes/back_btn.tscn" id="2_2fbfq"]
 [ext_resource type="FontFile" uid="uid://6mkg44ynm87h" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Paytone_One/PaytoneOne-Regular.ttf" id="3_8gwij"]
+[ext_resource type="Texture2D" uid="uid://d0a8uv2ew2byx" path="res://assets/UI/background_text_credits.png" id="4_8gwij"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mah5v"]
+texture = ExtResource("4_8gwij")
 
 [node name="credits" type="Control"]
 layout_mode = 3
@@ -38,6 +42,7 @@ offset_bottom = 0.0
 metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(412, 917)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -50,39 +55,67 @@ theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 21
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(364, 862)
 layout_mode = 2
-theme_override_constants/separation = 22
-alignment = 1
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+[node name="header" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 0
 theme_override_constants/margin_left = 17
 theme_override_constants/margin_right = 17
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/header"]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_constants/separation = 15
 alignment = 1
 
-[node name="back_btn" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer" instance=ExtResource("2_2fbfq")]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/header/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-size_flags_stretch_ratio = 0.0
+theme_override_constants/margin_top = 10
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="back_btn" parent="MarginContainer/VBoxContainer/header/HBoxContainer/MarginContainer" instance=ExtResource("2_2fbfq")]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/header/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/header/HBoxContainer/CenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("3_8gwij")
 theme_override_font_sizes/font_size = 45
 text = "CREDITOS"
 horizontal_alignment = 1
-justification_flags = 161
+vertical_alignment = 1
 
-[node name="text_background" type="ColorRect" parent="MarginContainer/VBoxContainer"]
+[node name="credits" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-color = Color(0, 0.333333, 0.67451, 1)
+theme_override_styles/panel = SubResource("StyleBoxTexture_mah5v")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/credits"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 40
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/credits/MarginContainer"]
+custom_minimum_size = Vector2(200, 400)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("3_8gwij")
+theme_override_font_sizes/font_size = 20
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac luctus elit. Aliquam posuere turpis id dui efficitur tincidunt. Cras molestie varius vulputate. Praesent ac fermentum magna. Quisque auctor nibh mi, eu tristique eros eleifend at. Aliquam fermentum rhoncus ipsum eu efficitur. Nam eu posuere arcu.
+In sit amet risus turpis. Vestibulum placerat turpis eu ipsum mattis, commodo suscipit tortor dapibus. Phasellus imperdiet risus vel elit venenatis faucibus. Cras ac sapien quis tellus tincidunt mattis tincidunt ac"
+horizontal_alignment = 1
+autowrap_mode = 1
+uppercase = true
 
 [node name="footer_text" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
