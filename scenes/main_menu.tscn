@@ -36,57 +36,55 @@ offset_top = 0.0
 offset_right = 0.0
 offset_bottom = 0.0
 
-[node name="footer_text" type="Label" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.951
-anchor_right = 0.5
-anchor_bottom = 0.951
-offset_left = -73.0
-offset_top = -10.242
-offset_right = 73.0
-offset_bottom = 9.758
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_fonts/font = ExtResource("2_oa1go")
-text = "BETA VERSION 0.1"
-
-[node name="buttons" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.707
-anchor_right = 0.5
-anchor_bottom = 0.707
-offset_left = -126.0
-offset_top = -123.319
-offset_right = 126.0
-offset_bottom = 122.681
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 161
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 21
 
-[node name="play_btn" parent="buttons" instance=ExtResource("1_8ln24")]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 60
 
-[node name="credits_btn" parent="buttons" instance=ExtResource("2_rtw2f")]
+[node name="title" type="TextureRect" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-
-[node name="exit_btn" parent="buttons" instance=ExtResource("3_oa1go")]
-layout_mode = 2
-
-[node name="title" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.29771
-anchor_right = 0.5
-anchor_bottom = 0.29771
-offset_left = -182.0
-offset_top = -92.0
-offset_right = 182.0
-offset_bottom = 82.0
-grow_horizontal = 2
-grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+size_flags_stretch_ratio = 3.0
 texture = ExtResource("6_rtw2f")
 metadata/_edit_use_anchors_ = true
+
+[node name="buttons" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="play_btn" parent="MarginContainer/VBoxContainer/buttons" instance=ExtResource("1_8ln24")]
+layout_mode = 2
+size_flags_horizontal = 4
+stretch_mode = 3
+
+[node name="credits_btn" parent="MarginContainer/VBoxContainer/buttons" instance=ExtResource("2_rtw2f")]
+layout_mode = 2
+size_flags_horizontal = 4
+stretch_mode = 3
+
+[node name="exit_btn" parent="MarginContainer/VBoxContainer/buttons" instance=ExtResource("3_oa1go")]
+layout_mode = 2
+size_flags_horizontal = 4
+stretch_mode = 3
+
+[node name="footer_text" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("2_oa1go")
+text = "BETA VERSION 0.1"
+horizontal_alignment = 1

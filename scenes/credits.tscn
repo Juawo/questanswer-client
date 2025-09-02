@@ -55,7 +55,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 24
-theme_override_constants/margin_top = 34
+theme_override_constants/margin_top = 21
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 21
 
@@ -135,8 +135,10 @@ uppercase = true
 
 [node name="footer_text" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 1
+size_flags_horizontal = 4
+size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("2_2ckv8")
 text = "BETA VERSION 0.1"
 horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_use_anchors_ = true

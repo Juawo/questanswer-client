@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8cgt6cyb8w1d"]
+
+[ext_resource type="Texture2D" uid="uid://n2wa8hg0nrm1" path="res://assets/UI/close_btn-1.png" id="1_p0a17"]
+[ext_resource type="Texture2D" uid="uid://c7qfwvthpymxx" path="res://assets/UI/close_btn_pressed.png" id="2_ijn7x"]
+
+[node name="close_btn" type="TextureButton"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("1_p0a17")
+texture_pressed = ExtResource("2_ijn7x")

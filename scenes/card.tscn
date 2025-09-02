@@ -1,0 +1,193 @@
+[gd_scene load_steps=9 format=3 uid="uid://dw4j6s3f2km3k"]
+
+[ext_resource type="Texture2D" uid="uid://ct6pqc6iejqmp" path="res://assets/UI/card_background.png" id="1_6u4wf"]
+[ext_resource type="FontFile" uid="uid://bbir0gt61fjup" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Rubik/static/Rubik-Bold.ttf" id="2_kg30u"]
+[ext_resource type="Texture2D" uid="uid://dkgaw6m3wuxx1" path="res://assets/UI/Card.png" id="2_ktuci"]
+[ext_resource type="FontFile" uid="uid://brv20y6fxd313" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Rubik/static/Rubik-Regular.ttf" id="3_sy11y"]
+[ext_resource type="PackedScene" uid="uid://b8cgt6cyb8w1d" path="res://scenes/close_btn.tscn" id="4_sy11y"]
+[ext_resource type="PackedScene" uid="uid://bh64d2yakt5tk" path="res://scenes/hint.tscn" id="5_6ligt"]
+[ext_resource type="PackedScene" uid="uid://0lmxufx57udh" path="res://scenes/played_btn.tscn" id="6_8w5pg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nvopj"]
+bg_color = Color(0.996078, 0.847059, 0.501961, 1)
+shadow_color = Color(0, 0, 0, 0.254902)
+shadow_size = 2
+shadow_offset = Vector2(0, 2)
+
+[node name="Card" type="Control"]
+layout_mode = 3
+anchor_right = 0.893
+anchor_bottom = 0.746
+offset_right = -4.91602
+offset_bottom = -0.0820312
+size_flags_horizontal = 3
+
+[node name="front" type="Control" parent="."]
+layout_mode = 1
+anchor_right = 1.003
+anchor_bottom = 0.996
+offset_right = -0.0890198
+offset_bottom = -0.264038
+
+[node name="background" type="TextureRect" parent="front"]
+custom_minimum_size = Vector2(364, 681)
+layout_mode = 1
+offset_left = -9.0
+offset_top = -1.0
+offset_right = 375.0
+offset_bottom = 705.0
+texture = ExtResource("1_6u4wf")
+
+[node name="MarginContainer" type="MarginContainer" parent="front"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -27.0
+offset_right = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="front/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="header_card" type="MarginContainer" parent="front/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="header_card" type="HBoxContainer" parent="front/MarginContainer/VBoxContainer/header_card"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 30
+
+[node name="term_card" type="MarginContainer" parent="front/MarginContainer/VBoxContainer/header_card/header_card"]
+custom_minimum_size = Vector2(165, 58)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="term_card" type="VBoxContainer" parent="front/MarginContainer/VBoxContainer/header_card/header_card/term_card"]
+layout_mode = 2
+size_flags_horizontal = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="front/MarginContainer/VBoxContainer/header_card/header_card/term_card/term_card"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_kg30u")
+theme_override_font_sizes/font_size = 16
+text = "Termo:"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="front/MarginContainer/VBoxContainer/header_card/header_card/term_card/term_card"]
+custom_minimum_size = Vector2(165, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_sy11y")
+theme_override_font_sizes/font_size = 20
+text = "Lorem
+IIIpsummm"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="type_card" type="PanelContainer" parent="front/MarginContainer/VBoxContainer/header_card/header_card"]
+custom_minimum_size = Vector2(93, 73)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_nvopj")
+
+[node name="MarginContainer" type="MarginContainer" parent="front/MarginContainer/VBoxContainer/header_card/header_card/type_card"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="front/MarginContainer/VBoxContainer/header_card/header_card/type_card/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="front/MarginContainer/VBoxContainer/header_card/header_card/type_card/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_kg30u")
+theme_override_font_sizes/font_size = 16
+text = "Tipo:"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="front/MarginContainer/VBoxContainer/header_card/header_card/type_card/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_sy11y")
+theme_override_font_sizes/font_size = 20
+text = "Pessoa"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="front/MarginContainer/VBoxContainer/header_card/header_card"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+
+[node name="close_btn" parent="front/MarginContainer/VBoxContainer/header_card/header_card/MarginContainer" instance=ExtResource("4_sy11y")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+stretch_mode = 3
+
+[node name="tips" type="VBoxContainer" parent="front/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="hint_1" parent="front/MarginContainer/VBoxContainer/tips" instance=ExtResource("5_6ligt")]
+layout_mode = 2
+
+[node name="hint_2" parent="front/MarginContainer/VBoxContainer/tips" instance=ExtResource("5_6ligt")]
+layout_mode = 2
+
+[node name="hint_3" parent="front/MarginContainer/VBoxContainer/tips" instance=ExtResource("5_6ligt")]
+layout_mode = 2
+
+[node name="hint_4" parent="front/MarginContainer/VBoxContainer/tips" instance=ExtResource("5_6ligt")]
+layout_mode = 2
+
+[node name="hint_5" parent="front/MarginContainer/VBoxContainer/tips" instance=ExtResource("5_6ligt")]
+layout_mode = 2
+
+[node name="hint_6" parent="front/MarginContainer/VBoxContainer/tips" instance=ExtResource("5_6ligt")]
+layout_mode = 2
+
+[node name="hint_7" parent="front/MarginContainer/VBoxContainer/tips" instance=ExtResource("5_6ligt")]
+layout_mode = 2
+
+[node name="hint_8" parent="front/MarginContainer/VBoxContainer/tips" instance=ExtResource("5_6ligt")]
+layout_mode = 2
+
+[node name="hint_9" parent="front/MarginContainer/VBoxContainer/tips" instance=ExtResource("5_6ligt")]
+layout_mode = 2
+
+[node name="hint_10" parent="front/MarginContainer/VBoxContainer/tips" instance=ExtResource("5_6ligt")]
+layout_mode = 2
+
+[node name="played_btn" parent="front/MarginContainer/VBoxContainer" instance=ExtResource("6_8w5pg")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="back" type="TextureRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(364, 681)
+layout_mode = 2
+offset_left = -7.0
+offset_top = -2.0
+offset_right = 377.0
+offset_bottom = 704.0
+texture = ExtResource("2_ktuci")

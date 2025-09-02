@@ -58,53 +58,53 @@ theme_override_constants/margin_bottom = 33
 layout_mode = 2
 theme_override_constants/separation = 80
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+[node name="header" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="header" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+[node name="header" type="HBoxContainer" parent="MarginContainer/VBoxContainer/header"]
 layout_mode = 2
 theme_override_constants/separation = 22
 alignment = 1
 
-[node name="back_btn" parent="MarginContainer/VBoxContainer/MarginContainer/header" instance=ExtResource("2_kbw8v")]
+[node name="back_btn" parent="MarginContainer/VBoxContainer/header/header" instance=ExtResource("2_kbw8v")]
 layout_mode = 2
 stretch_mode = 3
 
-[node name="played_cards" type="PanelContainer" parent="MarginContainer/VBoxContainer/MarginContainer/header"]
+[node name="played_cards" type="PanelContainer" parent="MarginContainer/VBoxContainer/header/header"]
 custom_minimum_size = Vector2(254, 58)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_hv41o")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/header/played_cards"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/header/header/played_cards"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/header/played_cards/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/header/header/played_cards/MarginContainer"]
 custom_minimum_size = Vector2(233, 30)
 layout_mode = 2
 alignment = 1
 
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/header/played_cards/MarginContainer/HBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/header/header/played_cards/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_bottom = 5
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer/header/played_cards/MarginContainer/HBoxContainer/MarginContainer2"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/header/header/played_cards/MarginContainer/HBoxContainer/MarginContainer2"]
 layout_mode = 2
 size_flags_horizontal = 2
 texture = ExtResource("3_8772h")
 stretch_mode = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/header/played_cards/MarginContainer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/header/header/played_cards/MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 5
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/header/played_cards/MarginContainer/HBoxContainer/MarginContainer"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/header/header/played_cards/MarginContainer/HBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 1

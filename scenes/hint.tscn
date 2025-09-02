@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh64d2yakt5tk"]
+
+[ext_resource type="FontFile" uid="uid://wvgw3d2l2xji" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Inter/static/Inter_28pt-Regular.ttf" id="1_lsscw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_grpcu"]
+bg_color = Color(0.85098, 0.85098, 0.85098, 1)
+
+[node name="hint" type="PanelContainer"]
+custom_minimum_size = Vector2(307, 0)
+anchors_preset = -1
+anchor_top = 0.022
+anchor_right = 0.745
+anchor_bottom = 0.022
+offset_top = -20.174
+offset_right = 20.06
+offset_bottom = 19.826
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_grpcu")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="MarginContainer"]
+custom_minimum_size = Vector2(297, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_lsscw")
+theme_override_font_sizes/font_size = 16
+text = "1. Dica 1"
+autowrap_mode = 3
