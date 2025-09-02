@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7bv4w1uhi3t8"]
+
+[ext_resource type="Texture2D" uid="uid://cft5yn23upmet" path="res://assets/UI/random_btn.png" id="1_5xahj"]
+
+[node name="random_btn" type="TextureButton"]
+offset_right = 67.0
+offset_bottom = 70.0
+texture_normal = ExtResource("1_5xahj")
+metadata/_edit_use_anchors_ = true

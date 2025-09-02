@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://4kjgnrt42cpu"]
+[gd_scene load_steps=8 format=3 uid="uid://4kjgnrt42cpu"]
 
 [ext_resource type="PackedScene" uid="uid://c6ghkyxcsppg2" path="res://scenes/background.tscn" id="1_0bpdh"]
 [ext_resource type="FontFile" uid="uid://bme4v7odch1u0" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Lexend_Deca/LexendDeca-VariableFont_wght.ttf" id="2_2ckv8"]
@@ -8,6 +8,11 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mah5v"]
 texture = ExtResource("4_8gwij")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8gwij"]
+content_margin_left = 8.0
+content_margin_right = 8.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="credits" type="Control"]
 layout_mode = 3
@@ -105,21 +110,33 @@ theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 40
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/credits/MarginContainer"]
-custom_minimum_size = Vector2(200, 400)
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/credits/MarginContainer"]
 layout_mode = 2
-size_flags_vertical = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_8gwij")
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/credits/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/credits/MarginContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("3_8gwij")
 theme_override_font_sizes/font_size = 20
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac luctus elit. Aliquam posuere turpis id dui efficitur tincidunt. Cras molestie varius vulputate. Praesent ac fermentum magna. Quisque auctor nibh mi, eu tristique eros eleifend at. Aliquam fermentum rhoncus ipsum eu efficitur. Nam eu posuere arcu.
-In sit amet risus turpis. Vestibulum placerat turpis eu ipsum mattis, commodo suscipit tortor dapibus. Phasellus imperdiet risus vel elit venenatis faucibus. Cras ac sapien quis tellus tincidunt mattis tincidunt ac"
+In sit amet risus turpis. Vestibulum placerat turpis eu ipsum mattis, commodo suscipit tortor dapibus. Phasellus imperdiet risus vel elit venenatis faucibus. Cras ac sapien quis tellus tincidunt mattis tincidunt ac magna. Aliquam erat volutpat. Donec dapibus elit dolor, in luctus nisi 
+elit dolor, in luctus nisi"
 horizontal_alignment = 1
-autowrap_mode = 1
+autowrap_mode = 3
 uppercase = true
 
 [node name="footer_text" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
+size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("2_2ckv8")
 text = "BETA VERSION 0.1"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true

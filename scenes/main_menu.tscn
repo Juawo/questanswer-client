@@ -39,31 +39,30 @@ offset_bottom = 0.0
 [node name="footer_text" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.491505
-anchor_top = 0.968
+anchor_left = 0.5
+anchor_top = 0.951
 anchor_right = 0.5
-anchor_bottom = 0.968
-offset_left = -69.5001
-offset_top = -9.65607
+anchor_bottom = 0.951
+offset_left = -73.0
+offset_top = -10.242
 offset_right = 73.0
-offset_bottom = 10.3439
+offset_bottom = 9.758
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("2_oa1go")
 text = "BETA VERSION 0.1"
-metadata/_edit_use_anchors_ = true
 
 [node name="buttons" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.764
+anchor_top = 0.707
 anchor_right = 0.5
-anchor_bottom = 0.764
+anchor_bottom = 0.707
 offset_left = -126.0
-offset_top = -122.588
+offset_top = -123.319
 offset_right = 126.0
-offset_bottom = 123.412
+offset_bottom = 122.681
 grow_horizontal = 2
 grow_vertical = 2
 

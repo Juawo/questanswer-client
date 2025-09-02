@@ -1,0 +1,152 @@
+[gd_scene load_steps=10 format=3 uid="uid://c5g5bbxxdp68g"]
+
+[ext_resource type="PackedScene" uid="uid://c6ghkyxcsppg2" path="res://scenes/background.tscn" id="1_i4hdt"]
+[ext_resource type="PackedScene" uid="uid://cv0si3n712a5r" path="res://scenes/back_btn.tscn" id="2_kbw8v"]
+[ext_resource type="Texture2D" uid="uid://dpysc517dyhy0" path="res://assets/UI/played_cards_icon.png" id="3_8772h"]
+[ext_resource type="Texture2D" uid="uid://c8rnas01qpm8f" path="res://assets/UI/played_cards.png" id="3_w7ug8"]
+[ext_resource type="Texture2D" uid="uid://dvwf7r6pglh0t" path="res://assets/UI/identifier_card_with_total.png" id="4_lfvyi"]
+[ext_resource type="FontFile" uid="uid://bifn41ua7c7tv" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Luckiest_Guy/LuckiestGuy-Regular.ttf" id="5_31myi"]
+[ext_resource type="PackedScene" uid="uid://c7bv4w1uhi3t8" path="res://scenes/random_btn.tscn" id="7_1kdnm"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hv41o"]
+texture = ExtResource("3_w7ug8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w7ug8"]
+texture = ExtResource("4_lfvyi")
+
+[node name="select_card" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_horizontal_guides_ = [70.0]
+
+[node name="color_background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.478431, 0.960784, 1)
+
+[node name="background" parent="." instance=ExtResource("1_i4hdt")]
+layout_mode = 1
+anchors_preset = 15
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_bottom = 33
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 80
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="header" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 22
+alignment = 1
+
+[node name="back_btn" parent="MarginContainer/VBoxContainer/MarginContainer/header" instance=ExtResource("2_kbw8v")]
+layout_mode = 2
+stretch_mode = 3
+
+[node name="played_cards" type="PanelContainer" parent="MarginContainer/VBoxContainer/MarginContainer/header"]
+custom_minimum_size = Vector2(254, 58)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_hv41o")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/header/played_cards"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/header/played_cards/MarginContainer"]
+custom_minimum_size = Vector2(233, 30)
+layout_mode = 2
+alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/header/played_cards/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_bottom = 5
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer/header/played_cards/MarginContainer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("3_8772h")
+stretch_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/header/played_cards/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 5
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/header/played_cards/MarginContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("5_31myi")
+theme_override_font_sizes/font_size = 40
+text = "2/10"
+vertical_alignment = 2
+uppercase = true
+
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 561)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.31
+
+[node name="footer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/footer"]
+custom_minimum_size = Vector2(128, 65)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_w7ug8")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/footer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/footer/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("5_31myi")
+theme_override_font_sizes/font_size = 40
+text = "2/3"
+vertical_alignment = 2
+
+[node name="random_btn" parent="MarginContainer/VBoxContainer/footer" instance=ExtResource("7_1kdnm")]
+layout_mode = 2
+stretch_mode = 3
