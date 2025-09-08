@@ -1,12 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://c5g5bbxxdp68g"]
+[gd_scene load_steps=13 format=3 uid="uid://c5g5bbxxdp68g"]
 
+[ext_resource type="Script" uid="uid://d23f7vjsmv6ci" path="res://scripts/select_card.gd" id="1_hv41o"]
 [ext_resource type="PackedScene" uid="uid://c6ghkyxcsppg2" path="res://scenes/background.tscn" id="1_i4hdt"]
 [ext_resource type="PackedScene" uid="uid://cv0si3n712a5r" path="res://scenes/back_btn.tscn" id="2_kbw8v"]
 [ext_resource type="Texture2D" uid="uid://dpysc517dyhy0" path="res://assets/UI/played_cards_icon.png" id="3_8772h"]
 [ext_resource type="Texture2D" uid="uid://c8rnas01qpm8f" path="res://assets/UI/played_cards.png" id="3_w7ug8"]
 [ext_resource type="Texture2D" uid="uid://dvwf7r6pglh0t" path="res://assets/UI/identifier_card_with_total.png" id="4_lfvyi"]
 [ext_resource type="FontFile" uid="uid://bifn41ua7c7tv" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Luckiest_Guy/LuckiestGuy-Regular.ttf" id="5_31myi"]
+[ext_resource type="Script" uid="uid://cw1pfevcjcies" path="res://scripts/carousel_container.gd" id="6_31myi"]
 [ext_resource type="PackedScene" uid="uid://c7bv4w1uhi3t8" path="res://scenes/random_btn.tscn" id="7_1kdnm"]
+[ext_resource type="PackedScene" uid="uid://dw4j6s3f2km3k" path="res://scenes/card.tscn" id="7_hv41o"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hv41o"]
 texture = ExtResource("3_w7ug8")
@@ -21,9 +24,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_hv41o")
 metadata/_edit_horizontal_guides_ = [70.0]
 
 [node name="color_background" type="ColorRect" parent="."]
+z_index = -100
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,6 +38,7 @@ grow_vertical = 2
 color = Color(0, 0.478431, 0.960784, 1)
 
 [node name="background" parent="." instance=ExtResource("1_i4hdt")]
+z_index = -100
 layout_mode = 1
 anchors_preset = 15
 anchor_left = 0.0
@@ -114,11 +120,71 @@ text = "2/10"
 vertical_alignment = 2
 uppercase = true
 
-[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 561)
+[node name="carousel" type="Control" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 10.31
+
+[node name="CarouselContainer" type="Node2D" parent="MarginContainer/VBoxContainer/carousel" node_paths=PackedStringArray("position_offset_node")]
+position = Vector2(64, 0)
+script = ExtResource("6_31myi")
+wraparound_enabled = true
+wraparound_radius = 250.0
+wraparound_height = -50.0
+opacity_strength = 0.058
+scale_strength = 0.203
+selected_index = 3
+follow_button_focus = true
+position_offset_node = NodePath("Control")
+metadata/_custom_type_script = "uid://cw1pfevcjcies"
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/carousel/CarouselContainer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Card" parent="MarginContainer/VBoxContainer/carousel/CarouselContainer/Control" instance=ExtResource("7_hv41o")]
+modulate = Color(1, 1, 1, 0.826)
+z_index = -3
+layout_mode = 1
+offset_top = 100.0
+offset_right = -8.1852e-06
+offset_bottom = 100.0
+scale = Vector2(0.391, 0.391)
+mouse_filter = 2
+
+[node name="Card2" parent="MarginContainer/VBoxContainer/carousel/CarouselContainer/Control" instance=ExtResource("7_hv41o")]
+modulate = Color(1, 1, 1, 0.884)
+z_index = -2
+layout_mode = 1
+offset_top = 100.0
+offset_right = -1.16619e-06
+offset_bottom = 100.0
+scale = Vector2(0.594, 0.594)
+mouse_filter = 2
+
+[node name="Card3" parent="MarginContainer/VBoxContainer/carousel/CarouselContainer/Control" instance=ExtResource("7_hv41o")]
+modulate = Color(1, 1, 1, 0.942)
+z_index = -1
+layout_mode = 1
+offset_left = -216.505
+offset_top = 74.9994
+offset_right = -216.505
+offset_bottom = 74.9994
+scale = Vector2(0.797, 0.797)
+mouse_filter = 2
+
+[node name="Card4" parent="MarginContainer/VBoxContainer/carousel/CarouselContainer/Control" instance=ExtResource("7_hv41o")]
+z_index = 1
+layout_mode = 1
+offset_right = 1.16626e-06
+offset_bottom = 4.07565e-07
+focus_mode = 2
 
 [node name="footer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -150,3 +216,5 @@ vertical_alignment = 2
 [node name="random_btn" parent="MarginContainer/VBoxContainer/footer" instance=ExtResource("7_1kdnm")]
 layout_mode = 2
 stretch_mode = 3
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/footer/random_btn" to="." method="_on_random_btn_pressed"]

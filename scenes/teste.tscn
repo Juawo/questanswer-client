@@ -1,0 +1,102 @@
+[gd_scene load_steps=4 format=3 uid="uid://bse6bv3h3hhnq"]
+
+[ext_resource type="Script" uid="uid://1kow8meaym2u" path="res://scenes/teste.gd" id="1_2gqm3"]
+[ext_resource type="Script" uid="uid://cw1pfevcjcies" path="res://scripts/carousel_container.gd" id="1_kta4m"]
+[ext_resource type="PackedScene" uid="uid://dw4j6s3f2km3k" path="res://scenes/card.tscn" id="3_3r2dd"]
+
+[node name="Node2D" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2gqm3")
+
+[node name="CarouselContainer" type="Node2D" parent="."]
+position = Vector2(103, 140)
+scale = Vector2(0.8, 0.8)
+script = ExtResource("1_kta4m")
+metadata/_custom_type_script = "uid://cw1pfevcjcies"
+
+[node name="Control" type="Control" parent="CarouselContainer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Card" parent="CarouselContainer/Control" instance=ExtResource("3_3r2dd")]
+modulate = Color(1, 1, 1, 0.878)
+z_index = -1
+layout_mode = 1
+offset_left = -262.408
+offset_top = 34.5491
+offset_right = -213.128
+offset_bottom = 34.5491
+scale = Vector2(0.75, 0.75)
+pivot_offset = Vector2(24.64, 0)
+
+[node name="Card2" parent="CarouselContainer/Control" instance=ExtResource("3_3r2dd")]
+z_index = 1
+layout_mode = 1
+offset_right = -2.84593e-06
+offset_bottom = 0.0
+
+[node name="Card3" parent="CarouselContainer/Control" instance=ExtResource("3_3r2dd")]
+modulate = Color(1, 1, 1, 0.878)
+z_index = -1
+layout_mode = 1
+offset_left = 237.768
+offset_top = 34.5491
+offset_right = 237.768
+offset_bottom = 34.5491
+scale = Vector2(0.75, 0.75)
+
+[node name="Card4" parent="CarouselContainer/Control" instance=ExtResource("3_3r2dd")]
+modulate = Color(1, 1, 1, 0.756)
+z_index = -2
+layout_mode = 1
+offset_left = 146.949
+offset_top = 90.4508
+offset_right = 146.949
+offset_bottom = 90.4508
+scale = Vector2(0.5, 0.5)
+
+[node name="Card5" parent="CarouselContainer/Control" instance=ExtResource("3_3r2dd")]
+modulate = Color(1, 1, 1, 0.634)
+z_index = -3
+layout_mode = 1
+offset_top = 100.0
+offset_right = -2.84594e-06
+offset_bottom = 100.0
+scale = Vector2(0.25, 0.25)
+
+[node name="Card6" parent="CarouselContainer/Control" instance=ExtResource("3_3r2dd")]
+modulate = Color(1, 1, 1, 0.512)
+z_index = -4
+layout_mode = 1
+offset_top = 100.0
+offset_right = -2.846e-06
+offset_bottom = 100.0
+scale = Vector2(0.1, 0.1)
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 6.0
+offset_right = 49.0
+offset_bottom = 37.0
+text = "LEFT"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 338.0
+offset_top = 11.0
+offset_right = 394.0
+offset_bottom = 42.0
+text = "RIGHT"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

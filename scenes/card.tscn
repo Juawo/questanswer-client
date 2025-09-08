@@ -20,35 +20,46 @@ anchor_right = 0.893
 anchor_bottom = 0.746
 offset_right = -4.91602
 offset_bottom = -0.0820312
+grow_horizontal = 2
 size_flags_horizontal = 3
 
 [node name="front" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchor_right = 1.003
 anchor_bottom = 0.996
+offset_top = 19.0
 offset_right = -0.0890198
-offset_bottom = -0.264038
+offset_bottom = 18.736
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="background" type="TextureRect" parent="front"]
-custom_minimum_size = Vector2(364, 681)
 layout_mode = 1
-offset_left = -9.0
-offset_top = -1.0
-offset_right = 375.0
-offset_bottom = 705.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -353.0
+offset_right = 192.0
+offset_bottom = 353.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_6u4wf")
 
 [node name="MarginContainer" type="MarginContainer" parent="front"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
+anchor_top = -0.021
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -27.0
-offset_right = 27.0
+offset_top = 1.301
+offset_right = 1.0
+offset_bottom = -11.9999
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 24
-theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
 [node name="VBoxContainer" type="VBoxContainer" parent="front/MarginContainer"]
@@ -61,23 +72,26 @@ size_flags_horizontal = 4
 
 [node name="header_card" type="HBoxContainer" parent="front/MarginContainer/VBoxContainer/header_card"]
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 0
-theme_override_constants/separation = 30
+theme_override_constants/separation = 25
 
 [node name="term_card" type="MarginContainer" parent="front/MarginContainer/VBoxContainer/header_card/header_card"]
 custom_minimum_size = Vector2(165, 58)
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_bottom = 10
 
 [node name="term_card" type="VBoxContainer" parent="front/MarginContainer/VBoxContainer/header_card/header_card/term_card"]
 layout_mode = 2
-size_flags_horizontal = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
 alignment = 1
 
 [node name="Label" type="Label" parent="front/MarginContainer/VBoxContainer/header_card/header_card/term_card/term_card"]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_kg30u")
 theme_override_font_sizes/font_size = 16
@@ -87,13 +101,14 @@ horizontal_alignment = 1
 [node name="Label2" type="Label" parent="front/MarginContainer/VBoxContainer/header_card/header_card/term_card/term_card"]
 custom_minimum_size = Vector2(165, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_sy11y")
 theme_override_font_sizes/font_size = 20
 text = "Lorem
 IIIpsummm"
 horizontal_alignment = 1
-autowrap_mode = 2
+autowrap_mode = 3
 
 [node name="type_card" type="PanelContainer" parent="front/MarginContainer/VBoxContainer/header_card/header_card"]
 custom_minimum_size = Vector2(93, 73)
@@ -133,8 +148,7 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
+theme_override_constants/margin_top = 5
 
 [node name="close_btn" parent="front/MarginContainer/VBoxContainer/header_card/header_card/MarginContainer" instance=ExtResource("4_sy11y")]
 layout_mode = 2
@@ -183,11 +197,11 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 
 [node name="back" type="TextureRect" parent="."]
-visible = false
-custom_minimum_size = Vector2(364, 681)
 layout_mode = 2
-offset_left = -7.0
-offset_top = -2.0
-offset_right = 377.0
-offset_bottom = 704.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = 5.0
+offset_right = 11.0
+offset_bottom = 27.0
 texture = ExtResource("2_ktuci")
