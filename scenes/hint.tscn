@@ -1,35 +1,74 @@
-[gd_scene load_steps=3 format=3 uid="uid://bh64d2yakt5tk"]
+[gd_scene load_steps=6 format=3 uid="uid://bh64d2yakt5tk"]
 
-[ext_resource type="FontFile" uid="uid://wvgw3d2l2xji" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Inter/static/Inter_28pt-Regular.ttf" id="1_lsscw"]
+[ext_resource type="Script" uid="uid://10vq20pvldkb" path="res://scripts/hint.gd" id="1_grpcu"]
+[ext_resource type="FontFile" uid="uid://cuipreub01tu7" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Inter/static/Inter_24pt-Regular.ttf" id="2_grpcu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lsscw"]
+bg_color = Color(0.7750631, 0.7750635, 0.77506316, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_grpcu"]
-bg_color = Color(0.85098, 0.85098, 0.85098, 1)
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[node name="hint" type="PanelContainer"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xbfnf"]
+bg_color = Color(0.26666668, 0.75686276, 0.33333334, 1)
+
+[node name="hint" type="Button"]
 custom_minimum_size = Vector2(307, 0)
 anchors_preset = -1
 anchor_top = 0.022
 anchor_right = 0.745
 anchor_bottom = 0.022
 offset_top = -20.174
-offset_right = 20.06
+offset_right = 20.059998
 offset_bottom = 19.826
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_grpcu")
+script = ExtResource("1_grpcu")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lsscw")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 2
+layout_mode = 0
+offset_right = 327.0
+offset_bottom = 40.0
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Label" type="Label" parent="MarginContainer"]
+[node name="Label" type="RichTextLabel" parent="MarginContainer"]
 custom_minimum_size = Vector2(297, 0)
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_lsscw")
-theme_override_font_sizes/font_size = 16
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_grpcu")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
 text = "1. Dica 1"
-autowrap_mode = 3
+scroll_active = false
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_grpcu")
+theme_override_styles/fill = SubResource("StyleBoxFlat_xbfnf")
+value = 20.0
+show_percentage = false
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
