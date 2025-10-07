@@ -15,6 +15,12 @@ run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SessionState="*res://scripts/SessionState.gd"
+ApiManager="*res://scripts/APIManager.gd"
+SaveManager="*res://scripts/SaveManager.gd"
+
 [display]
 
 window/size/viewport_width=412

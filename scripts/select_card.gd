@@ -10,7 +10,7 @@ var random_index : int;
 func _ready() -> void:
 	randomize()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	selected_index = carousel_container.selected_index
 	num_cards = carousel_container.cards_num
 	id_card_label.text = "%s/%s" % [selected_index + 1, num_cards]

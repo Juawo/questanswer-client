@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dw4j6s3f2km3k"]
+[gd_scene load_steps=10 format=3 uid="uid://dw4j6s3f2km3k"]
 
 [ext_resource type="Texture2D" uid="uid://ct6pqc6iejqmp" path="res://assets/UI/card_background.png" id="1_6u4wf"]
+[ext_resource type="Script" uid="uid://de1dm0i0gt38q" path="res://scenes/card.gd" id="1_nvopj"]
 [ext_resource type="FontFile" uid="uid://bbir0gt61fjup" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Rubik/static/Rubik-Bold.ttf" id="2_kg30u"]
 [ext_resource type="Texture2D" uid="uid://dkgaw6m3wuxx1" path="res://assets/UI/Card.png" id="2_ktuci"]
 [ext_resource type="FontFile" uid="uid://brv20y6fxd313" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Rubik/static/Rubik-Regular.ttf" id="3_sy11y"]
@@ -22,9 +23,9 @@ offset_right = -4.91602
 offset_bottom = -0.0820312
 grow_horizontal = 2
 size_flags_horizontal = 3
+script = ExtResource("1_nvopj")
 
 [node name="front" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchor_right = 1.003
 anchor_bottom = 0.996
@@ -196,6 +197,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 
 [node name="back" type="TextureRect" parent="."]
+visible = false
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
