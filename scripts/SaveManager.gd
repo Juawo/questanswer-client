@@ -1,7 +1,7 @@
 extends Node
 
 var file_path: String = "user://questanswer_data.json"
-var played_cards_ids: Array[int]
+var played_cards_ids: Array
 
 func _ready() -> void:
 	load_data()
