@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dkgaw6m3wuxx1" path="res://assets/UI/Card.png" id="2_ktuci"]
 [ext_resource type="FontFile" uid="uid://brv20y6fxd313" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Rubik/static/Rubik-Regular.ttf" id="3_sy11y"]
 [ext_resource type="PackedScene" uid="uid://b8cgt6cyb8w1d" path="res://scenes/close_btn.tscn" id="4_sy11y"]
-[ext_resource type="PackedScene" uid="uid://bh64d2yakt5tk" path="res://scenes/hint.tscn" id="5_6ligt"]
+[ext_resource type="PackedScene" uid="uid://bh64d2yakt5tk" path="res://scenes/tip.tscn" id="5_6ligt"]
 [ext_resource type="PackedScene" uid="uid://0lmxufx57udh" path="res://scenes/played_btn.tscn" id="6_8w5pg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nvopj"]
@@ -16,6 +16,7 @@ shadow_size = 2
 shadow_offset = Vector2(0, 2)
 
 [node name="Card" type="Control"]
+custom_minimum_size = Vector2(285, 561)
 layout_mode = 3
 anchor_right = 0.893
 anchor_bottom = 0.746
@@ -23,9 +24,11 @@ offset_right = -4.91602
 offset_bottom = -0.0820312
 grow_horizontal = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 script = ExtResource("1_nvopj")
 
 [node name="front" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchor_right = 1.003
 anchor_bottom = 0.996
@@ -60,11 +63,12 @@ offset_right = 1.0
 offset_bottom = -11.9999
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_top = 1
 theme_override_constants/margin_bottom = 24
 
 [node name="VBoxContainer" type="VBoxContainer" parent="front/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 18
 
 [node name="header_card" type="MarginContainer" parent="front/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -196,13 +200,16 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 
-[node name="back" type="TextureRect" parent="."]
-visible = false
+[node name="back" type="TextureButton" parent="."]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -10.0
 offset_top = 5.0
 offset_right = 11.0
-offset_bottom = 27.0
-texture = ExtResource("2_ktuci")
+offset_bottom = 27.000061
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("2_ktuci")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

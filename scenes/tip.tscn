@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bh64d2yakt5tk"]
 
-[ext_resource type="Script" uid="uid://10vq20pvldkb" path="res://scripts/hint.gd" id="1_grpcu"]
+[ext_resource type="Script" uid="uid://10vq20pvldkb" path="res://scripts/tip.gd" id="1_grpcu"]
 [ext_resource type="FontFile" uid="uid://cuipreub01tu7" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Inter/static/Inter_24pt-Regular.ttf" id="2_grpcu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lsscw"]
@@ -12,7 +12,7 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xbfnf"]
 bg_color = Color(0.26666668, 0.75686276, 0.33333334, 1)
 
-[node name="hint" type="Button"]
+[node name="tip" type="Button"]
 custom_minimum_size = Vector2(307, 0)
 anchors_preset = -1
 anchor_top = 0.022

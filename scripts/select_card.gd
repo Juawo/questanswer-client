@@ -12,7 +12,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	selected_index = carousel_container.selected_index
-	num_cards = carousel_container.cards_num
+	num_cards = len(SessionState.cards_from_database)
 	id_card_label.text = "%s/%s" % [selected_index + 1, num_cards]
 
 func _on_random_btn_pressed() -> void:

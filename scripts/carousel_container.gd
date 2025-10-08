@@ -3,7 +3,7 @@ extends Node2D
 class_name CarouselContainer
 
 #test
-@export var drag_threshold: float = 50.0 # Distância mínima em pixels para registrar um swipe
+@export var drag_threshold: float = 30.0 # Distância mínima em pixels para registrar um swipe
 var is_dragging: bool = false
 var drag_start_position: Vector2 = Vector2.ZERO
 var drag_accumulated_distance: float = 0.0
@@ -87,36 +87,39 @@ func _right():
 	if selected_index > position_offset_node.get_child_count()-1:
 		selected_index -= 1
 
-func _input(event: InputEvent) -> void:
-	# --- Início do Arraste ---
+# Dentro do script do CarouselContainer.gd
+
+# Suas variáveis de swipe existentes
+func _input(event: InputEvent) -> void:    
+	# --- Início da Ação (Pressionar) ---
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed() \
 	or event is InputEventScreenTouch and event.is_pressed():
-		
-		# Pegamos o nó pai e verificamos se ele é um Control
-		var parent_control = get_parent() as Control
-		
-		# Verificamos se o clique foi dentro da área do pai
-		if parent_control and parent_control.get_global_rect().has_point(event.position):
-			is_dragging = true
-			drag_start_position = event.position
-			drag_accumulated_distance = 0.0
-			get_viewport().set_input_as_handled()
+		# Apenas registramos o início. NÃO consumimos o evento ainda!
+		is_dragging = true
+		drag_start_position = event.position
+		drag_accumulated_distance = 0.0
 
-	# --- Fim do Arraste ---
-	# Detecta se o botão esquerdo do mouse ou o toque na tela foi solto
+	# --- Durante o Movimento ---
+	if (event is InputEventMouseMotion or event is InputEventScreenDrag) and is_dragging:
+		# Apenas calculamos a distância percorrida
+		drag_accumulated_distance = event.position.x - drag_start_position.x
+
+	# --- Fim da Ação (Soltar) ---
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.is_pressed() \
 	or event is InputEventScreenTouch and not event.is_pressed():
 		if is_dragging:
 			is_dragging = false
-			# Verifica se a distância arrastada ultrapassou o nosso limite
-			if drag_accumulated_distance > drag_threshold:
-				_left() # Arrastou da direita para a esquerda
-			elif drag_accumulated_distance < -drag_threshold:
-				_right() # Arrastou da esquerda para a direita
-	
-	# --- Durante o Arraste ---
-	# Detecta o movimento do mouse ou do dedo na tela
-	if event is InputEventMouseMotion or event is InputEventScreenDrag:
-		if is_dragging:
-			# Calcula a distância total desde o ponto inicial
-			drag_accumulated_distance = event.position.x - drag_start_position.x
+			
+		# AGORA tomamos a decisão:
+		# Se a distância foi grande o suficiente, é um ARRASTO.
+			if abs(drag_accumulated_distance) > drag_threshold:
+				if drag_accumulated_distance > drag_threshold:
+					_left() # Arrastou da direita para a esquerda
+				elif drag_accumulated_distance < -drag_threshold:
+					_right() # Arrastou da esquerda para a direita
+				# Como foi um arrasto, AGORA consumimos o evento para
+				# não acionar botões por acidente ao soltar o dedo.
+				get_viewport().set_input_as_handled()
+			# Se a distância foi pequena, consideramos que foi um CLIQUE.
+			# E se foi um clique, não fazemos NADA aqui.
+			# Simplesmente deixamos o evento seguir seu caminho até o botão.

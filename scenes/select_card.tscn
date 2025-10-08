@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c5g5bbxxdp68g"]
+[gd_scene load_steps=14 format=3 uid="uid://c5g5bbxxdp68g"]
 
 [ext_resource type="Script" uid="uid://d23f7vjsmv6ci" path="res://scripts/select_card.gd" id="1_hv41o"]
 [ext_resource type="PackedScene" uid="uid://c6ghkyxcsppg2" path="res://scenes/background.tscn" id="1_i4hdt"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://cw1pfevcjcies" path="res://scripts/carousel_container.gd" id="6_31myi"]
 [ext_resource type="PackedScene" uid="uid://c7bv4w1uhi3t8" path="res://scenes/random_btn.tscn" id="7_1kdnm"]
 [ext_resource type="PackedScene" uid="uid://dw4j6s3f2km3k" path="res://scenes/card.tscn" id="7_hv41o"]
+[ext_resource type="Script" uid="uid://dvbowq2j4ufjg" path="res://scripts/carousel.gd" id="7_tkvun"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hv41o"]
 texture = ExtResource("3_w7ug8")
@@ -57,6 +58,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_top = 40
 theme_override_constants/margin_bottom = 33
 
@@ -123,17 +125,13 @@ uppercase = true
 [node name="carousel" type="Control" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+script = ExtResource("7_tkvun")
 
 [node name="CarouselContainer" type="Node2D" parent="MarginContainer/VBoxContainer/carousel" node_paths=PackedStringArray("position_offset_node")]
-position = Vector2(64, 0)
+position = Vector2(203, 269)
 script = ExtResource("6_31myi")
 wraparound_enabled = true
-wraparound_radius = 250.0
-wraparound_height = -200.0
-opacity_strength = 0.058
-scale_strength = 0.203
-smoothing_speed = 8.0
-selected_index = 6
+smoothing_speed = 8.26
 follow_button_focus = true
 position_offset_node = NodePath("Control")
 metadata/_custom_type_script = "uid://cw1pfevcjcies"
@@ -145,116 +143,30 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_top = 1.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.8, 0.8)
 size_flags_horizontal = 6
 size_flags_vertical = 6
-metadata/_edit_use_anchors_ = true
 
 [node name="Card" parent="MarginContainer/VBoxContainer/carousel/CarouselContainer/Control" instance=ExtResource("7_hv41o")]
-modulate = Color(1, 1, 1, 0.652)
-z_index = -6
-layout_mode = 1
-offset_top = 400.0
-offset_right = -2.04108e-15
-offset_bottom = 400.0
-scale = Vector2(0.1, 0.1)
-mouse_filter = 2
-
-[node name="Card2" parent="MarginContainer/VBoxContainer/carousel/CarouselContainer/Control" instance=ExtResource("7_hv41o")]
-modulate = Color(1, 1, 1, 0.71)
-z_index = -5
-layout_mode = 1
-offset_top = 400.0
-offset_right = -3.18301e-07
-offset_bottom = 400.0
-scale = Vector2(0.1, 0.1)
-mouse_filter = 2
-
-[node name="Card3" parent="MarginContainer/VBoxContainer/carousel/CarouselContainer/Control" instance=ExtResource("7_hv41o")]
-modulate = Color(1, 1, 1, 0.768)
-z_index = -4
-layout_mode = 1
-offset_left = -85.505
-offset_top = 387.939
-offset_right = -85.505
-offset_bottom = 387.939
-scale = Vector2(0.188, 0.188)
-mouse_filter = 2
-
-[node name="Card4" parent="MarginContainer/VBoxContainer/carousel/CarouselContainer/Control" instance=ExtResource("7_hv41o")]
-modulate = Color(1, 1, 1, 0.826)
-z_index = -3
-layout_mode = 1
-offset_left = -216.507
-offset_top = 300.0
-offset_right = -216.507
-offset_bottom = 300.0
-scale = Vector2(0.391, 0.391)
-mouse_filter = 2
-
-[node name="Card5" parent="MarginContainer/VBoxContainer/carousel/CarouselContainer/Control" instance=ExtResource("7_hv41o")]
-modulate = Color(1, 1, 1, 0.884)
-z_index = -2
-layout_mode = 1
-offset_left = -246.202
-offset_top = 165.27
-offset_right = -246.202
-offset_bottom = 165.27
-scale = Vector2(0.594, 0.594)
-mouse_filter = 2
-
-[node name="Card6" parent="MarginContainer/VBoxContainer/carousel/CarouselContainer/Control" instance=ExtResource("7_hv41o")]
-modulate = Color(1, 1, 1, 0.942)
-z_index = -1
-layout_mode = 1
-offset_left = -160.697
-offset_top = 46.791
-offset_right = -160.697
-offset_bottom = 46.791
-scale = Vector2(0.797, 0.797)
-mouse_filter = 2
-
-[node name="Card7" parent="MarginContainer/VBoxContainer/carousel/CarouselContainer/Control" instance=ExtResource("7_hv41o")]
 z_index = 1
 layout_mode = 1
-offset_right = -2.02079e-13
-offset_bottom = 0.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -178.43741
+offset_top = -342.12494
+offset_right = 178.43741
+offset_bottom = 342.12494
+grow_vertical = 2
+pivot_offset = Vector2(178.43741, 342.12494)
 focus_mode = 2
-
-[node name="Card8" parent="MarginContainer/VBoxContainer/carousel/CarouselContainer/Control" instance=ExtResource("7_hv41o")]
-modulate = Color(1, 1, 1, 0.942)
-z_index = -1
-layout_mode = 1
-offset_left = 160.697
-offset_top = 46.791
-offset_right = 160.697
-offset_bottom = 46.791
-scale = Vector2(0.797, 0.797)
-mouse_filter = 2
-
-[node name="Card9" parent="MarginContainer/VBoxContainer/carousel/CarouselContainer/Control" instance=ExtResource("7_hv41o")]
-modulate = Color(1, 1, 1, 0.884)
-z_index = -2
-layout_mode = 1
-offset_left = 246.202
-offset_top = 165.27
-offset_right = 246.202
-offset_bottom = 165.27
-scale = Vector2(0.594, 0.594)
-mouse_filter = 2
-
-[node name="Card10" parent="MarginContainer/VBoxContainer/carousel/CarouselContainer/Control" instance=ExtResource("7_hv41o")]
-modulate = Color(1, 1, 1, 0.826)
-z_index = -3
-layout_mode = 1
-offset_left = 216.507
-offset_top = 300.0
-offset_right = 216.507
-offset_bottom = 300.0
-scale = Vector2(0.391, 0.391)
-mouse_filter = 2
+mouse_filter = 0
 
 [node name="footer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
