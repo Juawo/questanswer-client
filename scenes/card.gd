@@ -23,4 +23,5 @@ func _on_back_pressed() -> void:
 		print(card_data.term)
 		print(card_data.category)
 		print(card_data.tips)
+		SaveManager.add_played_card(card_data.id)
 		
