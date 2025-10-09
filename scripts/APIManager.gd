@@ -1,24 +1,45 @@
 extends Node
 
-var http_request_node : HTTPRequest = HTTPRequest.new()
-var header = ["Content-Type: application/json"]
+signal cards_fetched_sucessfully
+
+var http_request_node : HTTPRequest
+const API_BASE_URL : String = "http://localhost:5161/api/Card/"
+
 func _ready() -> void:
+	http_request_node = HTTPRequest.new()
 	add_child(http_request_node)
 	http_request_node.request_completed.connect(self._on_request_completed)
+	print("http_request criado")
+	fetch_unplayed_cards()
 
-func request_all_cards():
-		http_request_node.request("http://localhost:5161/api/Card/",
-		header, HTTPClient.METHOD_GET)
-
+func fetch_unplayed_cards():
+	var played_ids : Array = SaveManager.played_cards_ids
+	var url = API_BASE_URL
+	var headers = ["Content-Type: application/json"]
+	
+	if not played_ids.is_empty():
+		var ids_string = ",".join(played_ids.map(func(id): return str(id)))
+		url += "?exlcude" + ids_string
+	http_request_node.request(url, headers, HTTPClient.METHOD_GET)
+	print("Requisicao feita para %s" %url)
 
 func _on_request_completed(result, response_code, headers, body):
-	var json_result = JSON.parse_string(body.get_string_from_utf8())
-	
-	if not json_result:
-		print("Erro: Nao foi possivel decodificar o JSON.")
-		print("Resposta do servidor: ", body.get_string_from_utf8())
+	if response_code != 200:
+		printerr("Erro na requisicao! Codigo: %d" % response_code)
 		return
-	var data = json_result
+	print("Responde Code : %d" % response_code)
 	
-	print("Dados recebidos: ", data)
+	var json = JSON.parse_string(body.get_string_from_utf8())
 	
+	if not json:
+		print("Json recebido com erro!")
+		return
+	if json is not Array:
+		print("Json recebido com erro, nao e um Array")
+	
+	print("Cartas nao jogadas recebidas")
+	for card_dict in json:
+		var new_card = CardData.new(card_dict)
+		SessionState.cards_from_database.append(new_card)
+	emit_signal("cards_fetched_sucessfully")
+	print("Cartas adicionadas ao SessionState")

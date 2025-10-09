@@ -164,7 +164,6 @@ offset_top = -342.12494
 offset_right = 178.43741
 offset_bottom = 342.12494
 grow_vertical = 2
-pivot_offset = Vector2(178.43741, 342.12494)
 focus_mode = 2
 mouse_filter = 0
 

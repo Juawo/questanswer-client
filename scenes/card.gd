@@ -2,14 +2,14 @@ extends Control
 
 var card_data: CardData;
 
-@onready var term: Label = $front/MarginContainer/VBoxContainer/header_card/header_card/term_card/term_card/Label2
+@onready var answer: Label = $front/MarginContainer/VBoxContainer/header_card/header_card/term_card/term_card/Label2
 @onready var category: Label = $front/MarginContainer/VBoxContainer/header_card/header_card/type_card/MarginContainer/VBoxContainer/Label2
 @onready var tips: VBoxContainer = $front/MarginContainer/VBoxContainer/tips
 
 func populate_front(data: CardData):
 	self.card_data = data
 	if(is_instance_valid(card_data)):
-		term.text = card_data.term
+		answer.text = card_data.answer
 		category.text = card_data.category
 		for i in range(tips.get_child_count()):
 			if i < card_data.tips.size():
@@ -18,10 +18,8 @@ func populate_front(data: CardData):
 
 
 func _on_back_pressed() -> void:
-	print("opa")
 	if(card_data != null):
-		print(card_data.term)
+		print(card_data.answer)
 		print(card_data.category)
 		print(card_data.tips)
-		SaveManager.add_played_card(card_data.id)
 		

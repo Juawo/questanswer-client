@@ -8,8 +8,7 @@ func _ready() -> void:
 	populate_carousel(control_carousel)
 
 func populate_carousel(carousel: Control):
-	for card_dictionary in SessionState.cards_from_database.values():
+	for card_dictionary in SessionState.cards_from_database:
 		var new_scene = card_scene.instantiate()
-		card_data_obj = CardData.new(card_dictionary)
 		carousel.add_child(new_scene)
 		new_scene.populate_front(card_data_obj)

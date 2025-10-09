@@ -23,6 +23,7 @@ anchor_bottom = 0.746
 offset_right = -4.91602
 offset_bottom = -0.0820312
 grow_horizontal = 2
+pivot_offset = Vector2(178.43741, 342.12494)
 size_flags_horizontal = 3
 mouse_filter = 2
 script = ExtResource("1_nvopj")
