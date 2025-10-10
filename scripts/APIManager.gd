@@ -38,8 +38,11 @@ func _on_request_completed(result, response_code, headers, body):
 		print("Json recebido com erro, nao e um Array")
 	
 	print("Cartas nao jogadas recebidas")
+	var cards_data : Array
 	for card_dict in json:
 		var new_card = CardData.new(card_dict)
-		SessionState.cards_from_database.append(new_card)
+		cards_data.append(new_card)
+	
+	SessionState.populate_card_datas(cards_data)
 	emit_signal("cards_fetched_sucessfully")
 	print("Cartas adicionadas ao SessionState")

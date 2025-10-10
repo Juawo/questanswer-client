@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c5g5bbxxdp68g"]
+[gd_scene load_steps=13 format=3 uid="uid://c5g5bbxxdp68g"]
 
 [ext_resource type="Script" uid="uid://d23f7vjsmv6ci" path="res://scripts/select_card.gd" id="1_hv41o"]
 [ext_resource type="PackedScene" uid="uid://c6ghkyxcsppg2" path="res://scenes/background.tscn" id="1_i4hdt"]
@@ -9,7 +9,6 @@
 [ext_resource type="FontFile" uid="uid://bifn41ua7c7tv" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Luckiest_Guy/LuckiestGuy-Regular.ttf" id="5_31myi"]
 [ext_resource type="Script" uid="uid://cw1pfevcjcies" path="res://scripts/carousel_container.gd" id="6_31myi"]
 [ext_resource type="PackedScene" uid="uid://c7bv4w1uhi3t8" path="res://scenes/random_btn.tscn" id="7_1kdnm"]
-[ext_resource type="PackedScene" uid="uid://dw4j6s3f2km3k" path="res://scenes/card.tscn" id="7_hv41o"]
 [ext_resource type="Script" uid="uid://dvbowq2j4ufjg" path="res://scripts/carousel.gd" id="7_tkvun"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hv41o"]
@@ -150,22 +149,6 @@ grow_vertical = 2
 scale = Vector2(0.8, 0.8)
 size_flags_horizontal = 6
 size_flags_vertical = 6
-
-[node name="Card" parent="MarginContainer/VBoxContainer/carousel/CarouselContainer/Control" instance=ExtResource("7_hv41o")]
-z_index = 1
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -178.43741
-offset_top = -342.12494
-offset_right = 178.43741
-offset_bottom = 342.12494
-grow_vertical = 2
-focus_mode = 2
-mouse_filter = 0
 
 [node name="footer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

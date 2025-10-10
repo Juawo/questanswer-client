@@ -15,8 +15,6 @@ var progress_bar_colours = {
 @onready var panel_container: PanelContainer = $PanelContainer
 
 func _ready() -> void:
-	old_text = tip_text
-	label.text = tip_text
 	progress_bar.hide()
 	progress_bar.value = 100
 
@@ -29,6 +27,11 @@ func _process(_delta: float) -> void:
 	else:
 		set_color_progress_bar(progress_bar_colours.GREEN)
 		
+
+func set_tip_text(text_for_tip: String):
+	old_text = text_for_tip
+	tip_text = text_for_tip
+	label.text = tip_text
 
 func set_color_progress_bar(new_color : Color) -> void:
 	var stylebox = StyleBoxFlat.new()

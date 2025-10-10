@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://780k1y46lo1h"]
+
+[ext_resource type="Script" uid="uid://ihp7k3h17ps5" path="res://scripts/card_modal.gd" id="1_0h45g"]
+[ext_resource type="Shader" uid="uid://dduqkrs8ivcs5" path="res://shaders/blur.gdshader" id="1_nycva"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i71yn"]
+shader = ExtResource("1_nycva")
+shader_parameter/blur_radius = 8
+shader_parameter/Darkness = 0.1
+shader_parameter/R = 0.0
+shader_parameter/G = 0.0
+shader_parameter/B = 0.0
+shader_parameter/blur_strength = 3.0000001392401203
+
+[node name="card_modal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0h45g")
+
+[node name="background" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_i71yn")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="card_placeholder" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
