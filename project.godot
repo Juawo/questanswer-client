@@ -25,6 +25,9 @@ SaveManager="*res://scripts/SaveManager.gd"
 
 window/size/viewport_width=412
 window/size/viewport_height=917
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/handheld/orientation=1
 
 [gui]
 
@@ -38,3 +41,4 @@ pointing/emulate_touch_from_mouse=true
 [rendering]
 
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

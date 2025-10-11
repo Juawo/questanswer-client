@@ -4,7 +4,7 @@ var old_text: String
 var tip_text: String
 var used: bool = false
 
-var progress_bar_colours = {
+var progress_bar_colours = {  
 	"GREEN" : "#44C155",
 	"ORANGE" : "#E89521",
 	"RED" : "#E82121"
@@ -12,7 +12,8 @@ var progress_bar_colours = {
 
 @onready var progress_bar: ProgressBar = $ProgressBar
 @onready var label: RichTextLabel = $MarginContainer/Label
-@onready var panel_container: PanelContainer = $PanelContainer
+@onready var tip_bg: Button = $"."
+
 
 func _ready() -> void:
 	progress_bar.hide()
@@ -42,7 +43,7 @@ func _on_pressed() -> void:
 	self.disabled = true
 	self.used = true
 	
-	panel_container.modulate = "#c6c6c6";
+	tip_bg.modulate = "#c6c6c6";
 	label.text = "[s]%s[/s]" % [old_text]
 	
 	progress_bar.value = 100

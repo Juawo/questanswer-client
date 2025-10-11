@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://10vq20pvldkb" path="res://scripts/tip.gd" id="1_grpcu"]
 [ext_resource type="FontFile" uid="uid://cuipreub01tu7" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Inter/static/Inter_24pt-Regular.ttf" id="2_grpcu"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lsscw"]
-bg_color = Color(0.7750631, 0.7750635, 0.77506316, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_11blh"]
+bg_color = Color(0.83889705, 0.83889705, 0.8388969, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_grpcu"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -15,30 +15,23 @@ bg_color = Color(0.26666668, 0.75686276, 0.33333334, 1)
 [node name="tip" type="Button"]
 custom_minimum_size = Vector2(307, 0)
 anchors_preset = -1
-anchor_top = 0.022
-anchor_right = 0.745
-anchor_bottom = 0.022
-offset_top = -20.174
-offset_right = 20.059998
-offset_bottom = 19.826
+anchor_right = 0.794
+anchor_bottom = 0.044000003
+offset_right = -0.12802124
+offset_bottom = -0.3480034
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_11blh")
 script = ExtResource("1_grpcu")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_lsscw")
-
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_right = 327.0
-offset_bottom = 40.0
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
@@ -50,11 +43,14 @@ layout_mode = 2
 size_flags_horizontal = 0
 mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 4
 theme_override_fonts/normal_font = ExtResource("2_grpcu")
 theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
 text = "1. Dica 1"
+fit_content = true
 scroll_active = false
+autowrap_trim_flags = 0
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 visible = false

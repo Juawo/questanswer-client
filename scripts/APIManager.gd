@@ -3,7 +3,7 @@ extends Node
 signal cards_fetched_sucessfully
 
 var http_request_node : HTTPRequest
-const API_BASE_URL : String = "http://localhost:5161/api/Card/"
+const API_BASE_URL : String = "https://madalyn-thoroughgoing-continuedly.ngrok-free.dev/api/Card"
 
 func _ready() -> void:
 	http_request_node = HTTPRequest.new()
