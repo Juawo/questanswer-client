@@ -13,10 +13,9 @@ func populate_carousel(carousel: Control):
 		var new_scene = card_scene.instantiate()
 		carousel.add_child(new_scene)
 		new_scene.current_mode = new_scene.Mode.CAROUSEL
-		#new_scene.remove_card.connect(remove_selected_card)
 		new_scene.populate_front(card)
 
-func remove_selected_card():
-	var card = control_carousel.get_child(carousel_container.selected_index)
-	control_carousel.remove_child(card)
-	print("CARTA REMOVIDA")
+#func remove_selected_card():
+	#var card = control_carousel.get_child(carousel_container.selected_index)
+	#control_carousel.remove_child(card)
+	#print("CARTA REMOVIDA")

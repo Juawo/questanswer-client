@@ -2,7 +2,7 @@ extends Control
 
 signal flip_requested
 signal close_requested
-signal card_played(card_id)
+#signal card_played(card_id)
 
 enum Mode { CAROUSEL, MODAL }
 var card_data: CardData;
@@ -40,7 +40,7 @@ func _on_back_pressed() -> void:
 	
 func _on_played_btn_pressed() -> void:
 	SaveManager.add_played_card(self.card_data.id)
-	emit_signal("remove_card", self.id)
+	#emit_signal("remove_card", self.id)
 	if current_mode == Mode.MODAL:
 		emit_signal("close_requested")
 
