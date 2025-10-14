@@ -1,8 +1,9 @@
 extends Control
 
 var card_scene: PackedScene = preload("res://scenes/card.tscn")
-#var card_data_obj: CardData
+
 @onready var control_carousel: Control = $CarouselContainer/Control
+@onready var carousel_container: CarouselContainer = $CarouselContainer
 
 func _ready() -> void:
 	populate_carousel(control_carousel)
@@ -12,4 +13,10 @@ func populate_carousel(carousel: Control):
 		var new_scene = card_scene.instantiate()
 		carousel.add_child(new_scene)
 		new_scene.current_mode = new_scene.Mode.CAROUSEL
+		#new_scene.remove_card.connect(remove_selected_card)
 		new_scene.populate_front(card)
+
+func remove_selected_card():
+	var card = control_carousel.get_child(carousel_container.selected_index)
+	control_carousel.remove_child(card)
+	print("CARTA REMOVIDA")

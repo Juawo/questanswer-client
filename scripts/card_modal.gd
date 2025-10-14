@@ -1,5 +1,7 @@
 extends Control
 
+signal card_was_played(card_id)
+
 @onready var background: ColorRect = $background
 @onready var card_placeholder: Control = $card_placeholder
 var card_scene_template: PackedScene = preload("res://scenes/card.tscn")
@@ -33,8 +35,10 @@ func init_modal():
 	print(current_card_scene)
 	card_placeholder.add_child(current_card_scene)
 	current_card_scene.current_mode = current_card_scene.Mode.MODAL
+	
 	current_card_scene.flip_requested.connect(turn_card_animation)
 	current_card_scene.close_requested.connect(close_modal_animation)
+	current_card_scene.card_played.connect(_on_played_card_modal)
 	
 	current_card_scene.populate_front(displayed_card_data)
 	current_card_scene.z_index = 2
@@ -69,6 +73,7 @@ func turn_card_animation():
 	tween.tween_property(current_card_scene, "scale", Vector2(1,1), 0.2).set_trans(Tween.TRANS_QUAD)
 	
 func _on_background_clicked(event: InputEvent):
+		print("a")
 		if event.is_action("ui_accept"):
 			close_modal_animation()
 
@@ -82,6 +87,11 @@ func close_modal_animation():
 	
 	await  tween.finished
 	queue_free()
+
+func _on_played_card_modal(card_id : int):
+	emit_signal("card_was_played", card_id)
+	close_modal_animation()
+	
 	
 	
 	

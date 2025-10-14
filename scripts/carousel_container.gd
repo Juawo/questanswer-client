@@ -87,9 +87,6 @@ func _right():
 	if selected_index > position_offset_node.get_child_count()-1:
 		selected_index -= 1
 
-# Dentro do script do CarouselContainer.gd
-
-# Suas variáveis de swipe existentes
 func _input(event: InputEvent) -> void:    
 	# --- Início da Ação (Pressionar) ---
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed() \
