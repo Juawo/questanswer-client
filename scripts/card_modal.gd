@@ -1,6 +1,6 @@
 extends Control
 
-#signal card_was_played(card_id)
+signal card_was_played(card_id)
 
 @onready var background: ColorRect = $background
 @onready var card_placeholder: Control = $card_placeholder
@@ -11,9 +11,16 @@ var current_card_scene
 var is_front_showing : bool
 
 func _ready() -> void:
-	background.visible = false
+	#background.visible = false
 	background.gui_input.connect(_on_background_clicked)
 	print("Card modal ready")
+
+func _on_background_clicked(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.is_pressed() \
+	or event is InputEventScreenTouch and not event.is_pressed():
+		print("BG Clicked")
+		if !is_front_showing:
+			close_modal_animation()
 
 func set_card_data(card_data: CardData):
 	displayed_card_data = card_data
@@ -31,14 +38,12 @@ func init_modal():
 		return
 	
 	current_card_scene = card_scene_template.instantiate()
-	
-	print(current_card_scene)
-	card_placeholder.add_child(current_card_scene)
+	self.add_child(current_card_scene)
 	current_card_scene.current_mode = current_card_scene.Mode.MODAL
 	
 	current_card_scene.flip_requested.connect(turn_card_animation)
 	current_card_scene.close_requested.connect(close_modal_animation)
-	#current_card_scene.card_played.connect(_on_played_card_modal)
+	current_card_scene.card_played.connect(_on_played_card_modal)
 	
 	current_card_scene.populate_front(displayed_card_data)
 	current_card_scene.z_index = 2
@@ -71,11 +76,6 @@ func turn_card_animation():
 	
 	tween = create_tween()
 	tween.tween_property(current_card_scene, "scale", Vector2(1,1), 0.2).set_trans(Tween.TRANS_QUAD)
-	
-func _on_background_clicked(event: InputEvent):
-		#print("a")
-		if event.is_action("ui_accept"):
-			close_modal_animation()
 
 func close_modal_animation():
 	var tween = create_tween()
@@ -88,7 +88,6 @@ func close_modal_animation():
 	await  tween.finished
 	queue_free()
 
-#func _on_played_card_modal(card_id : int):
-	#emit_signal("card_was_played", card_id)
-	#close_modal_animation()
-	
+func _on_played_card_modal(card_id : int):
+	emit_signal("card_was_played", card_id)
+	close_modal_animation()

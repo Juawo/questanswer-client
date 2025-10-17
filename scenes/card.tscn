@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://dw4j6s3f2km3k"]
 
 [ext_resource type="Texture2D" uid="uid://ct6pqc6iejqmp" path="res://assets/UI/card_background.png" id="1_6u4wf"]
-[ext_resource type="Script" uid="uid://de1dm0i0gt38q" path="res://scenes/card.gd" id="1_nvopj"]
+[ext_resource type="Script" uid="uid://de1dm0i0gt38q" path="res://scripts/card.gd" id="1_nvopj"]
 [ext_resource type="FontFile" uid="uid://bbir0gt61fjup" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Rubik/static/Rubik-Bold.ttf" id="2_kg30u"]
 [ext_resource type="Texture2D" uid="uid://dkgaw6m3wuxx1" path="res://assets/UI/Card.png" id="2_ktuci"]
 [ext_resource type="FontFile" uid="uid://brv20y6fxd313" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Rubik/static/Rubik-Regular.ttf" id="3_sy11y"]
@@ -18,27 +18,20 @@ shadow_offset = Vector2(0, 2)
 [node name="Card" type="Control"]
 custom_minimum_size = Vector2(285, 561)
 layout_mode = 3
-anchor_left = 0.43800002
-anchor_top = 0.37300003
-anchor_right = 0.43800002
-anchor_bottom = 0.37300003
-offset_left = -180.45601
-offset_top = -342.04102
-offset_right = 180.54399
-offset_bottom = 341.95898
+anchors_preset = 0
+offset_right = 361.0
+offset_bottom = 684.0
 pivot_offset = Vector2(178.43741, 342.12494)
 size_flags_horizontal = 3
-mouse_filter = 2
+mouse_filter = 1
 script = ExtResource("1_nvopj")
 
 [node name="front" type="Control" parent="."]
 visible = false
 layout_mode = 1
-anchor_right = 1.003
-anchor_bottom = 0.996
-offset_top = 19.0
-offset_right = -0.0890198
-offset_bottom = 18.736
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -209,12 +202,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -10.0
-offset_top = 5.0
-offset_right = 11.0
-offset_bottom = 27.000061
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("2_ktuci")
 

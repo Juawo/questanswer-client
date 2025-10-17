@@ -3,11 +3,11 @@ extends Node2D
 class_name CarouselContainer
 
 #test
-@export var drag_threshold: float = 30.0 # Distância mínima em pixels para registrar um swipe
+@export var drag_threshold: float = 35.0 # Distância mínima em pixels para registrar um swipe
 var is_dragging: bool = false
 var drag_start_position: Vector2 = Vector2.ZERO
 var drag_accumulated_distance: float = 0.0
-
+var is_locked: bool = false
 @export var spacing:float = 20.0;
 
 @export var wraparound_enabled: bool = false;
@@ -76,7 +76,6 @@ func _process(delta: float) -> void:
 	else:
 		position_offset_node.position.x = lerp(position_offset_node.position.x, -(position_offset_node.get_child(selected_index).position.x + position_offset_node.get_child(selected_index).size.x / 2.0), smoothing_speed * delta);
 
-
 func _left():
 	selected_index -= 1;
 	if  selected_index < 0:
@@ -88,35 +87,36 @@ func _right():
 		selected_index -= 1
 
 func _input(event: InputEvent) -> void:    
-	# --- Início da Ação (Pressionar) ---
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed() \
-	or event is InputEventScreenTouch and event.is_pressed():
-		# Apenas registramos o início. NÃO consumimos o evento ainda!
-		is_dragging = true
-		drag_start_position = event.position
-		drag_accumulated_distance = 0.0
+	if !is_locked:
+		# --- Início da Ação (Pressionar) ---
+		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed() \
+		or event is InputEventScreenTouch and event.is_pressed():
+			# Apenas registramos o início. NÃO consumimos o evento ainda!
+			is_dragging = true
+			drag_start_position = event.position
+			drag_accumulated_distance = 0.0
 
-	# --- Durante o Movimento ---
-	if (event is InputEventMouseMotion or event is InputEventScreenDrag) and is_dragging:
-		# Apenas calculamos a distância percorrida
-		drag_accumulated_distance = event.position.x - drag_start_position.x
+		# --- Durante o Movimento ---
+		if (event is InputEventMouseMotion or event is InputEventScreenDrag) and is_dragging:
+			# Apenas calculamos a distância percorrida
+			drag_accumulated_distance = event.position.x - drag_start_position.x
 
-	# --- Fim da Ação (Soltar) ---
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.is_pressed() \
-	or event is InputEventScreenTouch and not event.is_pressed():
-		if is_dragging:
-			is_dragging = false
-			
-		# AGORA tomamos a decisão:
-		# Se a distância foi grande o suficiente, é um ARRASTO.
-			if abs(drag_accumulated_distance) > drag_threshold:
-				if drag_accumulated_distance > drag_threshold:
-					_left() # Arrastou da direita para a esquerda
-				elif drag_accumulated_distance < -drag_threshold:
-					_right() # Arrastou da esquerda para a direita
-				# Como foi um arrasto, AGORA consumimos o evento para
-				# não acionar botões por acidente ao soltar o dedo.
-				get_viewport().set_input_as_handled()
-			# Se a distância foi pequena, consideramos que foi um CLIQUE.
-			# E se foi um clique, não fazemos NADA aqui.
-			# Simplesmente deixamos o evento seguir seu caminho até o botão.
+		# --- Fim da Ação (Soltar) ---
+		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.is_pressed() \
+		or event is InputEventScreenTouch and not event.is_pressed():
+			if is_dragging:
+				is_dragging = false
+				
+			# AGORA tomamos a decisão:
+			# Se a distância foi grande o suficiente, é um ARRASTO.
+				if abs(drag_accumulated_distance) > drag_threshold:
+					if drag_accumulated_distance > drag_threshold:
+						_left() # Arrastou da direita para a esquerda
+					elif drag_accumulated_distance < -drag_threshold:
+						_right() # Arrastou da esquerda para a direita
+					# Como foi um arrasto, AGORA consumimos o evento para
+					# não acionar botões por acidente ao soltar o dedo.
+					get_viewport().set_input_as_handled()
+				# Se a distância foi pequena, consideramos que foi um CLIQUE.
+				# E se foi um clique, não fazemos NADA aqui.
+				# Simplesmente deixamos o evento seguir seu caminho até o botão.

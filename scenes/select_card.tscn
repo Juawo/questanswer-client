@@ -129,6 +129,7 @@ script = ExtResource("7_tkvun")
 [node name="CarouselContainer" type="Node2D" parent="MarginContainer/VBoxContainer/carousel" node_paths=PackedStringArray("position_offset_node")]
 position = Vector2(203, 269)
 script = ExtResource("6_31myi")
+drag_threshold = 30.0
 wraparound_enabled = true
 smoothing_speed = 8.26
 follow_button_focus = true
