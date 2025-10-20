@@ -7,7 +7,7 @@ class_name CarouselContainer
 var is_dragging: bool = false
 var drag_start_position: Vector2 = Vector2.ZERO
 var drag_accumulated_distance: float = 0.0
-var is_locked: bool = false
+var scroll_activated: bool = true
 @export var spacing:float = 20.0;
 
 @export var wraparound_enabled: bool = false;
@@ -87,7 +87,7 @@ func _right():
 		selected_index -= 1
 
 func _input(event: InputEvent) -> void:    
-	if !is_locked:
+	if scroll_activated:
 		# --- Início da Ação (Pressionar) ---
 		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed() \
 		or event is InputEventScreenTouch and event.is_pressed():
@@ -120,3 +120,6 @@ func _input(event: InputEvent) -> void:
 				# Se a distância foi pequena, consideramos que foi um CLIQUE.
 				# E se foi um clique, não fazemos NADA aqui.
 				# Simplesmente deixamos o evento seguir seu caminho até o botão.
+
+func switch_control_state(state : bool) -> void:
+	scroll_activated = state

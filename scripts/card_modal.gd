@@ -1,6 +1,7 @@
 extends Control
 
-signal card_was_played(card_id)
+signal card_was_played(card_id : int)
+signal scroll_carousel(state : bool)
 
 @onready var background: ColorRect = $background
 @onready var card_placeholder: Control = $card_placeholder
@@ -13,12 +14,10 @@ var is_front_showing : bool
 func _ready() -> void:
 	#background.visible = false
 	background.gui_input.connect(_on_background_clicked)
-	print("Card modal ready")
 
 func _on_background_clicked(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.is_pressed() \
 	or event is InputEventScreenTouch and not event.is_pressed():
-		print("BG Clicked")
 		if !is_front_showing:
 			close_modal_animation()
 
@@ -39,7 +38,7 @@ func init_modal():
 	
 	current_card_scene = card_scene_template.instantiate()
 	self.add_child(current_card_scene)
-	current_card_scene.current_mode = current_card_scene.Mode.MODAL
+	current_card_scene.current_mode = current_card_scene.MODE.MODAL
 	
 	current_card_scene.flip_requested.connect(turn_card_animation)
 	current_card_scene.close_requested.connect(close_modal_animation)
@@ -47,6 +46,7 @@ func init_modal():
 	
 	current_card_scene.populate_front(displayed_card_data)
 	current_card_scene.z_index = 2
+	emit_signal("scroll_carousel", false)
 	open_modal_animation()
 
 func open_modal_animation():
@@ -86,6 +86,7 @@ func close_modal_animation():
 	tween.tween_callback(func(): background.visible = false)
 	
 	await  tween.finished
+	emit_signal("scroll_carousel", true)
 	queue_free()
 
 func _on_played_card_modal(card_id : int):

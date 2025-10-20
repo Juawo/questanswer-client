@@ -18,6 +18,7 @@ func fetch_unplayed_cards():
 	var headers = ["Content-Type: application/json"]
 	
 	if not played_ids.is_empty():
+		print("not is empty")
 		var ids_string = ",".join(played_ids.map(func(id): return str(id)))
 		url += "?exlcude" + ids_string
 	http_request_node.request(url, headers, HTTPClient.METHOD_GET)

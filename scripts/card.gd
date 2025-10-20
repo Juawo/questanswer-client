@@ -2,18 +2,18 @@ extends Control
 
 signal flip_requested
 signal close_requested
-signal card_played(card_id)
+signal card_played(card_id) #Logica em andamento
+signal card_selected(card_data)
 
-enum Mode { CAROUSEL, MODAL }
+enum MODE { CAROUSEL , MODAL }
+var current_mode: MODE = MODE.CAROUSEL
 var card_data: CardData;
 var id : int
-var current_mode: Mode = Mode.CAROUSEL
 var card_modal_scene : PackedScene = load("res://scenes/card_modal.tscn")
 
 @onready var answer: Label = $front/MarginContainer/VBoxContainer/header_card/header_card/term_card/term_card/Label2
 @onready var category: Label = $front/MarginContainer/VBoxContainer/header_card/header_card/type_card/MarginContainer/VBoxContainer/Label2
 @onready var tips: VBoxContainer = $front/MarginContainer/VBoxContainer/tips
-
 
 func populate_front(data: CardData):
 	self.card_data = data
@@ -27,24 +27,17 @@ func populate_front(data: CardData):
 				tip.set_tip_text(text_for_tip)
 
 func _on_back_pressed() -> void:
-	match current_mode:
-		Mode.CAROUSEL:
-			print("Card in carrousel mode has clicked!")
-			if(card_data == null):
-				printerr("Erro: nao ha dados para exibir a carta")
-				return
-			var modal_instance = card_modal_scene.instantiate()
-			get_tree().root.add_child(modal_instance)
-			modal_instance.set_card_data(self.card_data)
-		Mode.MODAL:
-			emit_signal("flip_requested")
+		match current_mode:
+			MODE.CAROUSEL:
+				emit_signal("card_selected", card_data)
+			MODE.MODAL:
+				emit_signal("flip_requested")
 	
 func _on_played_btn_pressed() -> void:
 	SaveManager.add_played_card(self.card_data.id)
-	emit_signal("card_played", self.id)
-	if current_mode == Mode.MODAL:
-		emit_signal("close_requested")
+	emit_signal("card_played", self.id) #Logica em andamento
+	emit_signal("close_requested")
 
 func _on_close_btn_pressed() -> void:
-	if current_mode == Mode.MODAL:
+	if current_mode == MODE.MODAL:
 		emit_signal("close_requested")

@@ -132,6 +132,7 @@ script = ExtResource("6_31myi")
 drag_threshold = 30.0
 wraparound_enabled = true
 smoothing_speed = 8.26
+selected_index = 2
 follow_button_focus = true
 position_offset_node = NodePath("Control")
 metadata/_custom_type_script = "uid://cw1pfevcjcies"
