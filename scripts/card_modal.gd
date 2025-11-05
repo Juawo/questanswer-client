@@ -1,6 +1,6 @@
 extends Control
 
-signal card_was_played(card_id : int)
+signal card_was_played
 signal scroll_carousel(state : bool)
 
 @onready var background: ColorRect = $background
@@ -12,7 +12,6 @@ var current_card_scene
 var is_front_showing : bool
 
 func _ready() -> void:
-	#background.visible = false
 	background.gui_input.connect(_on_background_clicked)
 
 func _on_background_clicked(event: InputEvent) -> void:
@@ -23,11 +22,9 @@ func _on_background_clicked(event: InputEvent) -> void:
 
 func set_card_data(card_data: CardData):
 	displayed_card_data = card_data
-	print("Displayed card data : ", displayed_card_data.answer)
 	init_modal()
 
 func init_modal():
-	print("modal iniciado")
 	if not is_instance_valid(card_placeholder) :
 		printerr("Erro: Placeholder nao encontrado no cardModal!")
 		return
@@ -89,6 +86,6 @@ func close_modal_animation():
 	emit_signal("scroll_carousel", true)
 	queue_free()
 
-func _on_played_card_modal(card_id : int):
-	emit_signal("card_was_played", card_id)
+func _on_played_card_modal():
+	emit_signal("card_was_played")
 	close_modal_animation()
