@@ -14,12 +14,16 @@ var progress_bar_colours = {
 @onready var label: RichTextLabel = $MarginContainer/Label
 @onready var tip_bg: Button = $"."
 
-
 func _ready() -> void:
 	progress_bar.hide()
 	progress_bar.value = 100
 
 func _process(_delta: float) -> void:
+	# TODO : Resolver processamento continuo desnecessario de uma tip
+	# - Problema de performace, todas as cartas possuem 10 tips
+	# - Assim, com 40 cartas, tem 400 tips sendo processadas por segundo
+	# - Com o aumento de cartas o processamento pode estourar
+	print("tip_processing")
 	var current_value_progress_bar = progress_bar.value
 	if(current_value_progress_bar <= 20):
 		set_color_progress_bar(progress_bar_colours.RED)
@@ -27,7 +31,6 @@ func _process(_delta: float) -> void:
 		set_color_progress_bar(progress_bar_colours.ORANGE)
 	else:
 		set_color_progress_bar(progress_bar_colours.GREEN)
-		
 
 func set_tip_text(text_for_tip: String):
 	old_text = text_for_tip
@@ -51,6 +54,6 @@ func _on_pressed() -> void:
 	
 	var tween_bar = create_tween()
 	tween_bar.tween_property(progress_bar, "value", 0, 15.0)
-	#Adicionar signal para "avisar" que o tempo da dica terminou
-	# E agora outra dica ja pode ser usada
-	#Adicionar som de finish!
+	# TODO : Adicionar signal para "avisar" que o tempo da dica terminou
+	# TODO : E agora outra dica ja pode ser usada
+	# TODO :  Adicionar som de finish!
