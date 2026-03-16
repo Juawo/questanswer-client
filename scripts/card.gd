@@ -11,6 +11,8 @@ var card_data: CardData;
 var id : int
 var card_modal_scene : PackedScene = load("res://scenes/card_modal.tscn")
 
+var is_tip_running : bool = false
+
 @onready var answer: Label = $front/MarginContainer/VBoxContainer/header_card/header_card/term_card/term_card/Label2
 @onready var category: Label = $front/MarginContainer/VBoxContainer/header_card/header_card/type_card/MarginContainer/VBoxContainer/Label2
 @onready var tips: VBoxContainer = $front/MarginContainer/VBoxContainer/tips
@@ -24,6 +26,8 @@ func populate_front(data: CardData):
 		for i in range(tips.get_child_count()):
 			if i < card_data.tips.size():
 				var tip = tips.get_child(i)
+				tip.pressed.connect(_on_tip_pressed.bind(tip))
+				tip.tip_finished.connect(_on_tip_finished)
 				var text_for_tip = "%d. %s" % [i+1, card_data.tips[i]]
 				tip.set_tip_text(text_for_tip)
 
@@ -43,3 +47,13 @@ func _on_played_btn_pressed() -> void:
 func _on_close_btn_pressed() -> void:
 	if current_mode == MODE.MODAL:
 		emit_signal("close_requested")
+
+# Caso nao tenha uma dica sendo executada, uma outra dica pode ser usada
+func _on_tip_pressed(tip) :
+	if !is_tip_running:
+		tip.start_tip()
+		is_tip_running = true
+
+func _on_tip_finished():
+	is_tip_running = false
+	

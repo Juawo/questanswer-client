@@ -67,4 +67,9 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_xbfnf")
 value = 20.0
 show_percentage = false
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
 [connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
