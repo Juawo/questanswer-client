@@ -1,5 +1,7 @@
 extends Node
 
+signal finished_load_data
+
 var file_path: String = "user://questanswer_data.json"
 var played_cards_ids: Array
 
@@ -38,3 +40,4 @@ func load_data():
 		self.played_cards_ids = loaded_data
 	else:
 		print("Erro, os dados do arquivo persistente nao sao validos")
+	finished_load_data.emit()

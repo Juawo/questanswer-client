@@ -74,7 +74,7 @@ func _process(delta: float) -> void:
 func setup() -> void:
 	if position_offset_node:
 		cards_num = position_offset_node.get_child_count()
-		print(cards_num)
+		print("Carrousel Container - Cards Num : ", cards_num)
 		update_selected_index(0)
 	else:
 		print("position_offset_node nao existe")

@@ -10,7 +10,7 @@ func _ready() -> void:
 	add_child(http_request_node)
 	http_request_node.request_completed.connect(self._on_request_completed)
 	print("http_request criado")
-	fetch_unplayed_cards()
+	SaveManager.finished_load_data.connect(fetch_unplayed_cards)
 
 func fetch_unplayed_cards():
 	var played_ids : Array = SaveManager.played_cards_ids
@@ -19,8 +19,8 @@ func fetch_unplayed_cards():
 	
 	if not played_ids.is_empty():
 		print("not is empty")
-		var ids_string = ",".join(played_ids.map(func(id): return str(id)))
-		url += "?exlcude" + ids_string
+		var ids_string = ",".join(played_ids.map(func(id): return str(int(id))))
+		url += "?exclude=" + ids_string
 	http_request_node.request(url, headers, HTTPClient.METHOD_GET)
 	print("Requisicao feita para %s" %url)
 
