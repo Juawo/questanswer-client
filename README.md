@@ -75,8 +75,10 @@ The game relies on an external API for card generation and retrieval, enabling s
 
 ## Screenshots & Design
 #### Game Screens
+<img width="900" height="390" alt="Screenshot from 2026-03-14 17-18-52" src="https://github.com/user-attachments/assets/ec00f5f2-0fed-4429-9176-c3a4976b924c" />
 
 #### UI/UX Sketch
+<img width="1023" height="398" alt="Screenshot from 2026-03-19 17-19-51" src="https://github.com/user-attachments/assets/2a08a6b1-2751-440d-8f20-fb74b8b709be" />
 
 ## How to Run
 ```
