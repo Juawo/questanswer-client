@@ -99,6 +99,9 @@ func _right():
 	
 func update_selected_index(new_index : int) -> void:
 	print(new_index)
+	var children = position_offset_node.get_children()
+	if new_index < 0 or new_index >= children.size():
+		return
 	var old_card_selected = position_offset_node.get_children()[selected_index]
 	old_card_selected.back.mouse_filter = 2
 	var tween = create_tween()

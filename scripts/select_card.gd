@@ -23,11 +23,14 @@ func _process(_delta: float) -> void:
 	played_cards_ui.text = "%s/%s" % [len(SaveManager.played_cards_ids),len(SessionState.cards_from_database)]
 
 func _on_random_btn_pressed() -> void:
-	if num_cards == 0:
+	var num_current_cards = carousel_container.position_offset_node.get_child_count()
+	
+	if num_current_cards <= 1:
 		return
+		
 	# Sorteia um novo índice, garantindo que seja diferente do atual
-	random_index = randi_range(0, num_cards - 1) # Correção: o índice máximo é size - 1
+	random_index = randi_range(0, num_current_cards - 1) # Correção: o índice máximo é size - 1
 	while random_index == selected_index:
-		random_index = randi_range(0, num_cards -1)
+		random_index = randi_range(0, num_current_cards -1)
 	
 	emit_signal("random_index_sorted", random_index)
