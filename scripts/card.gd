@@ -6,11 +6,12 @@ signal card_played()
 signal card_selected(card_data)
 
 enum MODE { CAROUSEL , MODAL }
+
 var current_mode: MODE = MODE.CAROUSEL
 var card_data: CardData;
 var id : int
-var card_modal_scene : PackedScene = load("res://scenes/card_modal.tscn")
 
+var card_modal_scene : PackedScene = load("res://scenes/card_modal.tscn")
 var is_tip_running : bool = false
 
 @onready var answer: Label = $front/MarginContainer/VBoxContainer/header_card/header_card/term_card/term_card/Label2

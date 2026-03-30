@@ -29,6 +29,17 @@ func _on_card_selected(card_data: CardData):
 	modal_instace.scroll_carousel.connect(carousel_container.switch_control_state)
 	modal_instace.set_card_data(card_data)
 
+# Here is the key for solve the BUG
 func remove_card():
-	var selected_node = control_carousel.get_children()[carousel_container.selected_index]
+	var index = carousel_container.selected_index
+	var selected_node = control_carousel.get_child(index)
+	
+	control_carousel.remove_child(selected_node)
 	selected_node.queue_free()
+	
+	var new_count = control_carousel.get_child_count()
+	carousel_container.selected_index = clamp(index, 0,new_count-1)
+	#carousel_container._left();
+	carousel_container.update_selected_index(carousel_container.selected_index)
+	print("Selected Index : ", carousel_container.selected_index)
+	print("Card : ", carousel_container.get_child(0).get_children()[0].card_data.answer)

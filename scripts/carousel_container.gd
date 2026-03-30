@@ -26,6 +26,10 @@ var scroll_activated: bool = true
 var cards_num : int
 
 func _process(delta: float) -> void:
+	for i in position_offset_node.get_children():
+		if i.is_queued_for_deletion(): # Pula nós que estão morrendo
+			continue
+			
 	if !position_offset_node or position_offset_node.get_child_count() == 0:
 		return
 	
