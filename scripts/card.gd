@@ -18,6 +18,8 @@ var is_tip_running : bool = false
 @onready var category: Label = $front/MarginContainer/VBoxContainer/header_card/header_card/type_card/MarginContainer/VBoxContainer/Label2
 @onready var tips: VBoxContainer = $front/MarginContainer/VBoxContainer/tips
 @onready var back: TextureButton = $back
+@onready var played_btn: TextureButton = $front/MarginContainer/VBoxContainer/played_btn
+@onready var close_btn: TextureButton = $front/MarginContainer/VBoxContainer/header_card/header_card/MarginContainer/close_btn
 
 func populate_front(data: CardData):
 	self.card_data = data
@@ -42,12 +44,21 @@ func _on_back_pressed() -> void:
 	
 func _on_played_btn_pressed() -> void:
 	SaveManager.add_played_card(self.card_data.id)
+	make_unclicable()
 	emit_signal("card_played")
 	emit_signal("close_requested")
 
 func _on_close_btn_pressed() -> void:
 	if current_mode == MODE.MODAL:
+		make_unclicable()
+		print("Closed tips")
 		emit_signal("close_requested")
+		
+func make_unclicable() -> void:
+	for child in tips.get_children():
+		child.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	close_btn.disabled = true
+	played_btn.disabled = true
 
 # Caso nao tenha uma dica sendo executada, uma outra dica pode ser usada
 func _on_tip_pressed(tip) :
