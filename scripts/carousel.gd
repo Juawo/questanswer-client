@@ -35,6 +35,12 @@ func remove_card():
 	var selected_node = control_carousel.get_child(index)
 	
 	control_carousel.remove_child(selected_node)
+	var card_index = selected_node.card_data.id
+	var index_to_remove = SessionState.cards_from_database.find_custom(
+		func(card) : return card.id == card_index
+	)
+	if(index_to_remove != -1) :
+		SessionState.cards_from_database.remove_at(index_to_remove)
 	selected_node.queue_free()
 	
 	var new_count = control_carousel.get_child_count()
