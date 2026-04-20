@@ -29,7 +29,6 @@ func _on_card_selected(card_data: CardData):
 	modal_instace.scroll_carousel.connect(carousel_container.switch_control_state)
 	modal_instace.set_card_data(card_data)
 
-# Here is the key for solve the BUG
 func remove_card():
 	var index = carousel_container.selected_index
 	var selected_node = control_carousel.get_child(index)
@@ -39,6 +38,7 @@ func remove_card():
 	var index_to_remove = SessionState.cards_from_database.find_custom(
 		func(card) : return card.id == card_index
 	)
+	
 	if(index_to_remove != -1) :
 		SessionState.cards_from_database.remove_at(index_to_remove)
 	selected_node.queue_free()
@@ -47,5 +47,3 @@ func remove_card():
 	carousel_container.selected_index = clamp(index, 0,new_count-1)
 	#carousel_container._left();
 	carousel_container.update_selected_index(carousel_container.selected_index)
-	print("Selected Index : ", carousel_container.selected_index)
-	print("Card : ", carousel_container.get_child(0).get_children()[0].card_data.answer)
