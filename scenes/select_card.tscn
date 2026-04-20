@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c5g5bbxxdp68g"]
+[gd_scene load_steps=14 format=3 uid="uid://c5g5bbxxdp68g"]
 
 [ext_resource type="Script" uid="uid://d23f7vjsmv6ci" path="res://scripts/select_card.gd" id="1_hv41o"]
 [ext_resource type="PackedScene" uid="uid://c6ghkyxcsppg2" path="res://scenes/background.tscn" id="1_i4hdt"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://cw1pfevcjcies" path="res://scripts/carousel_container.gd" id="6_31myi"]
 [ext_resource type="PackedScene" uid="uid://c7bv4w1uhi3t8" path="res://scenes/random_btn.tscn" id="7_1kdnm"]
 [ext_resource type="Script" uid="uid://dvbowq2j4ufjg" path="res://scripts/carousel.gd" id="7_tkvun"]
+[ext_resource type="FontFile" uid="uid://c0vrbxasit4dl" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Lexend_Deca/static/LexendDeca-Black.ttf" id="9_tkvun"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hv41o"]
 texture = ExtResource("3_w7ug8")
@@ -121,6 +122,11 @@ text = "2/10"
 vertical_alignment = 2
 uppercase = true
 
+[node name="fps_label" type="Label" parent="MarginContainer/VBoxContainer/header/header"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "FPS: 144\""
+
 [node name="carousel" type="Control" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -151,6 +157,19 @@ grow_vertical = 2
 scale = Vector2(0.8, 0.8)
 size_flags_horizontal = 6
 size_flags_vertical = 6
+
+[node name="empty_cards_label" type="Label" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 0.78431374)
+theme_override_fonts/font = ExtResource("9_tkvun")
+theme_override_font_sizes/font_size = 23
+text = "Parece que todas as cartas
+ foram jogadas!
+"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="footer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

@@ -24,7 +24,6 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	print("Tip processing!")
 	var current_left_time_value = (timer.time_left / timer.wait_time) * 100
 	progress_bar.value = current_left_time_value
 	if(current_left_time_value <= 20):
@@ -35,8 +34,6 @@ func _process(_delta: float) -> void:
 		set_color_progress_bar(progress_bar_colours.GREEN)
 		
 func start_tip():
-	print("Started!")
-	
 	disabled = true
 	used = true
 

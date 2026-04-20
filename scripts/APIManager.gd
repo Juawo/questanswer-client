@@ -1,5 +1,5 @@
 extends Node
-
+# TODO : Refactor this !!!
 signal cards_fetched_sucessfully
 
 var http_request_node : HTTPRequest
@@ -9,7 +9,6 @@ func _ready() -> void:
 	http_request_node = HTTPRequest.new()
 	add_child(http_request_node)
 	http_request_node.request_completed.connect(self._on_request_completed)
-	print("http_request criado")
 	SaveManager.finished_load_data.connect(fetch_unplayed_cards)
 
 func fetch_unplayed_cards():
@@ -18,7 +17,6 @@ func fetch_unplayed_cards():
 	var headers = ["Content-Type: application/json"]
 	
 	if not played_ids.is_empty():
-		print("not is empty")
 		var ids_string = ",".join(played_ids.map(func(id): return str(int(id))))
 		url += "?exclude=" + ids_string
 	http_request_node.request(url, headers, HTTPClient.METHOD_GET)
@@ -37,6 +35,7 @@ func _on_request_completed(result, response_code, headers, body):
 		return
 	if json is not Array:
 		print("Json recebido com erro, nao e um Array")
+		return
 	
 	print("Cartas nao jogadas recebidas")
 	var cards_data : Array

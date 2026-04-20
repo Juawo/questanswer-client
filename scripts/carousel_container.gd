@@ -18,7 +18,7 @@ var scroll_activated: bool = true
 @export_range(0.0, 1.0) var scale_min : float = 0.1;
 
 @export var smoothing_speed : float = 6.5;
-@export var selected_index : int = 0;
+@export var selected_index : int = 0
 @export var follow_button_focus : bool = false;
 
 @export var position_offset_node : Control = null;
@@ -26,6 +26,10 @@ var scroll_activated: bool = true
 var cards_num : int
 
 func _process(delta: float) -> void:
+	for i in position_offset_node.get_children():
+		if i.is_queued_for_deletion(): # Pula nós que estão morrendo
+			continue
+			
 	if !position_offset_node or position_offset_node.get_child_count() == 0:
 		return
 	
@@ -80,21 +84,28 @@ func setup() -> void:
 		print("position_offset_node nao existe")
 		
 func _left():
-	update_selected_index(selected_index - 1)
-	if  selected_index < 0:
-		update_selected_index(selected_index + 1)
-
-func _right():
-	update_selected_index(selected_index + 1)
-	if selected_index > position_offset_node.get_child_count()-1:
+	print("left")
+	if  selected_index <= 0:
+		update_selected_index(0)
+	else:
 		update_selected_index(selected_index - 1)
 
+func _right():
+	print("right")
+	if selected_index >= position_offset_node.get_child_count()-1:
+		update_selected_index(position_offset_node.get_child_count()-1)
+	else :
+		update_selected_index(selected_index + 1)
+	
 func update_selected_index(new_index : int) -> void:
 	print(new_index)
+	var children = position_offset_node.get_children()
+	if new_index < 0 or new_index >= children.size():
+		return
 	var old_card_selected = position_offset_node.get_children()[selected_index]
 	old_card_selected.back.mouse_filter = 2
 	var tween = create_tween()
-	tween.tween_property(self, "selected_index", new_index, 0.8)\
+	tween.tween_property(self, "selected_index", new_index, 0.4)\
 		 .set_trans(Tween.TRANS_LINEAR)
 	var new_card_selected = position_offset_node.get_children()[new_index]
 	new_card_selected.back.mouse_filter = 1
