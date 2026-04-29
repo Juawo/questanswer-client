@@ -2,6 +2,9 @@
 extends Node2D
 class_name CarouselContainer
 
+signal _on_selected_index_changed(new_index : int)
+signal _on_number_of_child_changed(new_count : int)
+
 @export var drag_threshold: float = 35.0 # Distância mínima em pixels para registrar um swipe
 var is_dragging: bool = false
 var drag_start_position: Vector2 = Vector2.ZERO
@@ -18,7 +21,7 @@ var scroll_activated: bool = true
 @export_range(0.0, 1.0) var scale_min : float = 0.1;
 
 @export var smoothing_speed : float = 6.5;
-@export var selected_index : int = 0
+@export var selected_index : int = 0 
 @export var follow_button_focus : bool = false;
 
 @export var position_offset_node : Control = null;
@@ -78,35 +81,40 @@ func _process(delta: float) -> void:
 func setup() -> void:
 	if position_offset_node:
 		cards_num = position_offset_node.get_child_count()
+		_on_number_of_child_changed.emit(cards_num)
+		
 		print("Carrousel Container - Cards Num : ", cards_num)
 		update_selected_index(0)
 	else:
 		print("position_offset_node nao existe")
 		
 func _left():
-	print("left")
 	if  selected_index <= 0:
 		update_selected_index(0)
 	else:
 		update_selected_index(selected_index - 1)
 
 func _right():
-	print("right")
 	if selected_index >= position_offset_node.get_child_count()-1:
 		update_selected_index(position_offset_node.get_child_count()-1)
 	else :
 		update_selected_index(selected_index + 1)
 	
 func update_selected_index(new_index : int) -> void:
-	print(new_index)
 	var children = position_offset_node.get_children()
+	
 	if new_index < 0 or new_index >= children.size():
 		return
+	
 	var old_card_selected = position_offset_node.get_children()[selected_index]
 	old_card_selected.back.mouse_filter = 2
+	
 	var tween = create_tween()
 	tween.tween_property(self, "selected_index", new_index, 0.4)\
 		 .set_trans(Tween.TRANS_LINEAR)
+		
+	_on_selected_index_changed.emit(new_index)
+	
 	var new_card_selected = position_offset_node.get_children()[new_index]
 	new_card_selected.back.mouse_filter = 1
 	

@@ -1,6 +1,10 @@
 extends Control
 
 signal finished_populate
+signal selected_index_changed(new_index : int)
+signal number_of_child_changed(new_value : int)
+
+# TODO : Carousel say yo select_card the number of cards in the carouselcontainer and the selected index
 
 var card_scene: PackedScene = preload("res://scenes/card.tscn")
 var card_modal_scene: PackedScene = preload("res://scenes/card_modal.tscn")
@@ -11,6 +15,15 @@ var card_modal_scene: PackedScene = preload("res://scenes/card_modal.tscn")
 func _ready() -> void:
 	var root = get_tree().current_scene
 	root.random_index_sorted.connect(carousel_container.update_selected_index)
+	
+	carousel_container._on_selected_index_changed.connect(on_selected_index_changed)
+	carousel_container._on_number_of_child_changed.connect(on_number_of_child_changed)
+
+func on_selected_index_changed(new_index : int) -> void :
+	selected_index_changed.emit(new_index)
+	
+func on_number_of_child_changed(new_count : int) -> void :
+	number_of_child_changed.emit(new_count)
 
 func populate_carousel(carousel: Control):
 	for card in SessionState.cards_from_database:
@@ -20,7 +33,9 @@ func populate_carousel(carousel: Control):
 		new_scene.card_selected.connect(_on_card_selected)
 		new_scene.back.mouse_filter = 2
 		new_scene.populate_front(card)
-	emit_signal("finished_populate")
+	finished_populate.emit()
+	number_of_child_changed.emit(control_carousel.get_child_count())
+	print("POPULATE - NUM : ", control_carousel.get_child_count())
 
 func _on_card_selected(card_data: CardData):
 	var modal_instace = card_modal_scene.instantiate()
@@ -45,5 +60,6 @@ func remove_card():
 	
 	var new_count = control_carousel.get_child_count()
 	carousel_container.selected_index = clamp(index, 0,new_count-1)
-	#carousel_container._left();
 	carousel_container.update_selected_index(carousel_container.selected_index)
+	
+	number_of_child_changed.emit(new_count)
