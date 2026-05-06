@@ -6,8 +6,8 @@ signal number_of_child_changed(new_value : int)
 
 # TODO : Carousel say yo select_card the number of cards in the carouselcontainer and the selected index
 
-var card_scene: PackedScene = preload("res://scenes/card.tscn")
-var card_modal_scene: PackedScene = preload("res://scenes/card_modal.tscn")
+var card_scene: PackedScene = preload("res://scenes/card/card.tscn")
+var card_modal_scene: PackedScene = preload("res://scenes/card/card_modal.tscn")
 
 @onready var control_carousel: Control = $CarouselContainer/Control
 @onready var carousel_container: CarouselContainer = $CarouselContainer

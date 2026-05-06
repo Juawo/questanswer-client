@@ -6,7 +6,7 @@ signal scroll_carousel(state : bool)
 @onready var background: ColorRect = $background
 @onready var card_placeholder: Control = $card_placeholder
 
-var card_scene_template: PackedScene = preload("res://scenes/card.tscn")
+var card_scene_template: PackedScene = preload("res://scenes/card/card.tscn")
 var displayed_card_data : CardData
 var current_card_scene
 var is_front_showing : bool
