@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://doobbb6shhgyn"]
 
-[ext_resource type="PackedScene" uid="uid://xgy4hr78bscc" path="res://scenes/play_btn.tscn" id="1_8ln24"]
+[ext_resource type="PackedScene" uid="uid://xgy4hr78bscc" path="res://scenes/main_menu/play_btn.tscn" id="1_8ln24"]
 [ext_resource type="FontFile" uid="uid://bme4v7odch1u0" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Lexend_Deca/LexendDeca-VariableFont_wght.ttf" id="2_oa1go"]
-[ext_resource type="PackedScene" uid="uid://d2ixgs27fg2he" path="res://scenes/credits_btn.tscn" id="2_rtw2f"]
-[ext_resource type="PackedScene" uid="uid://hbxduxlw6qpf" path="res://scenes/exit_btn.tscn" id="3_oa1go"]
+[ext_resource type="PackedScene" uid="uid://d2ixgs27fg2he" path="res://scenes/main_menu/credits_btn.tscn" id="2_rtw2f"]
+[ext_resource type="PackedScene" uid="uid://hbxduxlw6qpf" path="res://scenes/main_menu/exit_btn.tscn" id="3_oa1go"]
 [ext_resource type="PackedScene" uid="uid://c6ghkyxcsppg2" path="res://scenes/background.tscn" id="5_jk1qb"]
 [ext_resource type="Texture2D" uid="uid://b6g4qi57ayain" path="res://assets/UI/logo_name_2.png" id="6_rtw2f"]
 
