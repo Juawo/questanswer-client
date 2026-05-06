@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cv0si3n712a5r"]
 
 [ext_resource type="Texture2D" uid="uid://cogbpfyd2xnjr" path="res://assets/UI/back_btn.png" id="1_mhyj5"]
-[ext_resource type="Script" uid="uid://bu772vuegt5cq" path="res://scripts/back_btn.gd" id="2_akaeu"]
+[ext_resource type="Script" uid="uid://bu772vuegt5cq" path="res://scripts/common/back_btn.gd" id="2_akaeu"]
 
 [node name="back_btn" type="TextureButton"]
 offset_right = 50.0
