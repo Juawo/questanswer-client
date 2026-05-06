@@ -126,9 +126,19 @@ layout_mode = 2
 size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("3_8gwij")
 theme_override_font_sizes/font_size = 20
-text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac luctus elit. Aliquam posuere turpis id dui efficitur tincidunt. Cras molestie varius vulputate. Praesent ac fermentum magna. Quisque auctor nibh mi, eu tristique eros eleifend at. Aliquam fermentum rhoncus ipsum eu efficitur. Nam eu posuere arcu.
-In sit amet risus turpis. Vestibulum placerat turpis eu ipsum mattis, commodo suscipit tortor dapibus. Phasellus imperdiet risus vel elit venenatis faucibus. Cras ac sapien quis tellus tincidunt mattis tincidunt ac magna. Aliquam erat volutpat. Donec dapibus elit dolor, in luctus nisi 
-elit dolor, in luctus nisi"
+text = "QuestAnswer
+Desenvolvimen to Técnico
+Game Development: João Pedro
+
+Backend & Cloud: João Pedro
+
+Card Generation (AI System): João Pedro
+
+A História do Projeto
+O QuestAnswer nasceu de uma nostalgia dos tempos de Ensino Médio. Eu e meus amigos passávamos horas jogando um jogo de perguntas e respostas baseado em dicas, mas eventualmente esgotamos todas as cartas disponíveis.
+
+A ideia de criar uma versão mobile surgiu para resolver esse limite: utilizando Inteligência Artificial para gerar as cartas, o jogo se torna virtualmente \"infinito\". Esperei acumular a bagagem técnica necessária em desenvolvimento de sistemas para tirar o projeto do papel e, hoje, ele representa a culminação dos meus estudos como meu Projeto de Conclusão de Curso (TCC) em ADS.
+\"Até aqui nos ajudou o Senhor.\" — 1 Samuel 7:12"
 horizontal_alignment = 1
 autowrap_mode = 3
 uppercase = true
