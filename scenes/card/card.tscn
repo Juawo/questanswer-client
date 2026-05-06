@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://dw4j6s3f2km3k"]
 
 [ext_resource type="Texture2D" uid="uid://ct6pqc6iejqmp" path="res://assets/UI/card_background.png" id="1_6u4wf"]
-[ext_resource type="Script" uid="uid://de1dm0i0gt38q" path="res://scripts/card.gd" id="1_nvopj"]
+[ext_resource type="Script" uid="uid://de1dm0i0gt38q" path="res://scripts/card/card.gd" id="1_nvopj"]
 [ext_resource type="FontFile" uid="uid://bbir0gt61fjup" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Rubik/static/Rubik-Bold.ttf" id="2_kg30u"]
 [ext_resource type="Texture2D" uid="uid://dkgaw6m3wuxx1" path="res://assets/UI/Card.png" id="2_ktuci"]
 [ext_resource type="FontFile" uid="uid://brv20y6fxd313" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Rubik/static/Rubik-Regular.ttf" id="3_sy11y"]

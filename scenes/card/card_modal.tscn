@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://780k1y46lo1h"]
 
-[ext_resource type="Script" uid="uid://ihp7k3h17ps5" path="res://scripts/card_modal.gd" id="1_0h45g"]
+[ext_resource type="Script" uid="uid://ihp7k3h17ps5" path="res://scripts/card/card_modal.gd" id="1_0h45g"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i71yn"]
 

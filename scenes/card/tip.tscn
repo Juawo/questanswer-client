@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bh64d2yakt5tk"]
 
-[ext_resource type="Script" uid="uid://10vq20pvldkb" path="res://scripts/tip.gd" id="1_grpcu"]
+[ext_resource type="Script" uid="uid://10vq20pvldkb" path="res://scripts/card/tip.gd" id="1_grpcu"]
 [ext_resource type="FontFile" uid="uid://cuipreub01tu7" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Inter/static/Inter_24pt-Regular.ttf" id="2_grpcu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_11blh"]

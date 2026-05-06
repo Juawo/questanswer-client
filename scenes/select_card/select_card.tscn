@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c8rnas01qpm8f" path="res://assets/UI/played_cards.png" id="4_ximx0"]
 [ext_resource type="Texture2D" uid="uid://dpysc517dyhy0" path="res://assets/UI/played_cards_icon.png" id="5_a6e62"]
 [ext_resource type="FontFile" uid="uid://bifn41ua7c7tv" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Luckiest_Guy/LuckiestGuy-Regular.ttf" id="6_7wu7a"]
-[ext_resource type="Script" uid="uid://dvbowq2j4ufjg" path="res://scripts/carousel.gd" id="7_ex561"]
+[ext_resource type="Script" uid="uid://dvbowq2j4ufjg" path="res://scripts/select_card/carousel.gd" id="7_ex561"]
 [ext_resource type="Script" uid="uid://cw1pfevcjcies" path="res://scripts/common/carousel_container.gd" id="8_i26em"]
 [ext_resource type="FontFile" uid="uid://c0vrbxasit4dl" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Lexend_Deca/static/LexendDeca-Black.ttf" id="9_2x34j"]
 [ext_resource type="Texture2D" uid="uid://dvwf7r6pglh0t" path="res://assets/UI/identifier_card_with_total.png" id="10_fdpjd"]
