@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://doobbb6shhgyn"]
+[gd_scene load_steps=8 format=3 uid="uid://doobbb6shhgyn"]
 
+[ext_resource type="Script" uid="uid://cfm7cg2lr0e3y" path="res://scripts/main_menu/main_menu.gd" id="1_5seab"]
 [ext_resource type="PackedScene" uid="uid://xgy4hr78bscc" path="res://scenes/main_menu/play_btn.tscn" id="1_8ln24"]
 [ext_resource type="FontFile" uid="uid://bme4v7odch1u0" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Lexend_Deca/LexendDeca-VariableFont_wght.ttf" id="2_oa1go"]
 [ext_resource type="PackedScene" uid="uid://d2ixgs27fg2he" path="res://scenes/main_menu/credits_btn.tscn" id="2_rtw2f"]
@@ -14,6 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_5seab")
 
 [node name="color_background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -70,16 +72,19 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 stretch_mode = 3
+script = null
 
 [node name="credits_btn" parent="MarginContainer/VBoxContainer/buttons" instance=ExtResource("2_rtw2f")]
 layout_mode = 2
 size_flags_horizontal = 4
 stretch_mode = 3
+script = null
 
 [node name="exit_btn" parent="MarginContainer/VBoxContainer/buttons" instance=ExtResource("3_oa1go")]
 layout_mode = 2
 size_flags_horizontal = 4
 stretch_mode = 3
+script = null
 
 [node name="footer_text" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -88,3 +93,7 @@ size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("2_oa1go")
 text = "BETA VERSION 0.1"
 horizontal_alignment = 1
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/buttons/play_btn" to="." method="_on_play_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/buttons/credits_btn" to="." method="_on_credits_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/buttons/exit_btn" to="." method="_on_exit_btn_pressed"]

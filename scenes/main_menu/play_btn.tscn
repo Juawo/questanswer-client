@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://xgy4hr78bscc"]
 
 [ext_resource type="Texture2D" uid="uid://hs5wot1c2gnw" path="res://assets/UI/play_btn.png" id="1_mbc51"]
-[ext_resource type="Script" uid="uid://c78y0u8ig1iqi" path="res://scripts/play_btn.gd" id="2_8pk8a"]
+[ext_resource type="Script" uid="uid://c78y0u8ig1iqi" path="res://scripts/main_menu/play_btn.gd" id="2_8pk8a"]
 
 [node name="play_btn" type="TextureButton"]
 offset_right = 40.0
