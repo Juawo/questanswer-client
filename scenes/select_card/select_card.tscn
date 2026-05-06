@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://c5g5bbxxdp68g"]
 
-[ext_resource type="Script" uid="uid://d23f7vjsmv6ci" path="res://scripts/select_card.gd" id="1_uwfuv"]
+[ext_resource type="Script" uid="uid://d23f7vjsmv6ci" path="res://scripts/select_card/select_card.gd" id="1_uwfuv"]
 [ext_resource type="PackedScene" uid="uid://c6ghkyxcsppg2" path="res://scenes/common/background.tscn" id="2_l12je"]
 [ext_resource type="PackedScene" uid="uid://cv0si3n712a5r" path="res://scenes/common/back_btn.tscn" id="3_pgxac"]
 [ext_resource type="Texture2D" uid="uid://c8rnas01qpm8f" path="res://assets/UI/played_cards.png" id="4_ximx0"]
