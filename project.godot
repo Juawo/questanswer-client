@@ -17,9 +17,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-SessionState="*res://scripts/SessionState.gd"
-ApiManager="*res://scripts/APIManager.gd"
-SaveManager="*res://scripts/SaveManager.gd"
+SessionState="*res://scripts/autoloads/SessionState.gd"
+ApiManager="*res://scripts/autoloads/APIManager.gd"
+SaveManager="*res://scripts/autoloads/SaveManager.gd"
 
 [display]
 

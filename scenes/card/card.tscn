@@ -5,9 +5,9 @@
 [ext_resource type="FontFile" uid="uid://bbir0gt61fjup" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Rubik/static/Rubik-Bold.ttf" id="2_kg30u"]
 [ext_resource type="Texture2D" uid="uid://dkgaw6m3wuxx1" path="res://assets/UI/Card.png" id="2_ktuci"]
 [ext_resource type="FontFile" uid="uid://brv20y6fxd313" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Rubik/static/Rubik-Regular.ttf" id="3_sy11y"]
-[ext_resource type="PackedScene" uid="uid://b8cgt6cyb8w1d" path="res://scenes/close_btn.tscn" id="4_sy11y"]
-[ext_resource type="PackedScene" uid="uid://bh64d2yakt5tk" path="res://scenes/tip.tscn" id="5_6ligt"]
-[ext_resource type="PackedScene" uid="uid://0lmxufx57udh" path="res://scenes/played_btn.tscn" id="6_8w5pg"]
+[ext_resource type="PackedScene" uid="uid://b8cgt6cyb8w1d" path="res://scenes/card/close_btn.tscn" id="4_sy11y"]
+[ext_resource type="PackedScene" uid="uid://bh64d2yakt5tk" path="res://scenes/card/tip.tscn" id="5_6ligt"]
+[ext_resource type="PackedScene" uid="uid://0lmxufx57udh" path="res://scenes/card/played_btn.tscn" id="6_8w5pg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nvopj"]
 bg_color = Color(0.996078, 0.847059, 0.501961, 1)
