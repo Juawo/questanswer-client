@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d23f7vjsmv6ci" path="res://scripts/select_card.gd" id="1_hv41o"]
 [ext_resource type="PackedScene" uid="uid://c6ghkyxcsppg2" path="res://scenes/background.tscn" id="1_i4hdt"]
-[ext_resource type="PackedScene" uid="uid://cv0si3n712a5r" path="res://scenes/back_btn.tscn" id="2_kbw8v"]
+[ext_resource type="PackedScene" uid="uid://cv0si3n712a5r" path="res://scenes/common/back_btn.tscn" id="2_kbw8v"]
 [ext_resource type="Texture2D" uid="uid://dpysc517dyhy0" path="res://assets/UI/played_cards_icon.png" id="3_8772h"]
 [ext_resource type="Texture2D" uid="uid://c8rnas01qpm8f" path="res://assets/UI/played_cards.png" id="3_w7ug8"]
 [ext_resource type="Texture2D" uid="uid://dvwf7r6pglh0t" path="res://assets/UI/identifier_card_with_total.png" id="4_lfvyi"]

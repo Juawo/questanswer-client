@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c6ghkyxcsppg2" path="res://scenes/background.tscn" id="1_0bpdh"]
 [ext_resource type="FontFile" uid="uid://bme4v7odch1u0" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Lexend_Deca/LexendDeca-VariableFont_wght.ttf" id="2_2ckv8"]
-[ext_resource type="PackedScene" uid="uid://cv0si3n712a5r" path="res://scenes/back_btn.tscn" id="2_2fbfq"]
+[ext_resource type="PackedScene" uid="uid://cv0si3n712a5r" path="res://scenes/common/back_btn.tscn" id="2_2fbfq"]
 [ext_resource type="FontFile" uid="uid://6mkg44ynm87h" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Paytone_One/PaytoneOne-Regular.ttf" id="3_8gwij"]
 [ext_resource type="Texture2D" uid="uid://d0a8uv2ew2byx" path="res://assets/UI/background_text_credits.png" id="4_8gwij"]
 
