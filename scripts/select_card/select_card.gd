@@ -9,38 +9,20 @@ signal random_index_sorted(random_index : int)
 @onready var empty_cards_label: Label = $MarginContainer/VBoxContainer/empty_cards_label
 @onready var fps_label: Label = $MarginContainer/VBoxContainer/header/header/fps_label
 
-var selected_index : int;
-var random_index : int;
+var selected_index : int
+var random_index : int
 var num_card_in_carrousel : int : set = set_num_cards
-
-func set_num_cards(new_value) -> void :
-	if (new_value <= 0) :
-		num_card_in_carrousel = 0
-		empty_cards_label.visible = true
-		carousel.visible = false
-	else :
-		num_card_in_carrousel = new_value
-		empty_cards_label.visible = false
-		carousel.visible = true
-		
 
 func _ready() -> void:
 	randomize()
 	carousel.finished_populate.connect(carousel_container.setup)
+	carousel.selected_index_changed.connect(_on_selected_index_changed)
+	carousel.number_of_child_changed.connect(_on_number_of_child_changed)
 	carousel.populate_carousel(carousel.control_carousel)
 	
+
 func _process(_delta: float) -> void:
 	fps_label.text = "FPS: %s" % [Engine.get_frames_per_second()]
-	selected_index = carousel_container.selected_index
-	num_card_in_carrousel = carousel_container.get_child(0).get_child_count(true)
-	if num_card_in_carrousel == 0 :
-		id_card_label.text = "0/0"
-	else :
-		id_card_label.text = "%s/%s" % [selected_index + 1, num_card_in_carrousel]
-	if num_card_in_carrousel == 0:
-		played_cards_ui.text = "%s/%s" % [len(SaveManager.played_cards_ids),len(SaveManager.played_cards_ids)]
-	else :
-		played_cards_ui.text = "%s/%s" % [len(SaveManager.played_cards_ids),SessionState.num_cards]
 
 func _on_random_btn_pressed() -> void:
 	var num_current_cards = carousel_container.position_offset_node.get_child_count()
@@ -53,3 +35,35 @@ func _on_random_btn_pressed() -> void:
 		random_index = randi_range(0, num_current_cards -1)
 	
 	emit_signal("random_index_sorted", random_index)
+
+func _on_selected_index_changed(new_index : int) -> void :
+	selected_index = new_index
+	update_index_ui()
+	
+func _on_number_of_child_changed(number_child : int) -> void :
+	num_card_in_carrousel = number_child
+	print("SELECT - NUM : ", number_child)
+	update_played_ui()
+	update_index_ui()
+
+func set_num_cards(new_value) -> void :
+	if (new_value <= 0) :
+		num_card_in_carrousel = 0
+		empty_cards_label.visible = true
+		carousel.visible = false
+	else :
+		num_card_in_carrousel = new_value
+		empty_cards_label.visible = false
+		carousel.visible = true
+
+func update_index_ui() -> void :
+	if num_card_in_carrousel <= 0 :
+		id_card_label.text = "0/0"
+	id_card_label.text = "%s/%s" % [selected_index + 1, num_card_in_carrousel]
+
+func update_played_ui() -> void :
+	if num_card_in_carrousel <= 0 :
+		played_cards_ui.text = "%s/%s" % [len(SaveManager.played_cards_ids),len(SaveManager.played_cards_ids)]
+	else :
+		played_cards_ui.text = "%s/%s" % [len(SaveManager.played_cards_ids),SessionState.num_cards]
+ 

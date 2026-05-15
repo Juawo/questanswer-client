@@ -21,6 +21,9 @@ var is_tip_running : bool = false
 @onready var played_btn: TextureButton = $front/MarginContainer/VBoxContainer/played_btn
 @onready var close_btn: TextureButton = $front/MarginContainer/VBoxContainer/header_card/header_card/MarginContainer/close_btn
 
+func _ready() -> void:
+	self.pivot_offset = self.size/2
+
 func populate_front(data: CardData):
 	self.card_data = data
 	if(is_instance_valid(card_data)):

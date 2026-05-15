@@ -11,15 +11,15 @@ config_version=5
 [application]
 
 config/name="QuestAnswer"
-run/main_scene="res://scenes/main_menu.tscn"
+run/main_scene="res://scenes/main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
-SessionState="*res://scripts/SessionState.gd"
-ApiManager="*res://scripts/APIManager.gd"
-SaveManager="*res://scripts/SaveManager.gd"
+SessionState="*res://scripts/autoloads/SessionState.gd"
+ApiManager="*res://scripts/autoloads/APIManager.gd"
+SaveManager="*res://scripts/autoloads/SaveManager.gd"
 
 [display]
 
