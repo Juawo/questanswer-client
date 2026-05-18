@@ -29,6 +29,15 @@ window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/handheld/orientation=1
 
+[file_customization]
+
+folder_colors={
+"res://assets/": "purple",
+"res://configs/": "gray",
+"res://scenes/": "green",
+"res://scripts/": "yellow"
+}
+
 [gui]
 
 common/snap_controls_to_pixels=false

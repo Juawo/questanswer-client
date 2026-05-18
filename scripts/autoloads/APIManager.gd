@@ -4,6 +4,7 @@ signal cards_fetched_sucessfully(cards_data: Array)
 signal request_failed(error_message: String)
 
 var API_BASE_URL : String = "https://madalyn-thoroughgoing-continuedly.ngrok-free.dev" # URL do Render
+var API_KEY : String = "api-key-test-development"
 
 func _ready() -> void:
 	_load_configs()
@@ -14,6 +15,7 @@ func _load_configs() -> void:
 	var err = config.load("res://configs/secret_configs.cfg")
 	if err == OK:
 		API_BASE_URL = config.get_value("network", "api_url", API_BASE_URL)
+		API_KEY = config.get_value("network", "api_key", API_KEY)
 		print("Configurações de rede carregadas.")
 	else:
 		print("Usando configurações padrão (Desenvolvimento).")
@@ -25,7 +27,8 @@ func _create_request(endpoint: String, method: int, callback: Callable, body: St
 	
 	# Headers incluindo a segurança que criamos no Render
 	var headers = [
-		"Content-Type: application/json"
+		"Content-Type: application/json",
+		"X-Api-Key: %s" % API_KEY
 	]
 	
 	request.request_completed.connect(func(res, code, h, b): 
