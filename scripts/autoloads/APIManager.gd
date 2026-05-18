@@ -28,7 +28,7 @@ func _create_request(endpoint: String, method: int, callback: Callable, body: St
 	# Headers incluindo a segurança que criamos no Render
 	var headers = [
 		"Content-Type: application/json",
-		"X-Api-Ke: %s" % API_KEY
+		"X-Api-Key: %s" % API_KEY
 	]
 	
 	request.request_completed.connect(func(res, code, h, b): 
