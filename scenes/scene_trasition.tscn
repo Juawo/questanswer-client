@@ -7,28 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://iogwspfpnl47" path="res://assets/UI/circular_loading.png" id="4_011gu"]
 [ext_resource type="Texture2D" uid="uid://b3qspsfkypj3c" path="res://assets/x_o_pattern.png" id="7_011gu"]
 
-[sub_resource type="Animation" id="Animation_asjup"]
-resource_name = "load_animation"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MarginContainer/VBoxContainer/icon_wrapper/icon:rotation")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 6.2831855]
-}
-
 [sub_resource type="Animation" id="Animation_nt6bg"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MarginContainer/VBoxContainer/icon_wrapper/icon:rotation")
+tracks/0/path = NodePath("MarginContainer/Control/loading_ui/icon_wrapper/icon:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -36,6 +20,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_asjup"]
+resource_name = "load_animation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/Control/loading_ui/icon_wrapper/icon:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h322u"]
@@ -100,11 +100,24 @@ theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="Control" type="Control" parent="MarginContainer"]
 layout_mode = 2
+
+[node name="loading_ui" type="VBoxContainer" parent="MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.0
+offset_top = -32.5
+offset_right = 176.0
+offset_bottom = 31.5
+pivot_offset = Vector2(176, 32)
 size_flags_vertical = 4
 
-[node name="loading_text" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+[node name="loading_text" type="RichTextLabel" parent="MarginContainer/Control/loading_ui"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_vertical = 4
@@ -117,11 +130,11 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="icon_wrapper" type="Control" parent="MarginContainer/VBoxContainer"]
+[node name="icon_wrapper" type="Control" parent="MarginContainer/Control/loading_ui"]
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="icon" type="TextureRect" parent="MarginContainer/VBoxContainer/icon_wrapper"]
+[node name="icon" type="TextureRect" parent="MarginContainer/Control/loading_ui/icon_wrapper"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
