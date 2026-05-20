@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 SessionState="*res://scripts/autoloads/SessionState.gd"
 ApiManager="*res://scripts/autoloads/APIManager.gd"
 SaveManager="*res://scripts/autoloads/SaveManager.gd"
+SceneTrasition="*res://scenes/scene_trasition.tscn"
 
 [display]
 
