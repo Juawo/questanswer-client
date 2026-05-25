@@ -1,13 +1,13 @@
 [gd_scene load_steps=14 format=3 uid="uid://c5g5bbxxdp68g"]
 
-[ext_resource type="Script" uid="uid://d23f7vjsmv6ci" path="res://scripts/select_card/select_card.gd" id="1_uwfuv"]
+[ext_resource type="Script" uid="uid://b60voh1vqi07s" path="res://scripts/select_card/select_card.gd" id="1_uwfuv"]
 [ext_resource type="PackedScene" uid="uid://c6ghkyxcsppg2" path="res://scenes/common/background.tscn" id="2_l12je"]
 [ext_resource type="PackedScene" uid="uid://cv0si3n712a5r" path="res://scenes/common/back_btn.tscn" id="3_pgxac"]
 [ext_resource type="Texture2D" uid="uid://c8rnas01qpm8f" path="res://assets/UI/played_cards.png" id="4_ximx0"]
 [ext_resource type="Texture2D" uid="uid://dpysc517dyhy0" path="res://assets/UI/played_cards_icon.png" id="5_a6e62"]
 [ext_resource type="FontFile" uid="uid://bifn41ua7c7tv" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Luckiest_Guy/LuckiestGuy-Regular.ttf" id="6_7wu7a"]
-[ext_resource type="Script" uid="uid://dvbowq2j4ufjg" path="res://scripts/select_card/carousel.gd" id="7_ex561"]
-[ext_resource type="Script" uid="uid://cw1pfevcjcies" path="res://scripts/common/carousel_container.gd" id="8_i26em"]
+[ext_resource type="Script" uid="uid://bkmyovu1j26hh" path="res://scripts/select_card/carousel.gd" id="7_ex561"]
+[ext_resource type="Script" uid="uid://bv1osm2o77rcy" path="res://scripts/common/carousel_container.gd" id="8_i26em"]
 [ext_resource type="FontFile" uid="uid://c0vrbxasit4dl" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Lexend_Deca/static/LexendDeca-Black.ttf" id="9_2x34j"]
 [ext_resource type="Texture2D" uid="uid://dvwf7r6pglh0t" path="res://assets/UI/identifier_card_with_total.png" id="10_fdpjd"]
 [ext_resource type="PackedScene" uid="uid://c7bv4w1uhi3t8" path="res://scenes/select_card/random_btn.tscn" id="11_4xd10"]
@@ -141,7 +141,6 @@ wraparound_radius = 500.0
 smoothing_speed = 8.26
 follow_button_focus = true
 position_offset_node = NodePath("Control")
-metadata/_custom_type_script = "uid://cw1pfevcjcies"
 
 [node name="Control" type="Control" parent="MarginContainer/VBoxContainer/carousel/CarouselContainer"]
 layout_mode = 3
@@ -157,6 +156,7 @@ grow_vertical = 2
 scale = Vector2(0.8, 0.8)
 size_flags_horizontal = 6
 size_flags_vertical = 6
+metadata/_edit_use_anchors_ = true
 
 [node name="empty_cards_label" type="Label" parent="MarginContainer/VBoxContainer"]
 visible = false
