@@ -1,7 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://dw4j6s3f2km3k"]
+[gd_scene format=3 uid="uid://dw4j6s3f2km3k"]
 
 [ext_resource type="Texture2D" uid="uid://ct6pqc6iejqmp" path="res://assets/UI/card_background.png" id="1_6u4wf"]
-[ext_resource type="Script" uid="uid://de1dm0i0gt38q" path="res://scripts/card/card.gd" id="1_nvopj"]
+[ext_resource type="Script" uid="uid://tfby7u5ugeya" path="res://scripts/card/card.gd" id="1_nvopj"]
 [ext_resource type="FontFile" uid="uid://bbir0gt61fjup" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Rubik/static/Rubik-Bold.ttf" id="2_kg30u"]
 [ext_resource type="Texture2D" uid="uid://dkgaw6m3wuxx1" path="res://assets/UI/Card.png" id="2_ktuci"]
 [ext_resource type="FontFile" uid="uid://brv20y6fxd313" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Rubik/static/Rubik-Regular.ttf" id="3_sy11y"]
@@ -15,7 +15,7 @@ shadow_color = Color(0, 0, 0, 0.254902)
 shadow_size = 2
 shadow_offset = Vector2(0, 2)
 
-[node name="Card" type="Control"]
+[node name="Card" type="Control" unique_id=204163252]
 custom_minimum_size = Vector2(285, 561)
 layout_mode = 3
 anchors_preset = 0
@@ -26,7 +26,7 @@ size_flags_horizontal = 3
 mouse_filter = 1
 script = ExtResource("1_nvopj")
 
-[node name="front" type="Control" parent="."]
+[node name="front" type="Control" parent="." unique_id=1901059680]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -35,7 +35,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="background" type="TextureRect" parent="front"]
+[node name="background" type="TextureRect" parent="front" unique_id=368993020]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = -0.018
@@ -49,7 +49,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_6u4wf")
 
-[node name="MarginContainer" type="MarginContainer" parent="front"]
+[node name="MarginContainer" type="MarginContainer" parent="front" unique_id=596419901]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = -0.021
@@ -63,34 +63,34 @@ grow_vertical = 2
 theme_override_constants/margin_top = 1
 theme_override_constants/margin_bottom = 24
 
-[node name="VBoxContainer" type="VBoxContainer" parent="front/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="front/MarginContainer" unique_id=2029571193]
 layout_mode = 2
 theme_override_constants/separation = 18
 
-[node name="header_card" type="MarginContainer" parent="front/MarginContainer/VBoxContainer"]
+[node name="header_card" type="MarginContainer" parent="front/MarginContainer/VBoxContainer" unique_id=1323233138]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="header_card" type="HBoxContainer" parent="front/MarginContainer/VBoxContainer/header_card"]
+[node name="header_card" type="HBoxContainer" parent="front/MarginContainer/VBoxContainer/header_card" unique_id=2038987454]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_constants/separation = 25
 
-[node name="term_card" type="MarginContainer" parent="front/MarginContainer/VBoxContainer/header_card/header_card"]
+[node name="term_card" type="MarginContainer" parent="front/MarginContainer/VBoxContainer/header_card/header_card" unique_id=943789114]
 custom_minimum_size = Vector2(165, 58)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="term_card" type="VBoxContainer" parent="front/MarginContainer/VBoxContainer/header_card/header_card/term_card"]
+[node name="term_card" type="VBoxContainer" parent="front/MarginContainer/VBoxContainer/header_card/header_card/term_card" unique_id=320891389]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 alignment = 1
 
-[node name="Label" type="Label" parent="front/MarginContainer/VBoxContainer/header_card/header_card/term_card/term_card"]
+[node name="Label" type="Label" parent="front/MarginContainer/VBoxContainer/header_card/header_card/term_card/term_card" unique_id=943935349]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -99,7 +99,7 @@ theme_override_font_sizes/font_size = 16
 text = "Termo:"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="front/MarginContainer/VBoxContainer/header_card/header_card/term_card/term_card"]
+[node name="Label2" type="Label" parent="front/MarginContainer/VBoxContainer/header_card/header_card/term_card/term_card" unique_id=590092021]
 custom_minimum_size = Vector2(165, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -111,25 +111,25 @@ IIIpsummm"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="type_card" type="PanelContainer" parent="front/MarginContainer/VBoxContainer/header_card/header_card"]
+[node name="type_card" type="PanelContainer" parent="front/MarginContainer/VBoxContainer/header_card/header_card" unique_id=1674109595]
 custom_minimum_size = Vector2(93, 73)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_nvopj")
 
-[node name="MarginContainer" type="MarginContainer" parent="front/MarginContainer/VBoxContainer/header_card/header_card/type_card"]
+[node name="MarginContainer" type="MarginContainer" parent="front/MarginContainer/VBoxContainer/header_card/header_card/type_card" unique_id=976604278]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="front/MarginContainer/VBoxContainer/header_card/header_card/type_card/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="front/MarginContainer/VBoxContainer/header_card/header_card/type_card/MarginContainer" unique_id=1736508491]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Label" type="Label" parent="front/MarginContainer/VBoxContainer/header_card/header_card/type_card/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="front/MarginContainer/VBoxContainer/header_card/header_card/type_card/MarginContainer/VBoxContainer" unique_id=1858818405]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_kg30u")
@@ -137,7 +137,7 @@ theme_override_font_sizes/font_size = 16
 text = "Tipo:"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="front/MarginContainer/VBoxContainer/header_card/header_card/type_card/MarginContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="front/MarginContainer/VBoxContainer/header_card/header_card/type_card/MarginContainer/VBoxContainer" unique_id=451484889]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_sy11y")
@@ -145,59 +145,59 @@ theme_override_font_sizes/font_size = 20
 text = "Pessoa"
 horizontal_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="front/MarginContainer/VBoxContainer/header_card/header_card"]
+[node name="MarginContainer" type="MarginContainer" parent="front/MarginContainer/VBoxContainer/header_card/header_card" unique_id=783626363]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 theme_override_constants/margin_top = 5
 
-[node name="close_btn" parent="front/MarginContainer/VBoxContainer/header_card/header_card/MarginContainer" instance=ExtResource("4_sy11y")]
+[node name="close_btn" parent="front/MarginContainer/VBoxContainer/header_card/header_card/MarginContainer" unique_id=16930764 instance=ExtResource("4_sy11y")]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 stretch_mode = 3
 
-[node name="tips" type="VBoxContainer" parent="front/MarginContainer/VBoxContainer"]
+[node name="tips" type="VBoxContainer" parent="front/MarginContainer/VBoxContainer" unique_id=1639346285]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 
-[node name="hint_1" parent="front/MarginContainer/VBoxContainer/tips" instance=ExtResource("5_6ligt")]
+[node name="hint_1" parent="front/MarginContainer/VBoxContainer/tips" unique_id=917392045 instance=ExtResource("5_6ligt")]
 layout_mode = 2
 
-[node name="hint_2" parent="front/MarginContainer/VBoxContainer/tips" instance=ExtResource("5_6ligt")]
+[node name="hint_2" parent="front/MarginContainer/VBoxContainer/tips" unique_id=114489434 instance=ExtResource("5_6ligt")]
 layout_mode = 2
 
-[node name="hint_3" parent="front/MarginContainer/VBoxContainer/tips" instance=ExtResource("5_6ligt")]
+[node name="hint_3" parent="front/MarginContainer/VBoxContainer/tips" unique_id=1327094171 instance=ExtResource("5_6ligt")]
 layout_mode = 2
 
-[node name="hint_4" parent="front/MarginContainer/VBoxContainer/tips" instance=ExtResource("5_6ligt")]
+[node name="hint_4" parent="front/MarginContainer/VBoxContainer/tips" unique_id=1368727800 instance=ExtResource("5_6ligt")]
 layout_mode = 2
 
-[node name="hint_5" parent="front/MarginContainer/VBoxContainer/tips" instance=ExtResource("5_6ligt")]
+[node name="hint_5" parent="front/MarginContainer/VBoxContainer/tips" unique_id=1707288206 instance=ExtResource("5_6ligt")]
 layout_mode = 2
 
-[node name="hint_6" parent="front/MarginContainer/VBoxContainer/tips" instance=ExtResource("5_6ligt")]
+[node name="hint_6" parent="front/MarginContainer/VBoxContainer/tips" unique_id=93034619 instance=ExtResource("5_6ligt")]
 layout_mode = 2
 
-[node name="hint_7" parent="front/MarginContainer/VBoxContainer/tips" instance=ExtResource("5_6ligt")]
+[node name="hint_7" parent="front/MarginContainer/VBoxContainer/tips" unique_id=1015092607 instance=ExtResource("5_6ligt")]
 layout_mode = 2
 
-[node name="hint_8" parent="front/MarginContainer/VBoxContainer/tips" instance=ExtResource("5_6ligt")]
+[node name="hint_8" parent="front/MarginContainer/VBoxContainer/tips" unique_id=1608612999 instance=ExtResource("5_6ligt")]
 layout_mode = 2
 
-[node name="hint_9" parent="front/MarginContainer/VBoxContainer/tips" instance=ExtResource("5_6ligt")]
+[node name="hint_9" parent="front/MarginContainer/VBoxContainer/tips" unique_id=694626855 instance=ExtResource("5_6ligt")]
 layout_mode = 2
 
-[node name="hint_10" parent="front/MarginContainer/VBoxContainer/tips" instance=ExtResource("5_6ligt")]
+[node name="hint_10" parent="front/MarginContainer/VBoxContainer/tips" unique_id=360394224 instance=ExtResource("5_6ligt")]
 layout_mode = 2
 
-[node name="played_btn" parent="front/MarginContainer/VBoxContainer" instance=ExtResource("6_8w5pg")]
+[node name="played_btn" parent="front/MarginContainer/VBoxContainer" unique_id=2134333302 instance=ExtResource("6_8w5pg")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 
-[node name="back" type="TextureButton" parent="."]
+[node name="back" type="TextureButton" parent="." unique_id=1517903449]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
