@@ -16,14 +16,14 @@ var used_tips_count : int
 
 var max_points_to_win :int = 20
 
-func setup(players_names : Array[String]) -> void :
+func setup(players_names : Array[String]) -> bool :
 	players.clear()
 	scores.clear()
 	
 	# receive player's name
 	if !receive_players_names(players_names) :
 		printerr("Players name have an erro, try again!")
-		return
+		return false
 	
 	# get players name for order
 	order_of_players = players.duplicate()
@@ -39,6 +39,7 @@ func setup(players_names : Array[String]) -> void :
 	questioner_idx = 0
 	guesser_idx = 1
 	used_tips_count = 0
+	return true
 	
 func receive_players_names(players_name : Array[String]) -> bool :
 	players.clear()
@@ -53,6 +54,16 @@ func receive_players_names(players_name : Array[String]) -> bool :
 		players.append(player)
 
 	return true
+
+func get_questioner_name() -> String :
+	return order_of_players[questioner_idx]
+
+func get_guessers_sequence_name() -> Array[String] :
+	var sequence : Array[String]
+	for i in range(order_of_players.size()) :
+		if i != questioner_idx:
+			sequence.append(order_of_players[i])
+	return sequence
 
 func _on_player_hit() -> void :
 	# get players's name that have hit the term and the questioner

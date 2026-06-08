@@ -73,7 +73,7 @@ func compare_players_name(name1 : String, name2 : String) -> bool :
 
 func _on_start_btn_pressed() -> void:
 	players_name = get_all_players_name()
-	var error = !SessionState.receive_players_names(players_name)
+	var error = !SessionState.setup(players_name)
 	if !error :
 		await SceneTrasition.fade_in(0.6)
 		if SessionState.cards_from_database.is_empty() :
