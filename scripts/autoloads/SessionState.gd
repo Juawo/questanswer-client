@@ -1,6 +1,7 @@
 extends Node
 
 signal player_win(player_name : String)
+signal new_guesser_time(guesser_name : String)
 
 var cards_from_database: Array[CardData]
 var num_cards : int
@@ -65,6 +66,9 @@ func get_guessers_sequence_name() -> Array[String] :
 			sequence.append(order_of_players[i])
 	return sequence
 
+func get_guesser_name() -> String :
+	return order_of_players[guesser_idx]
+
 func _on_player_hit() -> void :
 	# get players's name that have hit the term and the questioner
 	var guesser_name = order_of_players[guesser_idx]
@@ -114,6 +118,7 @@ func next_guesser_time() -> void :
 	guesser_idx = (guesser_idx + 1) % order_of_players.size()
 	if guesser_idx == questioner_idx :
 		next_guesser_time()
+	new_guesser_time.emit(order_of_players[guesser_idx])
 
 func _on_tip_used() -> void :
 	used_tips_count += 1
