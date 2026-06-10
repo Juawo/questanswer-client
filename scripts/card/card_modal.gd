@@ -4,15 +4,16 @@ signal card_was_played
 signal scroll_carousel(state : bool)
 
 @onready var background: ColorRect = $background
-@onready var card_placeholder: Control = $card_placeholder
 
 var card_scene_template: PackedScene = preload("res://scenes/card/card.tscn")
 var displayed_card_data : CardData
 var current_card_scene
 var is_front_showing : bool
+@onready var player_time_label: VBoxContainer = $player_time_label
 
 func _ready() -> void:
 		background.gui_input.connect(_on_background_clicked)
+		SessionState.new_guesser_time.connect(_on_new_guesser_time)
 
 func _on_background_clicked(event: InputEvent) -> void:
 		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.is_pressed() \
@@ -25,16 +26,13 @@ func set_card_data(card_data: CardData):
 		init_modal()
 
 func init_modal():
-		if not is_instance_valid(card_placeholder) :
-			printerr("Erro: Placeholder nao encontrado no cardModal!")
-			return
-		
 		if  not is_instance_valid(displayed_card_data):
 			printerr("Erro: DisplayedCard nao encontrado no cardModal!")
 			return
 		
 		current_card_scene = card_scene_template.instantiate()
 		self.add_child(current_card_scene)
+		current_card_scene.position = Vector2(24,70) 
 		current_card_scene.current_mode = current_card_scene.MODE.MODAL
 		
 		current_card_scene.flip_requested.connect(turn_card_animation)
@@ -50,8 +48,8 @@ func open_modal_animation():
 		background.visible = true
 		background.z_index = 1
 		var tween = create_tween()
-		current_card_scene.position = Vector2(get_viewport_rect().size.x / 2 - current_card_scene.size.x / 2, \
-		get_viewport_rect().size.y / 2 - current_card_scene.size.y / 2)
+		#current_card_scene.position = Vector2(get_viewport_rect().size.x / 2 - current_card_scene.size.x / 2, \
+	#	get_viewport_rect().size.y / 2 - current_card_scene.size.y / 2)
 		current_card_scene.scale = Vector2(0.3,0.3)
 		tween.tween_property(current_card_scene, "scale", Vector2(1,1), 0.4).set_trans(Tween.TRANS_BACK)
 
@@ -67,6 +65,8 @@ func turn_card_animation():
 		if is_front_showing:
 			front_node.visible = true
 			back_node.visible = false
+			player_time_label.visible = true
+			update_player_time(SessionState.get_guesser_name()) # first time
 		else:
 			front_node.visible = false
 			back_node.visible = true
@@ -87,10 +87,21 @@ func close_modal_animation():
 	tween.tween_property(background, "modulate", Color(0,0,0,0), 0.4)
 	tween.tween_callback(func(): background.visible = false)
 	await tween.finished
-	emit_signal("scroll_carousel", true)
+	player_time_label.visible = false
+	emit_signal("scroll_carousel", true) # change modal to sample card in carousel
 	queue_free()
 
 func _on_played_card_modal():
 		self.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		emit_signal("card_was_played")
 		close_modal_animation()
+
+func show_player_time() -> void :
+	player_time_label.get_children()[1].text = SessionState.get_guesser_name()
+	player_time_label.visible = true
+
+func update_player_time(guesser_name : String) -> void :
+	player_time_label.get_children()[1].text = guesser_name
+
+func _on_new_guesser_time(guesser_name : String) -> void :
+	update_player_time(guesser_name)
