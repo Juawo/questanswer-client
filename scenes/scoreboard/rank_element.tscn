@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://cqnmttyneesyj"]
+
+[ext_resource type="Script" uid="uid://dbn35x5ggsqg3" path="res://scripts/scoreboard/rank_element.gd" id="1_ttqtj"]
+[ext_resource type="Shader" uid="uid://dckhm6dqdyqwp" path="res://scenes/scoreboard/color_band.gdshader" id="2_f0ikf"]
+[ext_resource type="FontFile" uid="uid://bifn41ua7c7tv" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Luckiest_Guy/LuckiestGuy-Regular.ttf" id="2_ttqtj"]
+[ext_resource type="Texture2D" uid="uid://c2oqxnhs1mads" path="res://assets/UI/icon_second.png" id="3_f0ikf"]
+[ext_resource type="FontFile" uid="uid://bvrcf8ilx188" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Lexend_Deca/static/LexendDeca-Medium.ttf" id="4_f0ikf"]
+[ext_resource type="FontFile" uid="uid://cchki75ydfvx7" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Lexend_Deca/static/LexendDeca-Light.ttf" id="6_1fmad"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ttqtj"]
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uvbec"]
+bg_color = Color(0.8588438, 0.85884446, 0.85884404, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 10
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uvbec"]
+shader = ExtResource("2_f0ikf")
+shader_parameter/band_color = Color(0.94, 0.94, 0.94, 1)
+shader_parameter/band_thickness = 0.12999999709425
+shader_parameter/band_intensity = 0.23999999463552
+shader_parameter/speed = 0.71999998763218
+shader_parameter/direction = 0
+shader_parameter/offset = 0.0
+shader_parameter/blend_mode = 0
+shader_parameter/edge_softness = 0.02
+
+[node name="rank_element" type="PanelContainer" unique_id=91514664]
+material = SubResource("CanvasItemMaterial_ttqtj")
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.071
+offset_bottom = -0.10700226
+grow_horizontal = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_uvbec")
+script = ExtResource("1_ttqtj")
+rank_position = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=231382709]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=771523889]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer" unique_id=623127077]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.8
+
+[node name="rank_icon" type="TextureRect" parent="MarginContainer/HBoxContainer/Control" unique_id=2093806198]
+material = SubResource("ShaderMaterial_uvbec")
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.5
+offset_top = -2.5
+offset_right = 2.5
+offset_bottom = 2.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(22, 22)
+size_flags_horizontal = 2
+size_flags_stretch_ratio = 0.81
+texture = ExtResource("3_f0ikf")
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Control/rank_icon" unique_id=656538509]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 9
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="rank_position" type="Label" parent="MarginContainer/HBoxContainer/Control/rank_icon/MarginContainer" unique_id=787667536]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.40392157)
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource("2_ttqtj")
+theme_override_font_sizes/font_size = 26
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="player_name" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1941704370]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_f0ikf")
+text = "Player 1"
+
+[node name="player_score" type="Label" parent="MarginContainer/HBoxContainer" unique_id=370873665]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_1fmad")
+text = "100pts"

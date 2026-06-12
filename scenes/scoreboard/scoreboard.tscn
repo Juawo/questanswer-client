@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://d1e6tlxx205ou"]
+
+[ext_resource type="Texture2D" uid="uid://ct6pqc6iejqmp" path="res://assets/UI/card_background.png" id="1_3mbri"]
+[ext_resource type="FontFile" uid="uid://c0vrbxasit4dl" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Lexend_Deca/static/LexendDeca-Black.ttf" id="2_6q72m"]
+[ext_resource type="PackedScene" uid="uid://cqnmttyneesyj" path="res://scenes/scoreboard/rank_element.tscn" id="3_6q72m"]
+[ext_resource type="FontFile" uid="uid://bvrcf8ilx188" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Lexend_Deca/static/LexendDeca-Medium.ttf" id="3_rqydg"]
+
+[node name="scoreboard" type="Control" unique_id=1379188541]
+layout_mode = 3
+anchor_right = 0.79126215
+anchor_bottom = 0.6226827
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(163, 285)
+metadata/_edit_use_anchors_ = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=160227221]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_3mbri")
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect" unique_id=1995412026]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/MarginContainer" unique_id=1212121295]
+layout_mode = 2
+
+[node name="header" type="VBoxContainer" parent="NinePatchRect/MarginContainer/VBoxContainer" unique_id=1233942192]
+layout_mode = 2
+size_flags_vertical = 2
+size_flags_stretch_ratio = 1.41
+theme_override_constants/separation = -8
+
+[node name="Label" type="Label" parent="NinePatchRect/MarginContainer/VBoxContainer/header" unique_id=348819115]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.19507614, 0.19507614, 0.19507611, 1)
+theme_override_fonts/font = ExtResource("2_6q72m")
+theme_override_font_sizes/font_size = 50
+text = "PLACAR"
+horizontal_alignment = 1
+
+[node name="players_rank" type="VBoxContainer" parent="NinePatchRect/MarginContainer/VBoxContainer" unique_id=1263996322]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 16
+
+[node name="rank_element" parent="NinePatchRect/MarginContainer/VBoxContainer/players_rank" unique_id=91514664 instance=ExtResource("3_6q72m")]
+layout_mode = 2
+rank_position = 1
+player_name = "player1"
+
+[node name="rank_element2" parent="NinePatchRect/MarginContainer/VBoxContainer/players_rank" unique_id=1753019993 instance=ExtResource("3_6q72m")]
+layout_mode = 2
+player_name = "player2"
+player_score = 3
+
+[node name="rank_element3" parent="NinePatchRect/MarginContainer/VBoxContainer/players_rank" unique_id=861496613 instance=ExtResource("3_6q72m")]
+layout_mode = 2
+rank_position = 3
+player_name = "player3"
+player_score = 1
+
+[node name="rank_element4" parent="NinePatchRect/MarginContainer/VBoxContainer/players_rank" unique_id=1541198343 instance=ExtResource("3_6q72m")]
+layout_mode = 2
+rank_position = 4
+player_name = "player4"
+player_score = 1
+
+[node name="rank_element5" parent="NinePatchRect/MarginContainer/VBoxContainer/players_rank" unique_id=430958011 instance=ExtResource("3_6q72m")]
+layout_mode = 2
+rank_position = 5
+player_name = "player5"
+player_score = 1
+
+[node name="comment" type="Label" parent="NinePatchRect/MarginContainer/VBoxContainer" unique_id=741845308]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_colors/font_color = Color(0.28871164, 0.2887116, 0.28871158, 1)
+theme_override_fonts/font = ExtResource("3_rqydg")
+theme_override_font_sizes/font_size = 16
+text = "Boa sorte Player1!"
+horizontal_alignment = 1
