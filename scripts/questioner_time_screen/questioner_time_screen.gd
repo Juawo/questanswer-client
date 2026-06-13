@@ -3,11 +3,12 @@ extends Control
 @onready var title: Label = $MarginContainer/wrapper/VBoxContainer/VBoxContainer/title
 @onready var sequence_content: Label = $MarginContainer/wrapper/VBoxContainer/VBoxContainer2/sequence_content
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var scoreboard: Control = $MarginContainer/wrapper/VBoxContainer/scoreboard
 
-# TODO : Quando encerrar uma carta -> mudar o questioner precisa aparecer com ele mudado
 
 func _ready() -> void:
 	show_screen()
+	scoreboard.populate_scoreboard()
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and visible:
@@ -18,6 +19,7 @@ func show_screen() -> void :
 	visible = true
 	animation_player.play("show_screen")
 	await animation_player.animation_finished
+	scoreboard.sort_animate_scoreboard()
 	animation_player.play("toutch_blink")
 
 func hide_screen() -> void :

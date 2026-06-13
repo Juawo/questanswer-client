@@ -14,7 +14,7 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uvbec"]
-bg_color = Color(0.8588438, 0.85884446, 0.85884404, 1)
+bg_color = Color(0.8876316, 0.8876316, 0.8876314, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -34,15 +34,14 @@ shader_parameter/edge_softness = 0.02
 
 [node name="rank_element" type="PanelContainer" unique_id=91514664]
 material = SubResource("CanvasItemMaterial_ttqtj")
+custom_minimum_size = Vector2(0, 65)
 anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 0.071
-offset_bottom = -0.10700226
-grow_horizontal = 2
+offset_right = 222.0
+offset_bottom = 55.0
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_uvbec")
 script = ExtResource("1_ttqtj")
-rank_position = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=231382709]
 layout_mode = 2
@@ -74,7 +73,7 @@ offset_right = 2.5
 offset_bottom = 2.5
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(22, 22)
+pivot_offset = Vector2(20, 20)
 size_flags_horizontal = 2
 size_flags_stretch_ratio = 0.81
 texture = ExtResource("3_f0ikf")
@@ -100,7 +99,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.40392157)
 theme_override_constants/shadow_offset_y = 1
 theme_override_fonts/font = ExtResource("2_ttqtj")
 theme_override_font_sizes/font_size = 26
-text = "1"
+text = "4"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -117,4 +116,4 @@ size_flags_horizontal = 10
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_1fmad")
-text = "100pts"
+text = "0pts"

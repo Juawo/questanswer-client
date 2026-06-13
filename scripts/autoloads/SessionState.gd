@@ -15,7 +15,7 @@ var questioner_idx : int
 var guesser_idx : int
 var used_tips_count : int
 
-var max_points_to_win :int = 20
+var max_points_to_win :int = 50
 
 func setup(players_names : Array[String]) -> bool :
 	players.clear()
@@ -81,12 +81,15 @@ func _on_player_hit() -> void :
 	# add points for the player's score
 	scores[guesser_name] += guesser_points
 	scores[questioner_name] += questioner_points
+	print("gp : ", guesser_points)
+	print("qp : ", questioner_points)
 	
 	# reset number of tips used
 	used_tips_count = 0
 	
 	# The player that have hit the term will become the questioner now
 	questioner_idx = guesser_idx
+	print("SS : ", scores)
 	
 	# Check if anybody have win the round
 	if check_victory_condition() :

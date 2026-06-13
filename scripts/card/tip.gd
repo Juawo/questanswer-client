@@ -21,6 +21,7 @@ func _ready() -> void:
 	progress_bar.hide()
 	progress_bar.value = 100
 	set_process(false)
+	tip_finished.connect(SessionState._on_tip_used)
 
 
 func _process(_delta: float) -> void:

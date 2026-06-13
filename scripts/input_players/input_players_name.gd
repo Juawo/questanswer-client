@@ -77,10 +77,12 @@ func _on_start_btn_pressed() -> void:
 	if !error :
 		await SceneTrasition.fade_in(0.6)
 		if SessionState.cards_from_database.is_empty() :
+			# TODO : resolver bug quando ja jogou todas as cartas!
 			await ApiManager.cards_fetched_sucessfully
 			get_tree().change_scene_to_file("res://scenes/select_card/select_card.tscn")
 			await SceneTrasition.fade_out(0.4)
 		else :
+			print("caiua aq")
 			await get_tree().create_timer(0.2).timeout
 			get_tree().change_scene_to_file("res://scenes/select_card/select_card.tscn")
 			await SceneTrasition.fade_out(0.4)
