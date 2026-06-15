@@ -44,6 +44,7 @@ func update_player_score(new_value : int) -> void :
 	animate_score_counter(new_value, 0.5)
 
 func update_rank_position_visual(new_value : int) -> void :
+	rank_icon.visible = true
 	match  new_value :
 		1 : 
 			rank_icon.texture = preload("uid://do28osyko4pxh")

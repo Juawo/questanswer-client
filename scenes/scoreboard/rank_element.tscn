@@ -38,6 +38,7 @@ custom_minimum_size = Vector2(0, 65)
 anchors_preset = -1
 offset_right = 222.0
 offset_bottom = 55.0
+pivot_offset = Vector2(111, 32.5)
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_uvbec")
 script = ExtResource("1_ttqtj")
@@ -61,6 +62,7 @@ size_flags_vertical = 4
 size_flags_stretch_ratio = 0.8
 
 [node name="rank_icon" type="TextureRect" parent="MarginContainer/HBoxContainer/Control" unique_id=2093806198]
+visible = false
 material = SubResource("ShaderMaterial_uvbec")
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 1
