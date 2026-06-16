@@ -7,8 +7,10 @@ extends Control
 var all_input_players : Array[Node]
 var players_name : Array[String] = []
 const equal_names_detail : String = "Jogador com nome repetido!"
+var fetched := false
 
 func _ready() -> void:
+	ApiManager.cards_fetched_sucessfully.connect(_on_cards_fetched)
 	all_input_players = players_vbox.get_children()
 	for i in range(all_input_players.size()) :
 		all_input_players[i].text_changed.connect(_on_any_input_changed)
@@ -21,6 +23,9 @@ func _ready() -> void:
 				all_input_players[i].text = saved_name
 				all_input_players[i].line_edit.text = saved_name
 	update_inputs_state()
+
+func _on_cards_fetched(_cards : Array) -> void :
+	fetched = true
 
 func _on_any_input_changed() -> void :
 	update_inputs_state()
@@ -76,9 +81,13 @@ func _on_start_btn_pressed() -> void:
 	var error = !SessionState.setup(players_name)
 	if !error :
 		await SceneTrasition.fade_in(0.6)
-		if SessionState.cards_from_database.is_empty() :
-			# TODO : resolver bug quando ja jogou todas as cartas!
+		if SessionState.cards_from_database.is_empty() and !fetched:
+			print("INOOT : ", fetched)
 			await ApiManager.cards_fetched_sucessfully
+			get_tree().change_scene_to_file("res://scenes/select_card/select_card.tscn")
+			await SceneTrasition.fade_out(0.4)
+		elif SessionState.cards_from_database.is_empty() and fetched :
+			await get_tree().create_timer(0.2).timeout
 			get_tree().change_scene_to_file("res://scenes/select_card/select_card.tscn")
 			await SceneTrasition.fade_out(0.4)
 		else :

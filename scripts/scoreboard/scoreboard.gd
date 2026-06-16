@@ -143,7 +143,7 @@ func update_comment(is_win_screen : bool = false) -> void :
 	if scores[names[0]] != 0:
 		comment.text = names[0] + " está a " + str(SessionState.max_points_to_win - scores[names[0]]) +"pts "+ "pontos de vencer"
 	else : 
-		comment.text = "O primeiro com " + str(SessionState.max_points_to_win) + "pts" + "vence a rodada!"
+		comment.text = "O primeiro com " + str(SessionState.max_points_to_win) + "pts" + " vence a rodada!"
 
 func toggle_show_scoreboard(is_showing : bool) -> void :
 	visible = is_showing

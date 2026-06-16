@@ -72,8 +72,6 @@ func toogle_tips_unclicable(is_unclicable : bool) -> void :
 	
 func _on_tip_pressed(tip) :
 	if !is_tip_running:
-		close_btn.disabled = true
-		close_btn.modulate = "#858585"
 		tip.start_tip()
 		is_tip_running = true
 		toggle_action_btns(true)
@@ -99,6 +97,7 @@ func _on_error_btn_pressed() -> void:
 	else :
 		SessionState._on_player_miss()
 		toogle_tips_unclicable(false)
+		toggle_action_btns(true)
 
 func _on_hit_btn_pressed() -> void:
 	SessionState._on_player_hit()
