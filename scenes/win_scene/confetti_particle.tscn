@@ -45,6 +45,5 @@ alpha_curve = SubResource("CurveTexture_mlmb1")
 [node name="confetti_particle" type="GPUParticles2D" unique_id=1965440570]
 amount = 120
 texture = SubResource("GradientTexture2D_mlmb1")
-lifetime = 1.5999999999999999
 speed_scale = 1.5
 process_material = SubResource("ParticleProcessMaterial_67g6e")
