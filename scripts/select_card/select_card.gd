@@ -8,6 +8,7 @@ signal random_index_sorted(random_index : int)
 @onready var played_cards_ui: Label = $MarginContainer/VBoxContainer/header/header/played_cards/MarginContainer/HBoxContainer/MarginContainer/Label
 @onready var empty_cards_label: Label = $MarginContainer/VBoxContainer/empty_cards_label
 @onready var fps_label: Label = $MarginContainer/VBoxContainer/header/header/fps_label
+@onready var questioner_time_screen: Control = $questioner_time_screen
 
 var selected_index : int
 var random_index : int
@@ -15,6 +16,7 @@ var num_card_in_carrousel : int : set = set_num_cards
 
 func _ready() -> void:
 	randomize()
+	carousel.card_played.connect(_on_card_played)
 	carousel.finished_populate.connect(carousel_container.setup)
 	carousel.selected_index_changed.connect(_on_selected_index_changed)
 	carousel.number_of_child_changed.connect(_on_number_of_child_changed)
@@ -39,10 +41,9 @@ func _on_random_btn_pressed() -> void:
 func _on_selected_index_changed(new_index : int) -> void :
 	selected_index = new_index
 	update_index_ui()
-	
+
 func _on_number_of_child_changed(number_child : int) -> void :
 	num_card_in_carrousel = number_child
-	print("SELECT - NUM : ", number_child)
 	update_played_ui()
 	update_index_ui()
 
@@ -67,3 +68,5 @@ func update_played_ui() -> void :
 	else :
 		played_cards_ui.text = "%s/%s" % [len(SaveManager.played_cards_ids),SessionState.num_cards]
  
+func _on_card_played() -> void :
+	questioner_time_screen.show_screen()

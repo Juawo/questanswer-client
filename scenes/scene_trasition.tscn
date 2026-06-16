@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dbju3ogqek4rk"]
+[gd_scene format=3 uid="uid://dbju3ogqek4rk"]
 
 [ext_resource type="Script" uid="uid://dy75ostqi12af" path="res://scripts/autoloads/scene_trasition.gd" id="1_asjup"]
 [ext_resource type="Shader" uid="uid://d0wxfjkdkkj8q" path="res://shaders/scene_trasition.gdshader" id="2_h322u"]
@@ -60,17 +60,15 @@ shader_parameter/tile_pixel_size = 64.0
 shader_parameter/tile_grown_scale = 2.0
 shader_parameter/transition_texture = SubResource("GradientTexture2D_011gu")
 
-[node name="scene_trasition" type="CanvasLayer"]
+[node name="scene_trasition" type="CanvasLayer" unique_id=796540069]
 visible = false
 script = ExtResource("1_asjup")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_h322u")
-}
-autoplay = "load_animation"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=27459028]
+libraries/ = SubResource("AnimationLibrary_h322u")
+autoplay = &"load_animation"
 
-[node name="color_background" type="ColorRect" parent="."]
+[node name="color_background" type="ColorRect" parent="." unique_id=1003433194]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -78,8 +76,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.478431, 0.960784, 1)
 
-[node name="background_pattern" parent="." instance=ExtResource("2_nt6bg")]
-anchors_preset = 15
+[node name="background_pattern" parent="." unique_id=1223851279 instance=ExtResource("2_nt6bg")]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -89,7 +86,7 @@ offset_top = 0.0
 offset_right = 0.0
 offset_bottom = 0.0
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=442064617]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -100,10 +97,10 @@ theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
-[node name="Control" type="Control" parent="MarginContainer"]
+[node name="Control" type="Control" parent="MarginContainer" unique_id=1457469154]
 layout_mode = 2
 
-[node name="loading_ui" type="VBoxContainer" parent="MarginContainer/Control"]
+[node name="loading_ui" type="VBoxContainer" parent="MarginContainer/Control" unique_id=563968323]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -114,10 +111,12 @@ offset_left = -176.0
 offset_top = -32.5
 offset_right = 176.0
 offset_bottom = 31.5
+grow_horizontal = 2
+grow_vertical = 2
 pivot_offset = Vector2(176, 32)
 size_flags_vertical = 4
 
-[node name="loading_text" type="RichTextLabel" parent="MarginContainer/Control/loading_ui"]
+[node name="loading_text" type="RichTextLabel" parent="MarginContainer/Control/loading_ui" unique_id=1858014798]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_vertical = 4
@@ -130,11 +129,11 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="icon_wrapper" type="Control" parent="MarginContainer/Control/loading_ui"]
+[node name="icon_wrapper" type="Control" parent="MarginContainer/Control/loading_ui" unique_id=1250829348]
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="icon" type="TextureRect" parent="MarginContainer/Control/loading_ui/icon_wrapper"]
+[node name="icon" type="TextureRect" parent="MarginContainer/Control/loading_ui/icon_wrapper" unique_id=750107788]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -152,7 +151,7 @@ texture = ExtResource("4_011gu")
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="transition_texture" type="ColorRect" parent="."]
+[node name="transition_texture" type="ColorRect" parent="." unique_id=1464336708]
 material = SubResource("ShaderMaterial_011gu")
 anchors_preset = 15
 anchor_right = 1.0

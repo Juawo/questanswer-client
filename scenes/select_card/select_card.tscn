@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c5g5bbxxdp68g"]
+[gd_scene format=3 uid="uid://c5g5bbxxdp68g"]
 
 [ext_resource type="Script" uid="uid://b60voh1vqi07s" path="res://scripts/select_card/select_card.gd" id="1_uwfuv"]
 [ext_resource type="PackedScene" uid="uid://c6ghkyxcsppg2" path="res://scenes/common/background.tscn" id="2_l12je"]
@@ -11,6 +11,7 @@
 [ext_resource type="FontFile" uid="uid://c0vrbxasit4dl" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Lexend_Deca/static/LexendDeca-Black.ttf" id="9_2x34j"]
 [ext_resource type="Texture2D" uid="uid://dvwf7r6pglh0t" path="res://assets/UI/identifier_card_with_total.png" id="10_fdpjd"]
 [ext_resource type="PackedScene" uid="uid://c7bv4w1uhi3t8" path="res://scenes/select_card/random_btn.tscn" id="11_4xd10"]
+[ext_resource type="PackedScene" uid="uid://bp4suq2chyt4q" path="res://scenes/questioner_time_screen/questioner_time_screen.tscn" id="12_l12je"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hv41o"]
 texture = ExtResource("4_ximx0")
@@ -18,7 +19,7 @@ texture = ExtResource("4_ximx0")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w7ug8"]
 texture = ExtResource("10_fdpjd")
 
-[node name="select_card" type="Control"]
+[node name="select_card" type="Control" unique_id=2141688267]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,7 +29,7 @@ grow_vertical = 2
 script = ExtResource("1_uwfuv")
 metadata/_edit_horizontal_guides_ = [70.0]
 
-[node name="color_background" type="ColorRect" parent="."]
+[node name="color_background" type="ColorRect" parent="." unique_id=528595825]
 z_index = -100
 layout_mode = 1
 anchors_preset = 15
@@ -38,7 +39,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.478431, 0.960784, 1)
 
-[node name="background" parent="." instance=ExtResource("2_l12je")]
+[node name="background" parent="." unique_id=439217982 instance=ExtResource("2_l12je")]
 z_index = -100
 layout_mode = 1
 anchors_preset = 15
@@ -51,7 +52,7 @@ offset_top = 0.0
 offset_right = 0.0
 offset_bottom = 0.0
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1656778228]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -62,57 +63,57 @@ mouse_filter = 2
 theme_override_constants/margin_top = 40
 theme_override_constants/margin_bottom = 33
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=2011142220]
 layout_mode = 2
 theme_override_constants/separation = 80
 
-[node name="header" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+[node name="header" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=1793008633]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="header" type="HBoxContainer" parent="MarginContainer/VBoxContainer/header"]
+[node name="header" type="HBoxContainer" parent="MarginContainer/VBoxContainer/header" unique_id=659086127]
 layout_mode = 2
 theme_override_constants/separation = 22
 alignment = 1
 
-[node name="back_btn" parent="MarginContainer/VBoxContainer/header/header" instance=ExtResource("3_pgxac")]
+[node name="back_btn" parent="MarginContainer/VBoxContainer/header/header" unique_id=1728331930 instance=ExtResource("3_pgxac")]
 layout_mode = 2
 stretch_mode = 3
 
-[node name="played_cards" type="PanelContainer" parent="MarginContainer/VBoxContainer/header/header"]
+[node name="played_cards" type="PanelContainer" parent="MarginContainer/VBoxContainer/header/header" unique_id=400766706]
 custom_minimum_size = Vector2(254, 58)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_hv41o")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/header/header/played_cards"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/header/header/played_cards" unique_id=1106324489]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/header/header/played_cards/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/header/header/played_cards/MarginContainer" unique_id=497071768]
 custom_minimum_size = Vector2(233, 30)
 layout_mode = 2
 alignment = 1
 
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/header/header/played_cards/MarginContainer/HBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/header/header/played_cards/MarginContainer/HBoxContainer" unique_id=1748776448]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_bottom = 5
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/header/header/played_cards/MarginContainer/HBoxContainer/MarginContainer2"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/header/header/played_cards/MarginContainer/HBoxContainer/MarginContainer2" unique_id=391688637]
 layout_mode = 2
 size_flags_horizontal = 2
 texture = ExtResource("5_a6e62")
 stretch_mode = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/header/header/played_cards/MarginContainer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/header/header/played_cards/MarginContainer/HBoxContainer" unique_id=1917938026]
 layout_mode = 2
 theme_override_constants/margin_top = 5
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/header/header/played_cards/MarginContainer/HBoxContainer/MarginContainer"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/header/header/played_cards/MarginContainer/HBoxContainer/MarginContainer" unique_id=778545220]
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 1
@@ -122,17 +123,17 @@ text = "2/10"
 vertical_alignment = 2
 uppercase = true
 
-[node name="fps_label" type="Label" parent="MarginContainer/VBoxContainer/header/header"]
+[node name="fps_label" type="Label" parent="MarginContainer/VBoxContainer/header/header" unique_id=1708726879]
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 text = "FPS: 144\""
 
-[node name="carousel" type="Control" parent="MarginContainer/VBoxContainer"]
+[node name="carousel" type="Control" parent="MarginContainer/VBoxContainer" unique_id=750012865]
 layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("7_ex561")
 
-[node name="CarouselContainer" type="Node2D" parent="MarginContainer/VBoxContainer/carousel" node_paths=PackedStringArray("position_offset_node")]
+[node name="CarouselContainer" type="Node2D" parent="MarginContainer/VBoxContainer/carousel" unique_id=866527274 node_paths=PackedStringArray("position_offset_node")]
 position = Vector2(203, 269)
 script = ExtResource("8_i26em")
 drag_threshold = 20.0
@@ -142,7 +143,7 @@ smoothing_speed = 8.26
 follow_button_focus = true
 position_offset_node = NodePath("Control")
 
-[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/carousel/CarouselContainer"]
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/carousel/CarouselContainer" unique_id=896991599]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -158,7 +159,7 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 metadata/_edit_use_anchors_ = true
 
-[node name="empty_cards_label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="empty_cards_label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1477071555]
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
@@ -171,25 +172,25 @@ text = "Parece que todas as cartas
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="footer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="footer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=529030096]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/footer"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/footer" unique_id=292758888]
 custom_minimum_size = Vector2(128, 65)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_w7ug8")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/footer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/footer/PanelContainer" unique_id=1196407816]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/footer/PanelContainer/MarginContainer"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/footer/PanelContainer/MarginContainer" unique_id=1925911655]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 1
@@ -198,8 +199,12 @@ theme_override_font_sizes/font_size = 40
 text = "2/3"
 vertical_alignment = 2
 
-[node name="random_btn" parent="MarginContainer/VBoxContainer/footer" instance=ExtResource("11_4xd10")]
+[node name="random_btn" parent="MarginContainer/VBoxContainer/footer" unique_id=1398541295 instance=ExtResource("11_4xd10")]
 layout_mode = 2
 stretch_mode = 3
+
+[node name="questioner_time_screen" parent="." unique_id=1195847274 instance=ExtResource("12_l12je")]
+z_index = 90
+layout_mode = 1
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/footer/random_btn" to="." method="_on_random_btn_pressed"]

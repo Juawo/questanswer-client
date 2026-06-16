@@ -3,6 +3,7 @@ extends Control
 signal finished_populate
 signal selected_index_changed(new_index : int)
 signal number_of_child_changed(new_value : int)
+signal card_played
 
 # TODO : Carousel say yo select_card the number of cards in the carouselcontainer and the selected index
 
@@ -21,7 +22,7 @@ func _ready() -> void:
 
 func on_selected_index_changed(new_index : int) -> void :
 	selected_index_changed.emit(new_index)
-	
+
 func on_number_of_child_changed(new_count : int) -> void :
 	number_of_child_changed.emit(new_count)
 
@@ -35,14 +36,17 @@ func populate_carousel(carousel: Control):
 		new_scene.populate_front(card)
 	finished_populate.emit()
 	number_of_child_changed.emit(control_carousel.get_child_count())
-	print("POPULATE - NUM : ", control_carousel.get_child_count())
 
 func _on_card_selected(card_data: CardData):
 	var modal_instace = card_modal_scene.instantiate()
 	get_tree().root.add_child(modal_instace)
 	modal_instace.card_was_played.connect(remove_card)
+	modal_instace.card_was_played.connect(emit_card_played)
 	modal_instace.scroll_carousel.connect(carousel_container.switch_control_state)
 	modal_instace.set_card_data(card_data)
+
+func emit_card_played() -> void :
+	card_played.emit()
 
 func remove_card():
 	var index = carousel_container.selected_index
