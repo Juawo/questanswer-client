@@ -15,7 +15,9 @@ var questioner_idx : int
 var guesser_idx : int
 var used_tips_count : int
 
-var max_points_to_win :int = 50
+var max_points_to_win :int = 9
+
+var winner_name : String
 
 func setup(players_names : Array[String]) -> bool :
 	players.clear()
@@ -81,15 +83,12 @@ func _on_player_hit() -> void :
 	# add points for the player's score
 	scores[guesser_name] += guesser_points
 	scores[questioner_name] += questioner_points
-	print("gp : ", guesser_points)
-	print("qp : ", questioner_points)
-	
+
 	# reset number of tips used
 	used_tips_count = 0
 	
 	# The player that have hit the term will become the questioner now
 	questioner_idx = guesser_idx
-	print("SS : ", scores)
 	
 	# Check if anybody have win the round
 	if check_victory_condition() :
@@ -130,8 +129,16 @@ func check_victory_condition() -> bool :
 	for player in scores :
 		if scores[player] >= max_points_to_win :
 			player_win.emit(player)
+			winner_name = player
+			change_to_win_screen()
 			return true
 	return false
+
+func change_to_win_screen() -> void :
+	await get_tree().create_timer(0.8).timeout
+	await SceneTrasition.fade_in(0.6)
+	get_tree().change_scene_to_file("res://scenes/win_scene/win_screen.tscn")
+	SceneTrasition.fade_out(0.5)
 
 func populate_card_datas(cards_data: Array):
 	cards_from_database.clear()

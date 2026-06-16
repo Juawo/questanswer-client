@@ -90,6 +90,5 @@ size_flags_vertical = 8
 theme_override_colors/font_color = Color(0.28871164, 0.2887116, 0.28871158, 1)
 theme_override_fonts/font = ExtResource("3_rqydg")
 theme_override_font_sizes/font_size = 16
-text = "O primeiro com 100pts vence a rodada!"
 horizontal_alignment = 1
 autowrap_mode = 3

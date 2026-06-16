@@ -48,6 +48,20 @@ shadow_color = Color(0.21176471, 0.5882353, 0.25882354, 1)
 shadow_size = 1
 shadow_offset = Vector2(0, 6)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0d1tg"]
+bg_color = Color(0.456, 0.76, 0.49653336, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+expand_margin_left = 16.0
+expand_margin_top = 8.0
+expand_margin_right = 16.0
+expand_margin_bottom = 8.0
+shadow_color = Color(0.3363, 0.59, 0.3701267, 1)
+shadow_size = 1
+shadow_offset = Vector2(0, 4)
+
 [node name="win_screen" type="Control" unique_id=954764442]
 layout_mode = 3
 anchors_preset = 15
@@ -107,30 +121,74 @@ theme_override_constants/margin_bottom = 30
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="title" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1571335116]
-custom_minimum_size = Vector2(0, 60)
+[node name="wrapper" type="Control" parent="MarginContainer/VBoxContainer" unique_id=791744249]
+custom_minimum_size = Vector2(0, 134)
 layout_mode = 2
+
+[node name="title" type="Label" parent="MarginContainer/VBoxContainer/wrapper" unique_id=1571335116]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 295.0
+offset_bottom = 295.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(166, 67)
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
 theme_override_fonts/font = ExtResource("3_0d1tg")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 56
 text = "[NOME] GANHOOU!!!"
 horizontal_alignment = 1
 vertical_alignment = 2
 autowrap_mode = 2
 
-[node name="scoreboard" parent="MarginContainer/VBoxContainer" unique_id=1379188541 instance=ExtResource("2_vjwxs")]
+[node name="scoreboard_wrapper" type="Control" parent="MarginContainer/VBoxContainer" unique_id=202518310]
+z_index = 2
+custom_minimum_size = Vector2(332, 683)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="play_again_btn" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1084094365]
+[node name="scoreboard" parent="MarginContainer/VBoxContainer/scoreboard_wrapper" unique_id=1379188541 instance=ExtResource("2_vjwxs")]
+layout_mode = 1
+anchor_top = -0.08199122
+anchor_right = 0.0
+anchor_bottom = -0.08199122
+offset_top = 10.0
+offset_right = 332.0
+offset_bottom = 683.0
+grow_horizontal = 1
+grow_vertical = 1
+size_flags_vertical = 3
+
+[node name="btn_wrapper" type="Control" parent="MarginContainer/VBoxContainer" unique_id=1019717396]
+custom_minimum_size = Vector2(172, 20)
 layout_mode = 2
+size_flags_vertical = 8
+
+[node name="play_again_btn" type="Button" parent="MarginContainer/VBoxContainer/btn_wrapper" unique_id=1084094365]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -86.0
+offset_top = -173.0
+offset_right = 86.0
+offset_bottom = -153.0
+grow_horizontal = 2
+grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_stretch_ratio = 0.0
 theme_override_fonts/font = ExtResource("3_ughpl")
 theme_override_styles/normal = SubResource("StyleBoxFlat_vjwxs")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ughpl")
 theme_override_styles/hover = SubResource("StyleBoxFlat_6mbtt")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_0d1tg")
+disabled = true
 text = "JOGAR NOVAMENTE"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/play_again_btn" to="." method="_on_play_again_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/btn_wrapper/play_again_btn" to="." method="_on_play_again_btn_pressed"]
