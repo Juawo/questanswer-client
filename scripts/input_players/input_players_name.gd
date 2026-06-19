@@ -77,6 +77,7 @@ func compare_players_name(name1 : String, name2 : String) -> bool :
 		return (name1 == name2)
 
 func _on_start_btn_pressed() -> void:
+	AudioManager.play_button()
 	players_name = get_all_players_name()
 	var error = !SessionState.setup(players_name)
 	if !error :

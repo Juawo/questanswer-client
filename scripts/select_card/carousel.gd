@@ -40,6 +40,7 @@ func populate_carousel(carousel: Control):
 func _on_card_selected(card_data: CardData):
 	var modal_instace = card_modal_scene.instantiate()
 	get_tree().root.add_child(modal_instace)
+	AudioManager.play_card_open()
 	modal_instace.card_was_played.connect(remove_card)
 	modal_instace.card_was_played.connect(emit_card_played)
 	modal_instace.scroll_carousel.connect(carousel_container.switch_control_state)

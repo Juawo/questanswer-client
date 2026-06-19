@@ -8,6 +8,7 @@ extends Control
 var winner_name := "PLAYER1029"
 
 func _ready() -> void:
+	AudioManager.switch_to_win_music()
 	await get_tree().create_timer(0.8).timeout
 	scoreboard.populate_scoreboard_for_win_screen()
 	scoreboard.update_comment(true)
@@ -23,10 +24,11 @@ func _on_scoreboard_finished() -> void :
 	confetti_particle_right.explosiveness = 1.0
 	confetti_particle_left.emitting = true
 	confetti_particle_right.emitting = true
-	await get_tree().create_timer(0.3).timeout
+	AudioManager.play_confetti()
+	await get_tree().create_timer(0.5).timeout
 	confetti_particle_left.explosiveness = 0
 	confetti_particle_right.explosiveness = 0
-	# add transition here
+	
 	var title_tween = create_tween().set_parallel(true).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	title_tween.tween_property(title, "position", Vector2.ZERO, 0.4)
 
@@ -40,6 +42,8 @@ func _on_scoreboard_finished() -> void :
 	play_again_btn.disabled = false
 
 func _on_play_again_btn_pressed() -> void:
+	AudioManager.play_button()
+	AudioManager.reset_to_base_music()
 	await SceneTrasition.fade_in(0.6)
 	get_tree().change_scene_to_file("res://scenes/input_players_name/input_players_name.tscn")
 	SceneTrasition.fade_out(0.4)

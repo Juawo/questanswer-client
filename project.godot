@@ -19,12 +19,17 @@ run/main_scene="res://scenes/main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://bt2b0f2dhkjx4"
+
 [autoload]
 
 SessionState="*res://scripts/autoloads/SessionState.gd"
 ApiManager="*res://scripts/autoloads/APIManager.gd"
 SaveManager="*res://scripts/autoloads/SaveManager.gd"
 SceneTrasition="*res://scenes/scene_trasition.tscn"
+AudioManager="*uid://ct2newkaoo4vj"
 
 [display]
 

@@ -59,6 +59,8 @@ func update_rank_position_visual(new_value : int) -> void :
 			rank_icon.texture = null
 			rank_position_label.text = str(rank_position)
 			margin_container.visible = true
+	AudioManager.play_pop_up()
+	
 
 func animate_rank_change(target_position : int) -> void :
 	var random_rotation = randf_range(-15.0,15.0)

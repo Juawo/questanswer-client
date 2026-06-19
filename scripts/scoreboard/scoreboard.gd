@@ -33,7 +33,6 @@ func populate_scoreboard() -> void :
 		
 		element.custom_minimum_size.x = size_x_element
 		element.size.x = size_x_element
-		print("players_rank_wrapper.size.x : ", players_rank_wrapper.size.x)
 		element.size.y = LINE_HEIGHT
 		element.position.y = i * (LINE_HEIGHT + MARGIN)
 		element.position.x = 0.0
@@ -53,6 +52,7 @@ func populate_scoreboard_for_win_screen() -> void :
 
 		if size_x_element == 0.0 :
 			size_x_element = 272
+		
 		element.custom_minimum_size.x = size_x_element
 		element.size.x = size_x_element
 		element.size.y = LINE_HEIGHT
@@ -75,6 +75,7 @@ func populate_scoreboard_for_win_screen() -> void :
 		await fall_tween.finished 
 		await get_tree().create_timer(0.15).timeout
 	populate_finished.emit()
+
 func sort_animate_scoreboard() -> void :
 	# update the data and sort
 	_ordering_scores()
@@ -110,7 +111,6 @@ func ordering_rank_elements() -> void :
 				var target_position = i * (LINE_HEIGHT + MARGIN)
 				var target_element = ranks[j]
 				tween.tween_property(target_element, "position:y", target_position, 0.5)
-				
 				if ranks[j].has_method("animate_rank_change"):
 					ranks[j].animate_rank_change(i + 1)
 
