@@ -1,0 +1,213 @@
+[gd_scene format=3 uid="uid://up23p2uvtd8x"]
+
+[ext_resource type="Script" uid="uid://xy2eovrw6k8f" path="res://scripts/settings/options_panel.gd" id="1_448k4"]
+[ext_resource type="FontFile" uid="uid://bvrcf8ilx188" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Lexend_Deca/static/LexendDeca-Medium.ttf" id="1_rmvpx"]
+[ext_resource type="Texture2D" uid="uid://n2wa8hg0nrm1" path="res://assets/UI/close_btn-1.png" id="2_448k4"]
+[ext_resource type="Texture2D" uid="uid://c7qfwvthpymxx" path="res://assets/UI/close_btn_pressed.png" id="3_xmteo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_88q3r"]
+bg_color = Color(0.9311249, 0.931125, 0.9311249, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 2
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_12012"]
+bg_color = Color(0.19607843, 0.19607843, 0.19607843, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_top = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ro2k"]
+bg_color = Color(0.83137256, 0.83137256, 0.83137256, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_top = 6.0
+expand_margin_bottom = 6.0
+shadow_color = Color(0.49127263, 0.49127263, 0.49127263, 0.6)
+shadow_size = 1
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="Animation" id="Animation_rmvpx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("background:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.2736, 0.40204, 0.57, 0.72156864)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-40, -121.5)]
+}
+
+[sub_resource type="Animation" id="Animation_448k4"]
+resource_name = "show"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("background:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.27450982, 0.40392157, 0.5686275, 0), Color(0.2736, 0.40204, 0.57, 0.72156864)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.36666667, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-40, -1185), Vector2(-40, 10), Vector2(-40, -121.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xmteo"]
+_data = {
+&"RESET": SubResource("Animation_rmvpx"),
+&"show": SubResource("Animation_448k4")
+}
+
+[node name="options_panel" type="Control" unique_id=678374946]
+z_index = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_448k4")
+
+[node name="background" type="ColorRect" parent="." unique_id=873222985]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2736, 0.40204, 0.57, 0.72156864)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=338139254]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -121.5
+offset_right = 40.0
+offset_bottom = 121.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 250
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 250
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer" unique_id=275568941]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 200
+
+[node name="panel_container" type="PanelContainer" parent="MarginContainer/MarginContainer" unique_id=73636189]
+custom_minimum_size = Vector2(342, 260)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_88q3r")
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/MarginContainer/panel_container" unique_id=1581892861]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MarginContainer/panel_container/MarginContainer2" unique_id=1725957794]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer/panel_container/MarginContainer2/MarginContainer" unique_id=2008829239]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="header" type="VBoxContainer" parent="MarginContainer/MarginContainer/panel_container/MarginContainer2/MarginContainer/VBoxContainer" unique_id=136203143]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/MarginContainer/panel_container/MarginContainer2/MarginContainer/VBoxContainer/header" unique_id=381215004]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_rmvpx")
+theme_override_font_sizes/font_size = 30
+text = "Opções"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/MarginContainer/panel_container/MarginContainer2/MarginContainer/VBoxContainer/header" unique_id=1663970980]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/separator = SubResource("StyleBoxFlat_12012")
+
+[node name="content" type="VBoxContainer" parent="MarginContainer/MarginContainer/panel_container/MarginContainer2/MarginContainer/VBoxContainer" unique_id=1754721753]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="help_btn" type="Button" parent="MarginContainer/MarginContainer/panel_container/MarginContainer2/MarginContainer/VBoxContainer/content" unique_id=1503313949]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_rmvpx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5ro2k")
+text = "Manual"
+
+[node name="settigns_btn" type="Button" parent="MarginContainer/MarginContainer/panel_container/MarginContainer2/MarginContainer/VBoxContainer/content" unique_id=134168015]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_rmvpx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5ro2k")
+text = "Configurações"
+
+[node name="close_btn" type="TextureButton" parent="MarginContainer/MarginContainer/panel_container/MarginContainer2" unique_id=641063632]
+z_index = 3
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture_normal = ExtResource("2_448k4")
+texture_pressed = ExtResource("3_xmteo")
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=629656798]
+libraries/ = SubResource("AnimationLibrary_xmteo")
+
+[connection signal="pressed" from="MarginContainer/MarginContainer/panel_container/MarginContainer2/MarginContainer/VBoxContainer/content/help_btn" to="." method="_on_help_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/panel_container/MarginContainer2/MarginContainer/VBoxContainer/content/settigns_btn" to="." method="_on_settigns_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/panel_container/MarginContainer2/close_btn" to="." method="_on_close_btn_pressed"]

@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://bh3rydcpkhuyn"]
+
+[ext_resource type="StyleBox" uid="uid://cw74adukfhan7" path="res://assets/foldable.tres" id="1_b41qc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2fvqo"]
+bg_color = Color(0.8500363, 0.62244385, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0.45817214, 0.32919553, 1.92523e-07, 1)
+shadow_size = 1
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_b41qc"]
+color = Color(0.9676506, 0.9676505, 0.9676506, 1)
+thickness = 6
+
+[node name="options_btn" type="Button" unique_id=1324509541]
+custom_minimum_size = Vector2(40, 40)
+anchors_preset = -1
+anchor_right = 0.097
+anchor_bottom = 0.044000003
+offset_right = -9.964001
+offset_bottom = -10.348003
+theme_override_styles/normal = ExtResource("1_b41qc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2fvqo")
+theme_override_styles/hover = ExtResource("1_b41qc")
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=291880194]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1155925099]
+layout_mode = 2
+alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=1804253105]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_b41qc")
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=1688174116]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_b41qc")
+
+[node name="HSeparator3" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=2030192565]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_b41qc")
