@@ -6,8 +6,9 @@ var file_path: String = "user://questanswer_data.json"
 var played_cards_ids: Array
 
 # config
-var music_volume : float
-var sfx_volume : float
+var music_volume := 100.0
+var sfx_volume := 100.0
+var is_first_time := true
 
 func _ready() -> void:
 	load_data()
@@ -30,6 +31,7 @@ func save_data():
 			"music_volume" : music_volume,
 			"sfx_volume" : sfx_volume
 		},
+		"is_first_time" : is_first_time,
 		"played_ids" : json_data
 	}
 	save_file.store_line(JSON.stringify(data))
@@ -38,11 +40,13 @@ func save_data():
 func load_data():
 	if not FileAccess.file_exists(file_path):
 		print("O arquivo de dados persistente nao existe")
+		finished_load_data.emit()
 		return # Adicionado para evitar ler um arquivo que não existe
 
 	var save_file = FileAccess.open(file_path, FileAccess.READ)
 	if not save_file:
 		print("Nao foi possivel abrir o arquivo para leitura")
+		finished_load_data.emit()
 		return
 	
 	var json_data = JSON.parse_string(save_file.get_as_text())
@@ -51,7 +55,7 @@ func load_data():
 	# Garante que os dados decodificados são um Dicionário válido
 	if json_data is Dictionary:
 		played_cards_ids = json_data.get("played_ids", [])
-		
+		is_first_time = json_data.get("is_first_time", false)
 		# Como music e sfx estão dentro do dicionário "settings", acessamos assim:
 		var settings = json_data.get("settings", {})
 		if settings is Dictionary:
@@ -62,3 +66,8 @@ func load_data():
 		save_data() 
 		
 	finished_load_data.emit()
+
+func disable_first_time() -> void :
+	if is_first_time:
+		is_first_time = false
+		save_data()

@@ -1,5 +1,6 @@
 extends Control
 
+const MANUAL = preload("uid://dulrrba8qo6u8")
 @onready var players_vbox: VBoxContainer = $MarginContainer/VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/players_vbox
 @onready var start_btn: Button = $MarginContainer/VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/start_btn
 @onready var tip_title: Label = $MarginContainer/VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/tip_vbox/tip_title
@@ -81,9 +82,13 @@ func _on_start_btn_pressed() -> void:
 	players_name = get_all_players_name()
 	var error = !SessionState.setup(players_name)
 	if !error :
+		if SaveManager.is_first_time :
+			var scene = MANUAL.instantiate()
+			get_tree().current_scene.add_child(scene)
+			await scene.manual_closed
+			SaveManager.disable_first_time()
 		await SceneTrasition.fade_in(0.6)
 		if SessionState.cards_from_database.is_empty() and !fetched:
-			print("INOOT : ", fetched)
 			await ApiManager.cards_fetched_sucessfully
 			get_tree().change_scene_to_file("res://scenes/select_card/select_card.tscn")
 			await SceneTrasition.fade_out(0.4)

@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 class_name CarouselContainer
 
 signal _on_selected_index_changed(new_index : int)

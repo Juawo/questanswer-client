@@ -22,7 +22,8 @@ func _ready() -> void:
 	carousel.number_of_child_changed.connect(_on_number_of_child_changed)
 	carousel.populate_carousel(carousel.control_carousel)
 	options_panel.panel_closed.connect(_on_options_panel_closed)
-	
+	questioner_time_screen.show_screen()
+
 func _on_random_btn_pressed() -> void:
 	var num_current_cards = carousel_container.position_offset_node.get_child_count()
 	if num_current_cards <= 1:
