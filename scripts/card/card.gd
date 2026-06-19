@@ -51,8 +51,8 @@ func _on_back_pressed() -> void:
 func _on_close_btn_pressed() -> void:
 	if current_mode == MODE.MODAL:
 		make_unclicable()
-		print("Closed tips")
 		emit_signal("close_requested")
+		AudioManager.stop_clock_counting()
 
 func make_unclicable() -> void:
 	for child in tips.get_children():
@@ -88,6 +88,7 @@ func toggle_action_btns(is_disabled : bool) -> void:
 	hit_btn.disabled = is_disabled
 
 func _on_error_btn_pressed() -> void:
+	AudioManager.play_correct(false)
 	if get_used_tips_count() >= number_of_tips :
 		SessionState._on_all_player_missed()
 		SaveManager.add_played_card(self.card_data.id)
@@ -100,6 +101,7 @@ func _on_error_btn_pressed() -> void:
 		toggle_action_btns(true)
 
 func _on_hit_btn_pressed() -> void:
+	AudioManager.play_correct(true)
 	SessionState._on_player_hit()
 	SaveManager.add_played_card(self.card_data.id)
 	make_unclicable()

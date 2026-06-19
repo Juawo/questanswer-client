@@ -204,6 +204,7 @@ layout_mode = 2
 stretch_mode = 3
 
 [node name="questioner_time_screen" parent="." unique_id=1195847274 instance=ExtResource("12_l12je")]
+visible = false
 z_index = 90
 layout_mode = 1
 

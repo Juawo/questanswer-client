@@ -33,9 +33,9 @@ func _on_random_btn_pressed() -> void:
 
 	# Sorteia um novo índice, garantindo que seja diferente do atual
 	random_index = randi_range(0, num_current_cards - 1) # Correção: o índice máximo é size - 1
+	AudioManager.play_random_card()
 	while random_index == selected_index:
 		random_index = randi_range(0, num_current_cards -1)
-	
 	emit_signal("random_index_sorted", random_index)
 
 func _on_selected_index_changed(new_index : int) -> void :

@@ -38,7 +38,7 @@ func fade_in(duration: float = 0.8) -> void:
 	# Voltamos para o modo SEQUENCIAL para assentar o tamanho da UI após o Pop grande
 	main_tween.set_parallel(false)
 	main_tween.tween_property(loading_ui, "scale", Vector2(1.0, 1.0), 0.1)
-	
+	AudioManager.set_music_opaque(true)
 	# Agora sim, um único await que garante que todo esse ecossistema terminou!
 	await main_tween.finished
 	transition_finished.emit()
@@ -52,7 +52,7 @@ func fade_out(duration: float = 0.8) -> void:
 	
 	# 2. Depois que a UI sumiu por completo, o shader entra abrindo a cortina
 	main_tween.tween_method(set_shader_progress, 1.0, 0.0, duration).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
-	
 	await main_tween.finished
+	AudioManager.set_music_opaque(false)
 	hide() 
 	transition_finished.emit()

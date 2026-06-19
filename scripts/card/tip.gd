@@ -42,15 +42,16 @@ func start_tip():
 
 	progress_bar.value = 100
 	progress_bar.show()
-	
+	AudioManager.start_clock_counting()
 	timer.start()
 	set_process(true)
 
 func _on_timer_timeout() -> void:
 	set_process(false)
 	label.text = "[s]%s[/s]" % [old_text]
+	AudioManager.stop_clock_counting()
+	AudioManager.play_alarm()
 	tip_finished.emit()
-	
 	
 func set_tip_text(text_for_tip: String):
 	old_text = text_for_tip

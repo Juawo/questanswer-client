@@ -143,12 +143,14 @@ func _left():
 		update_selected_index(0)
 	else:
 		update_selected_index(selected_index - 1)
+	AudioManager.play_card_slide(false)
 
 func _right():
 	if selected_index >= position_offset_node.get_child_count()-1:
 		update_selected_index(position_offset_node.get_child_count()-1)
 	else :
 		update_selected_index(selected_index + 1)
+	AudioManager.play_card_slide(true)
 
 func update_selected_index(new_index : int) -> void:
 	var children = position_offset_node.get_children()

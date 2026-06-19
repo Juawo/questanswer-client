@@ -58,7 +58,8 @@ func turn_card_animation():
 		is_front_showing = not is_front_showing
 		var front_node = current_card_scene.find_child("front")
 		var back_node = current_card_scene.find_child("back")
-		
+		AudioManager.set_music_opaque(true)
+		AudioManager.play_card_turn()
 		tween.tween_property(current_card_scene, "scale", Vector2(0.01,1), 0.2).set_trans(Tween.TRANS_QUAD)
 		await tween.finished
 		
@@ -86,6 +87,8 @@ func close_modal_animation():
 	tween.tween_property(current_card_scene, "modulate", Color(0,0,0,0), 0.4)
 	tween.tween_property(background, "modulate", Color(0,0,0,0), 0.4)
 	tween.tween_callback(func(): background.visible = false)
+	AudioManager.play_card_close()
+	AudioManager.set_music_opaque(true)
 	await tween.finished
 	player_time_label.visible = false
 	emit_signal("scroll_carousel", true) # change modal to sample card in carousel
