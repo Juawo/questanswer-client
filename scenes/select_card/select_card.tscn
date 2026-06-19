@@ -7,11 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://dpysc517dyhy0" path="res://assets/UI/played_cards_icon.png" id="5_a6e62"]
 [ext_resource type="FontFile" uid="uid://bifn41ua7c7tv" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Luckiest_Guy/LuckiestGuy-Regular.ttf" id="6_7wu7a"]
 [ext_resource type="Script" uid="uid://bkmyovu1j26hh" path="res://scripts/select_card/carousel.gd" id="7_ex561"]
+[ext_resource type="PackedScene" uid="uid://bh3rydcpkhuyn" path="res://scenes/settings/options_btn.tscn" id="7_pgxac"]
 [ext_resource type="Script" uid="uid://bv1osm2o77rcy" path="res://scripts/common/carousel_container.gd" id="8_i26em"]
 [ext_resource type="FontFile" uid="uid://c0vrbxasit4dl" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Lexend_Deca/static/LexendDeca-Black.ttf" id="9_2x34j"]
 [ext_resource type="Texture2D" uid="uid://dvwf7r6pglh0t" path="res://assets/UI/identifier_card_with_total.png" id="10_fdpjd"]
 [ext_resource type="PackedScene" uid="uid://c7bv4w1uhi3t8" path="res://scenes/select_card/random_btn.tscn" id="11_4xd10"]
 [ext_resource type="PackedScene" uid="uid://bp4suq2chyt4q" path="res://scenes/questioner_time_screen/questioner_time_screen.tscn" id="12_l12je"]
+[ext_resource type="PackedScene" uid="uid://up23p2uvtd8x" path="res://scenes/settings/options_panel.tscn" id="14_ximx0"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hv41o"]
 texture = ExtResource("4_ximx0")
@@ -60,11 +62,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 33
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=2011142220]
 layout_mode = 2
+size_flags_horizontal = 8
 theme_override_constants/separation = 80
 
 [node name="header" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=1793008633]
@@ -78,12 +83,12 @@ alignment = 1
 
 [node name="back_btn" parent="MarginContainer/VBoxContainer/header/header" unique_id=1728331930 instance=ExtResource("3_pgxac")]
 layout_mode = 2
+size_flags_horizontal = 3
 stretch_mode = 3
 
 [node name="played_cards" type="PanelContainer" parent="MarginContainer/VBoxContainer/header/header" unique_id=400766706]
 custom_minimum_size = Vector2(254, 58)
 layout_mode = 2
-size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_hv41o")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/header/header/played_cards" unique_id=1106324489]
@@ -123,10 +128,10 @@ text = "2/10"
 vertical_alignment = 2
 uppercase = true
 
-[node name="fps_label" type="Label" parent="MarginContainer/VBoxContainer/header/header" unique_id=1708726879]
+[node name="options_btn" parent="MarginContainer/VBoxContainer/header/header" unique_id=1324509541 instance=ExtResource("7_pgxac")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 10
-text = "FPS: 144\""
+size_flags_horizontal = 8
+size_flags_vertical = 4
 
 [node name="carousel" type="Control" parent="MarginContainer/VBoxContainer" unique_id=750012865]
 layout_mode = 2
@@ -208,4 +213,8 @@ visible = false
 z_index = 90
 layout_mode = 1
 
+[node name="options_panel" parent="." unique_id=678374946 instance=ExtResource("14_ximx0")]
+layout_mode = 1
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/header/header/options_btn" to="." method="_on_options_btn_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/footer/random_btn" to="." method="_on_random_btn_pressed"]

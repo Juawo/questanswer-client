@@ -68,3 +68,6 @@ func remove_card():
 	carousel_container.update_selected_index(carousel_container.selected_index)
 	
 	number_of_child_changed.emit(new_count)
+
+func switch_scroll_state(state : bool) -> void :
+	carousel_container.switch_control_state(state)

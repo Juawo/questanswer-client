@@ -39,7 +39,9 @@ func _ready() -> void:
 	music_bus_idx = AudioServer.get_bus_index("Music")
 	lowpass_effect_idx = 0
 	_setup_music_player()
-	_setup_clock_player()
+	_setup_clock_player() 
+	update_volume_music(SaveManager.music_volume)
+	update_volume_sfx(SaveManager.sfx_volume)
 
 func set_music_opaque(opaque: bool) -> void:
 	if music_bus_idx != -1:

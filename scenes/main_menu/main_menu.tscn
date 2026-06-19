@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://hbxduxlw6qpf" path="res://scenes/main_menu/exit_btn.tscn" id="3_oa1go"]
 [ext_resource type="PackedScene" uid="uid://c6ghkyxcsppg2" path="res://scenes/common/background.tscn" id="5_jk1qb"]
 [ext_resource type="Texture2D" uid="uid://b6g4qi57ayain" path="res://assets/UI/logo_name_2.png" id="6_rtw2f"]
+[ext_resource type="PackedScene" uid="uid://bh3rydcpkhuyn" path="res://scenes/settings/options_btn.tscn" id="8_4xg86"]
 
 [node name="main_menu" type="Control" unique_id=206912657]
 layout_mode = 3
@@ -91,6 +92,19 @@ theme_override_fonts/font = ExtResource("2_oa1go")
 text = "BETA VERSION 0.1"
 horizontal_alignment = 1
 
+[node name="options_btn" parent="." unique_id=1324509541 instance=ExtResource("8_4xg86")]
+layout_mode = 1
+anchor_left = 0.83745635
+anchor_top = 0.021547439
+anchor_right = 0.9514466
+anchor_bottom = 0.073181026
+offset_left = -0.03201294
+offset_top = 0.24099922
+offset_right = 0.0039978027
+offset_bottom = -0.10700226
+grow_horizontal = 0
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/buttons/play_btn" to="." method="_on_play_btn_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/buttons/credits_btn" to="." method="_on_credits_btn_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/buttons/exit_btn" to="." method="_on_exit_btn_pressed"]
+[connection signal="pressed" from="options_btn" to="." method="_on_options_btn_pressed"]
