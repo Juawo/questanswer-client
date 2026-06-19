@@ -185,13 +185,15 @@ func update_volume_music(volume_linear: float) -> void:
 	var bus_index = AudioServer.get_bus_index("Music")
 	if bus_index != -1:
 		# Converte de 0.0 (mudo) a 1.0 (máximo) para a escala de decibéis correta
-		var db = linear_to_db(volume_linear)
+		var local_linear = volume_linear / 100.0
+		var db = linear_to_db(local_linear)
 		AudioServer.set_bus_volume_db(bus_index, db)
 		AudioServer.set_bus_mute(bus_index, volume_linear == 0.0)
 
 func update_volume_sfx(volume_linear: float) -> void:
 	var bus_index = AudioServer.get_bus_index("SFX")
 	if bus_index != -1:
-		var db = linear_to_db(volume_linear)
+		var local_linear = volume_linear / 100.0
+		var db = linear_to_db(local_linear)
 		AudioServer.set_bus_volume_db(bus_index, db)
 		AudioServer.set_bus_mute(bus_index, volume_linear == 0.0)
