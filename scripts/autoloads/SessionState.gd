@@ -15,7 +15,7 @@ var questioner_idx : int
 var guesser_idx : int
 var used_tips_count : int
 
-var max_points_to_win :int = 9
+var max_points_to_win :int = 30
 
 var winner_name : String
 

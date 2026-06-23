@@ -1,0 +1,556 @@
+[gd_scene format=3 uid="uid://dulrrba8qo6u8"]
+
+[ext_resource type="PackedScene" uid="uid://b8cgt6cyb8w1d" path="res://scenes/card/close_btn.tscn" id="1_116d0"]
+[ext_resource type="Script" uid="uid://dvgtp6tpugcqo" path="res://scripts/manual/manual.gd" id="1_y7uol"]
+[ext_resource type="FontFile" uid="uid://bifn41ua7c7tv" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Luckiest_Guy/LuckiestGuy-Regular.ttf" id="2_bwpdq"]
+[ext_resource type="FontFile" uid="uid://c0vrbxasit4dl" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Lexend_Deca/static/LexendDeca-Black.ttf" id="3_d278f"]
+[ext_resource type="FontFile" uid="uid://bvrcf8ilx188" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Lexend_Deca/static/LexendDeca-Medium.ttf" id="4_5n4l1"]
+[ext_resource type="Texture2D" uid="uid://cg51t01ovj1en" path="res://assets/UI/next_previus_btn.png" id="4_bwpdq"]
+[ext_resource type="FontFile" uid="uid://cchki75ydfvx7" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Lexend_Deca/static/LexendDeca-Light.ttf" id="4_y7uol"]
+[ext_resource type="FontFile" uid="uid://isr55n58ae7w" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Lexend_Deca/static/LexendDeca-ExtraLight.ttf" id="6_8hbc8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y7uol"]
+bg_color = Color(0.94509804, 0.94509804, 0.94509804, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.38039216)
+shadow_size = 5
+shadow_offset = Vector2(0, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d278f"]
+bg_color = Color(0.65196174, 0.6519618, 0.65196145, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="Animation" id="Animation_5n4l1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("background:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.2736, 0.40204, 0.57, 0.72156864)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MarginContainer/wrapper/manual_pag_1:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MarginContainer/wrapper/manual_pag_2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MarginContainer/wrapper/manual_pag_3:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_y7uol"]
+resource_name = "show"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("background:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.27450982, 0.40392157, 0.5686275, 0), Color(0.2736, 0.40204, 0.57, 0.72156864)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.03333336, 0.36666667, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 956), Vector2(0, -40), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8hbc8"]
+resource_name = "show_cards"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/wrapper/manual_pag_1:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-2.9802322e-08, 0.23333332, 0.5666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 900), Vector2(0, -40), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer/wrapper/manual_pag_2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.099999994, 0.3333333, 0.6333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 900), Vector2(0, -50), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MarginContainer/wrapper/manual_pag_3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.19999996, 0.46666667, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 900), Vector2(0, -60), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8hbc8"]
+_data = {
+&"RESET": SubResource("Animation_5n4l1"),
+&"show": SubResource("Animation_y7uol"),
+&"show_cards": SubResource("Animation_8hbc8")
+}
+
+[node name="manual" type="Control" unique_id=2020252529]
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 2
+script = ExtResource("1_y7uol")
+
+[node name="background" type="ColorRect" parent="." unique_id=1317957745]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 2
+color = Color(0.2736, 0.40204, 0.57, 0.72156864)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1274420426]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -0.0018310547
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 110
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 110
+
+[node name="wrapper" type="Control" parent="MarginContainer" unique_id=1905916759]
+layout_mode = 2
+mouse_behavior_recursive = 2
+
+[node name="manual_pag_3" type="PanelContainer" parent="MarginContainer/wrapper" unique_id=1314191020]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.037474073
+pivot_offset = Vector2(166, 348)
+mouse_behavior_recursive = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_y7uol")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/wrapper/manual_pag_3" unique_id=840025118]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/wrapper/manual_pag_3/MarginContainer" unique_id=1670328950]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/wrapper/manual_pag_3/MarginContainer/MarginContainer" unique_id=1643468516]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="title" type="Label" parent="MarginContainer/wrapper/manual_pag_3/MarginContainer/MarginContainer/VBoxContainer" unique_id=111231264]
+custom_minimum_size = Vector2(282, 79)
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 0
+size_flags_stretch_ratio = 7.0
+theme_override_colors/font_color = Color(0.22806081, 0.22806081, 0.22806078, 1)
+theme_override_fonts/font = ExtResource("2_bwpdq")
+theme_override_font_sizes/font_size = 30
+text = "Manual do 
+Jogador"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="content" type="VBoxContainer" parent="MarginContainer/wrapper/manual_pag_3/MarginContainer/MarginContainer/VBoxContainer" unique_id=1955832086]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="section_title" type="Label" parent="MarginContainer/wrapper/manual_pag_3/MarginContainer/MarginContainer/VBoxContainer/content" unique_id=1005779275]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.22745098, 0.22745098, 0.22745098, 1)
+theme_override_fonts/font = ExtResource("3_d278f")
+theme_override_font_sizes/font_size = 20
+text = "Pontos e Pegadinhas"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/wrapper/manual_pag_3/MarginContainer/MarginContainer/VBoxContainer/content" unique_id=498264271]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_d278f")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/wrapper/manual_pag_3/MarginContainer/MarginContainer/VBoxContainer/content/PanelContainer" unique_id=1171457478]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 16
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/wrapper/manual_pag_3/MarginContainer/MarginContainer/VBoxContainer/content/PanelContainer/MarginContainer" unique_id=818667085]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_y7uol")
+theme_override_fonts/bold_font = ExtResource("4_5n4l1")
+theme_override_fonts/italics_font = ExtResource("6_8hbc8")
+bbcode_enabled = true
+text = "[font_size=18][b]SISTEMA DE PONTUAÇÃO[/b][/font_size]
+O QuestAnswer recompensa tanto a genialidade dos Adivinhadores quanto a astúcia do Mestre.
+
+• [b]Pontos do Mestre:[/b] Cada dica que os jogadores utilizarem se transforma em [b][color=#ffcc00]1 ponto[/color][/b] para o Mestre. Quanto mais dicas eles precisarem para adivinhar, mais o Mestre pontua!
+• [b]Pontos do Vencedor:[/b] O jogador que acertar o Termo Oculto ganha pontos iguais às [b][color=#ffcc00]dicas que NÃO foram utilizadas[/color][/b]. Acertar logo no início garante uma bolada!
+• [b]Ninguém Acertou?[/b] Se todas as dicas forem abertas e ninguém descobrir o termo, o Mestre fatura a [b][color=#ffcc00]pontuação inteira (10 pontos)[/color][/b] e um Novo Mestre é sorteado pelo jogo para a próxima rodada.
+[br]
+[font_size=18][b]FIM DE JOGO[/b][/font_size]
+O jogo roda em rounds. A partida termina assim que o primeiro jogador conseguir alcançar a pontuação limite (O jogo exibe a pontuação limite!). Ele será coroado o grande campeão na tela de pódio!
+[br]
+[font_size=16][b]CUIDADO COM AS PEGADINHAS![/b][/font_size]
+Nem tudo é o que parece! Algumas cartas contêm [b]Dicas Falsas[/b] infiltradas de propósito pela nossa Inteligência Artificial para confundir os Adivinhadores e ajudar o Mestre a pontuar. Fiquem atentos e não confiem cegamente em tudo!"
+
+[node name="footer" type="HBoxContainer" parent="MarginContainer/wrapper/manual_pag_3/MarginContainer/MarginContainer/VBoxContainer" unique_id=575293351]
+layout_mode = 2
+
+[node name="previous_btn" type="TextureButton" parent="MarginContainer/wrapper/manual_pag_3/MarginContainer/MarginContainer/VBoxContainer/footer" unique_id=1284306779]
+layout_mode = 2
+size_flags_horizontal = 2
+texture_normal = ExtResource("4_bwpdq")
+flip_h = true
+
+[node name="page_label" type="Label" parent="MarginContainer/wrapper/manual_pag_3/MarginContainer/MarginContainer/VBoxContainer/footer" unique_id=1336240194]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.49782193, 0.49782193, 0.49782193, 1)
+theme_override_fonts/font = ExtResource("4_5n4l1")
+text = "Pág 3"
+
+[node name="next_btn" type="TextureButton" parent="MarginContainer/wrapper/manual_pag_3/MarginContainer/MarginContainer/VBoxContainer/footer" unique_id=1078234476]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+texture_normal = ExtResource("4_bwpdq")
+
+[node name="close_btn" parent="MarginContainer/wrapper/manual_pag_3/MarginContainer" unique_id=241832994 instance=ExtResource("1_116d0")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="manual_pag_2" type="PanelContainer" parent="MarginContainer/wrapper" unique_id=717210578]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.074738555
+pivot_offset = Vector2(166, 348)
+mouse_behavior_recursive = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_y7uol")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/wrapper/manual_pag_2" unique_id=280378585]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/wrapper/manual_pag_2/MarginContainer" unique_id=735148792]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/wrapper/manual_pag_2/MarginContainer/MarginContainer" unique_id=46927248]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="title" type="Label" parent="MarginContainer/wrapper/manual_pag_2/MarginContainer/MarginContainer/VBoxContainer" unique_id=268508316]
+custom_minimum_size = Vector2(282, 79)
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+size_flags_stretch_ratio = 7.0
+theme_override_colors/font_color = Color(0.22806081, 0.22806081, 0.22806078, 1)
+theme_override_fonts/font = ExtResource("2_bwpdq")
+theme_override_font_sizes/font_size = 30
+text = "Manual do 
+Jogador"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="content" type="VBoxContainer" parent="MarginContainer/wrapper/manual_pag_2/MarginContainer/MarginContainer/VBoxContainer" unique_id=410101659]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="section_title" type="Label" parent="MarginContainer/wrapper/manual_pag_2/MarginContainer/MarginContainer/VBoxContainer/content" unique_id=696001435]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.22745098, 0.22745098, 0.22745098, 1)
+theme_override_fonts/font = ExtResource("3_d278f")
+theme_override_font_sizes/font_size = 20
+text = "Adivinhadores e Etiqueta"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/wrapper/manual_pag_2/MarginContainer/MarginContainer/VBoxContainer/content" unique_id=2095107463]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_d278f")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/wrapper/manual_pag_2/MarginContainer/MarginContainer/VBoxContainer/content/PanelContainer" unique_id=642758484]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 16
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/wrapper/manual_pag_2/MarginContainer/MarginContainer/VBoxContainer/content/PanelContainer/MarginContainer" unique_id=1158968436]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_y7uol")
+theme_override_fonts/bold_font = ExtResource("4_5n4l1")
+theme_override_fonts/italics_font = ExtResource("6_8hbc8")
+bbcode_enabled = true
+text = "[font_size=18][b]OS ADIVINHADORES[/b][/font_size]
+Se você não é o Mestre, parabéns, você é um Investigador! Seu objetivo é descobrir o termo oculto gastando o mínimo de pistas possível.
+
+[b]1. Escolha a Pista:[/b] Na sua vez, escolha um número de [b]1 a 10[/b] para liberar uma dica. [i]Atenção: dicas já usadas não podem ser repetidas![/i]
+[b]2. Raciocínio Rápido:[/b] Você tem [b][color=#ffcc00]apenas o tempo do cronômetro[/color][/b] para pensar e dar o seu palpite final ao Mestre. Se você não souber de jeito nenhum, pode dizer [i]\"Pular\"[/i] para passar a vez, mas isso contará como um erro comum. Se o tempo zerar sem resposta, você também perde a chance!
+[br]
+[font_size=16][b]ETIQUETA DE JOGO[/b][/font_size]
+[b]Recomenda-se silêncio absoluto durante a vez do adversário![/b] Se você começar a dar palpites ou discutir as dicas em voz alta fora da sua vez, o jogador da rodada atual (que pode estar totalmente perdido) pode simplesmente roubar a sua ideia, falar o palpite correto para o Mestre e levar todos os pontos no seu lugar! Guarde suas teorias para a sua vez."
+
+[node name="footer" type="HBoxContainer" parent="MarginContainer/wrapper/manual_pag_2/MarginContainer/MarginContainer/VBoxContainer" unique_id=884484580]
+layout_mode = 2
+
+[node name="previous_btn" type="TextureButton" parent="MarginContainer/wrapper/manual_pag_2/MarginContainer/MarginContainer/VBoxContainer/footer" unique_id=1090115009]
+layout_mode = 2
+size_flags_horizontal = 2
+texture_normal = ExtResource("4_bwpdq")
+flip_h = true
+
+[node name="page_label" type="Label" parent="MarginContainer/wrapper/manual_pag_2/MarginContainer/MarginContainer/VBoxContainer/footer" unique_id=321194316]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.49782193, 0.49782193, 0.49782193, 1)
+theme_override_fonts/font = ExtResource("4_5n4l1")
+text = "Pág 2"
+
+[node name="next_btn" type="TextureButton" parent="MarginContainer/wrapper/manual_pag_2/MarginContainer/MarginContainer/VBoxContainer/footer" unique_id=1410899295]
+layout_mode = 2
+size_flags_horizontal = 10
+texture_normal = ExtResource("4_bwpdq")
+
+[node name="close_btn" parent="MarginContainer/wrapper/manual_pag_2/MarginContainer" unique_id=701829261 instance=ExtResource("1_116d0")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="manual_pag_1" type="PanelContainer" parent="MarginContainer/wrapper" unique_id=1381356610]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(166, 348)
+mouse_behavior_recursive = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_y7uol")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/wrapper/manual_pag_1" unique_id=345866894]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/wrapper/manual_pag_1/MarginContainer" unique_id=1103893387]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/wrapper/manual_pag_1/MarginContainer/MarginContainer" unique_id=1230835917]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="title" type="Label" parent="MarginContainer/wrapper/manual_pag_1/MarginContainer/MarginContainer/VBoxContainer" unique_id=1796906970]
+custom_minimum_size = Vector2(282, 79)
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+size_flags_stretch_ratio = 7.0
+theme_override_colors/font_color = Color(0.22806081, 0.22806081, 0.22806078, 1)
+theme_override_fonts/font = ExtResource("2_bwpdq")
+theme_override_font_sizes/font_size = 30
+text = "Manual do 
+Jogador"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="content" type="VBoxContainer" parent="MarginContainer/wrapper/manual_pag_1/MarginContainer/MarginContainer/VBoxContainer" unique_id=573925753]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="section_title" type="Label" parent="MarginContainer/wrapper/manual_pag_1/MarginContainer/MarginContainer/VBoxContainer/content" unique_id=1466416452]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.22745098, 0.22745098, 0.22745098, 1)
+theme_override_fonts/font = ExtResource("3_d278f")
+theme_override_font_sizes/font_size = 20
+text = "O Mestre"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/wrapper/manual_pag_1/MarginContainer/MarginContainer/VBoxContainer/content" unique_id=1508482253]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_d278f")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/wrapper/manual_pag_1/MarginContainer/MarginContainer/VBoxContainer/content/PanelContainer" unique_id=1516665073]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 16
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/wrapper/manual_pag_1/MarginContainer/MarginContainer/VBoxContainer/content/PanelContainer/MarginContainer" unique_id=1964837317]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_y7uol")
+theme_override_fonts/bold_font = ExtResource("4_5n4l1")
+theme_override_fonts/italics_font = ExtResource("6_8hbc8")
+bbcode_enabled = true
+text = "[center]Bem-vindo ao [b]QuestAnswer![/b] Um jogo de dedução, blefe e raciocínio rápido onde o objetivo é desvendar o Termo Oculto antes que as dicas acabem. Preparem suas mentes e que vença o melhor![/center]
+[br]
+[font_size=18][b]O MESTRE DA RODADA[/b][/font_size] 
+O Mestre é o guardião do segredo. Ele controla o celular, gerencia o tempo e guia os outros jogadores.
+
+[b]1. Escolha da Carta:[/b] O Mestre seleciona uma carta secreta na tela e revela para o grupo apenas a [b][color=#3399ff]Categoria[/color][/b] do termo (ex: [i]Cultura pop, Objetos, Lugar[/i]).
+[b]2. Leitura de Dicas:[/b] Quando um Adivinhador pedir o número de uma dica, o Mestre lê o texto em voz alta para todos.
+[b]3. Quem Joga?[/b] Logo abaixo da carta, o aplicativo mostra exatamente de quem é a vez de jogar.
+[b]4. O Veredito:[/b] Assim que o tempo do cronômetro acabar (ou o jogador responder), o Mestre ouve o palpite e decide:
+• [b][color=#00ff66]Acertou!:[/color][/b] Se o palpite for igual ou muito parecido com o Termo Oculto, o Mestre clica no botão Verde. O round acaba e o jogador que acertou será o [b]Novo Mestre[/b].
+• [b][color=#ff3333]Errou!:[/color][/b] Se o palpite estiver errado (ou se o jogador decidir passar a vez dizendo \"pular\"), o Mestre clica no botão Vermelho e a vez passa para o próximo jogador."
+
+[node name="footer" type="HBoxContainer" parent="MarginContainer/wrapper/manual_pag_1/MarginContainer/MarginContainer/VBoxContainer" unique_id=1266243567]
+layout_mode = 2
+
+[node name="previous_btn" type="TextureButton" parent="MarginContainer/wrapper/manual_pag_1/MarginContainer/MarginContainer/VBoxContainer/footer" unique_id=1466471997]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+texture_normal = ExtResource("4_bwpdq")
+flip_h = true
+
+[node name="page_label" type="Label" parent="MarginContainer/wrapper/manual_pag_1/MarginContainer/MarginContainer/VBoxContainer/footer" unique_id=456746939]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.49782193, 0.49782193, 0.49782193, 1)
+theme_override_fonts/font = ExtResource("4_5n4l1")
+text = "Pág 1"
+
+[node name="next_btn" type="TextureButton" parent="MarginContainer/wrapper/manual_pag_1/MarginContainer/MarginContainer/VBoxContainer/footer" unique_id=917395220]
+layout_mode = 2
+size_flags_horizontal = 10
+texture_normal = ExtResource("4_bwpdq")
+
+[node name="close_btn" parent="MarginContainer/wrapper/manual_pag_1/MarginContainer" unique_id=197256874 instance=ExtResource("1_116d0")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1479817767]
+libraries/ = SubResource("AnimationLibrary_8hbc8")
+
+[connection signal="pressed" from="MarginContainer/wrapper/manual_pag_3/MarginContainer/MarginContainer/VBoxContainer/footer/previous_btn" to="." method="_on_previous_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/wrapper/manual_pag_3/MarginContainer/close_btn" to="." method="_on_close_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/wrapper/manual_pag_2/MarginContainer/MarginContainer/VBoxContainer/footer/previous_btn" to="." method="_on_previous_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/wrapper/manual_pag_2/MarginContainer/MarginContainer/VBoxContainer/footer/next_btn" to="." method="_on_next_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/wrapper/manual_pag_2/MarginContainer/close_btn" to="." method="_on_close_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/wrapper/manual_pag_1/MarginContainer/MarginContainer/VBoxContainer/footer/next_btn" to="." method="_on_next_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/wrapper/manual_pag_1/MarginContainer/close_btn" to="." method="_on_close_btn_pressed"]

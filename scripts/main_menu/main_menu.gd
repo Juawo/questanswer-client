@@ -1,5 +1,7 @@
 extends Control
 
+const OPTIONS_PANEL = preload("uid://up23p2uvtd8x")
+
 func _on_play_btn_pressed() -> void:
 	AudioManager.play_button()
 	await SceneTrasition.fade_in(0.6)
@@ -16,3 +18,9 @@ func _on_credits_btn_pressed() -> void:
 func _on_exit_btn_pressed() -> void:
 	AudioManager.play_button()
 	get_tree().quit()
+
+
+func _on_options_btn_pressed() -> void:
+	var scene = OPTIONS_PANEL.instantiate()
+	add_child(scene)
+	scene.show_panel()

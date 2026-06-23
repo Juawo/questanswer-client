@@ -9,7 +9,6 @@ var API_KEY : String = "api-key-test-development"
 func _ready() -> void:
 	_load_configs()
 	SaveManager.finished_load_data.connect(fetch_unplayed_cards)
-
 func _load_configs() -> void:
 	var config = ConfigFile.new()
 	var err = config.load("res://configs/secret_configs.cfg")

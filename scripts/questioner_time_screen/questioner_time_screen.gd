@@ -7,7 +7,6 @@ extends Control
 
 
 func _ready() -> void:
-	show_screen()
 	scoreboard.populate_scoreboard()
 
 func _input(event: InputEvent) -> void:

@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 class_name CarouselContainer
 
 signal _on_selected_index_changed(new_index : int)
@@ -36,7 +36,7 @@ var selection_tween : Tween
 func _ready() -> void:
 	setup()
 	set_process(false)
-	
+
 func _process(delta: float) -> void:
 	if !position_offset_node or position_offset_node.get_child_count() == 0:
 		set_process(false)

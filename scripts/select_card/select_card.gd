@@ -7,8 +7,8 @@ signal random_index_sorted(random_index : int)
 @onready var carousel: Control = $MarginContainer/VBoxContainer/carousel
 @onready var played_cards_ui: Label = $MarginContainer/VBoxContainer/header/header/played_cards/MarginContainer/HBoxContainer/MarginContainer/Label
 @onready var empty_cards_label: Label = $MarginContainer/VBoxContainer/empty_cards_label
-@onready var fps_label: Label = $MarginContainer/VBoxContainer/header/header/fps_label
 @onready var questioner_time_screen: Control = $questioner_time_screen
+@onready var options_panel: Control = $options_panel
 
 var selected_index : int
 var random_index : int
@@ -21,10 +21,8 @@ func _ready() -> void:
 	carousel.selected_index_changed.connect(_on_selected_index_changed)
 	carousel.number_of_child_changed.connect(_on_number_of_child_changed)
 	carousel.populate_carousel(carousel.control_carousel)
-	
-
-func _process(_delta: float) -> void:
-	fps_label.text = "FPS: %s" % [Engine.get_frames_per_second()]
+	options_panel.panel_closed.connect(_on_options_panel_closed)
+	questioner_time_screen.show_screen()
 
 func _on_random_btn_pressed() -> void:
 	var num_current_cards = carousel_container.position_offset_node.get_child_count()
@@ -70,3 +68,10 @@ func update_played_ui() -> void :
  
 func _on_card_played() -> void :
 	questioner_time_screen.show_screen()
+
+func _on_options_btn_pressed() -> void:
+	options_panel.show_panel()
+	carousel.switch_scroll_state(false)
+
+func _on_options_panel_closed() -> void :
+	carousel.switch_scroll_state(true)
