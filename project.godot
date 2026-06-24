@@ -17,7 +17,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="QuestAnswer"
 run/main_scene="res://scenes/main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.7", "Mobile")
-config/icon="res://icon.svg"
+config/icon="uid://c86yn40v1h0o0"
 
 [audio]
 
@@ -30,6 +30,7 @@ ApiManager="*res://scripts/autoloads/APIManager.gd"
 SaveManager="*res://scripts/autoloads/SaveManager.gd"
 SceneTrasition="*res://scenes/scene_trasition.tscn"
 AudioManager="*uid://ct2newkaoo4vj"
+MockCards="*uid://dcpqne03pfowy"
 
 [display]
 
