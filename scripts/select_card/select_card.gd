@@ -1,11 +1,12 @@
 extends Control
 
 signal random_index_sorted(random_index : int)
+@onready var questioner_label: Label = $MarginContainer/VBoxContainer/header/VBoxContainer/questioner_label
 
 @onready var id_card_label: Label = $MarginContainer/VBoxContainer/footer/PanelContainer/MarginContainer/Label
 @onready var carousel_container: CarouselContainer = $MarginContainer/VBoxContainer/carousel/CarouselContainer
 @onready var carousel: Control = $MarginContainer/VBoxContainer/carousel
-@onready var played_cards_ui: Label = $MarginContainer/VBoxContainer/header/header/played_cards/MarginContainer/HBoxContainer/MarginContainer/Label
+@onready var played_cards_ui: Label = $MarginContainer/VBoxContainer/header/VBoxContainer/header/played_cards/MarginContainer/HBoxContainer/MarginContainer/Label
 @onready var empty_cards_label: Label = $MarginContainer/VBoxContainer/empty_cards_label
 @onready var questioner_time_screen: Control = $questioner_time_screen
 @onready var options_panel: Control = $options_panel
@@ -23,6 +24,11 @@ func _ready() -> void:
 	carousel.populate_carousel(carousel.control_carousel)
 	options_panel.panel_closed.connect(_on_options_panel_closed)
 	questioner_time_screen.show_screen()
+	questioner_label.text = "MESTRE : " + SessionState.get_questioner_name()
+	SessionState.new_questioner_time.connect(_on_new_questioner_time)
+
+func _on_new_questioner_time(questioner_name : String) -> void :
+	questioner_label.text = "MESTRE : " + questioner_name
 
 func _on_random_btn_pressed() -> void:
 	var num_current_cards = carousel_container.position_offset_node.get_child_count()
@@ -49,6 +55,12 @@ func set_num_cards(new_value) -> void :
 	if (new_value <= 0) :
 		num_card_in_carrousel = 0
 		empty_cards_label.visible = true
+		if ApiManager.ab_test_mode == "A" :
+			empty_cards_label.text = "Parece que todas as cartas
+ foram jogadas! \nSolicite ao desenvoledor que gere mais cartas!"
+		else :
+			empty_cards_label.text = "Parece que todas as cartas
+ foram jogadas! \n Você estava usando a versão B, que era limitada! Responda o formulário de avaliação e se deseja continuar jogando peça ao desenvolvedor a versão A que é ilimitada! ;)"
 		carousel.visible = false
 	else :
 		num_card_in_carrousel = new_value
