@@ -6,7 +6,7 @@ signal request_failed(error_message: String)
 var API_BASE_URL : String = "https://madalyn-thoroughgoing-continuedly.ngrok-free.dev" # URL do Render
 var API_KEY : String = "api-key-test-development"
 
-var ab_test_mode := "A"
+var ab_test_mode := "a"
 
 func _ready() -> void:
 	_load_configs()
@@ -18,7 +18,7 @@ func _load_configs() -> void:
 	if err == OK:
 		API_BASE_URL = config.get_value("network", "api_url", API_BASE_URL)
 		API_KEY = config.get_value("network", "api_key", API_KEY)
-		ab_test_mode = config.get_value("experiment", "ab_test_mode", "A")
+		ab_test_mode = config.get_value("experiment", "ab_test_mode", "a")
 		print("Configurações carregadas.")
 	else:
 		print("Usando configurações padrão (Desenvolvimento).")
@@ -44,7 +44,7 @@ func _create_request(endpoint: String, method: int, callback: Callable, body: St
 	request.request(url, headers, method, body)
 
 func fetch_unplayed_cards():
-	if ab_test_mode == "B" :
+	if ab_test_mode == "b" :
 		print("Modo teste B")
 		_load_local_mock_cards()
 		return
