@@ -27,6 +27,7 @@ func _ready() -> void:
 
 func _on_cards_fetched(_cards : Array) -> void :
 	fetched = true
+	print("FETCHED : ", fetched)
 
 func _on_any_input_changed() -> void :
 	update_inputs_state()
@@ -89,7 +90,6 @@ func _on_start_btn_pressed() -> void:
 			SaveManager.disable_first_time()
 		await SceneTrasition.fade_in(0.6)
 		if SessionState.cards_from_database.is_empty() and !fetched:
-			await ApiManager.cards_fetched_sucessfully
 			get_tree().change_scene_to_file("res://scenes/select_card/select_card.tscn")
 			await SceneTrasition.fade_out(0.4)
 		elif SessionState.cards_from_database.is_empty() and fetched :
