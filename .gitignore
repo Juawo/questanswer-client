@@ -16,3 +16,6 @@ Thumbs.db
 
 # Backup files
 *~
+
+# secret
+configs/

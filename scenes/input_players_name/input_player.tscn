@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://b5fkh1u5jfmvd"]
+
+[ext_resource type="Script" uid="uid://cw65q1lw1bn2c" path="res://scripts/input_players/input_player.gd" id="1_nxiog"]
+[ext_resource type="FontFile" uid="uid://bsxylve7bmg6w" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Lexend_Deca/static/LexendDeca-Bold.ttf" id="2_acsyg"]
+[ext_resource type="FontFile" uid="uid://cchki75ydfvx7" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Lexend_Deca/static/LexendDeca-Light.ttf" id="3_acsyg"]
+[ext_resource type="FontFile" uid="uid://dmvov0468schp" path="res://assets/fonts/Inter,Lexend_Deca,Luckiest_Guy,Montserrat,Paytone_One,etc/Lexend_Deca/static/LexendDeca-Regular.ttf" id="4_m53th"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nxiog"]
+content_margin_left = 6.0
+content_margin_top = 2.0
+content_margin_right = 6.0
+content_margin_bottom = 2.0
+bg_color = Color(0.8, 0.8, 0.8, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m53th"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.9274864, 0.92748654, 0.9274864, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_acsyg"]
+content_margin_left = 6.0
+content_margin_top = 2.0
+content_margin_right = 6.0
+content_margin_bottom = 2.0
+bg_color = Color(0.8, 0.8, 0.8, 1)
+
+[node name="input_player" type="VBoxContainer" unique_id=1272126923]
+anchors_preset = -1
+anchor_right = 0.485
+anchor_bottom = 0.065000005
+offset_right = 0.17999268
+offset_bottom = 0.39499664
+grow_horizontal = 2
+script = ExtResource("1_nxiog")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="." unique_id=305858721]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_acsyg")
+theme_override_font_sizes/font_size = 20
+text = "Player 1"
+
+[node name="LineEdit" type="LineEdit" parent="." unique_id=277956514]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_acsyg")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_nxiog")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_m53th")
+theme_override_styles/focus = SubResource("StyleBoxFlat_acsyg")
+max_length = 10
+clear_button_enabled = true
+caret_blink = true
+
+[node name="line_focus" type="ColorRect" parent="LineEdit" unique_id=1374817455]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1e-05, 1)
+color = Color(0.41948244, 0.9180499, 0.34980983, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="detail" type="Label" parent="." unique_id=1988522263]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_m53th")
+theme_override_font_sizes/font_size = 12
+
+[connection signal="focus_entered" from="LineEdit" to="." method="_on_line_edit_focus_entered"]
+[connection signal="focus_exited" from="LineEdit" to="." method="_on_line_edit_focus_exited"]
+[connection signal="text_changed" from="LineEdit" to="." method="_on_line_edit_text_changed"]
