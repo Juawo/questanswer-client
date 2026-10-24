@@ -1,6 +1,10 @@
 extends Control
 
 const OPTIONS_PANEL = preload("uid://up23p2uvtd8x")
+@onready var footer_text: Label = $MarginContainer/VBoxContainer/footer_text
+
+func _ready() -> void:
+	footer_text.text = "VERSÃO BETA 1.0.0" + ApiManager.ab_test_mode
 
 func _on_play_btn_pressed() -> void:
 	AudioManager.play_button()
@@ -18,7 +22,6 @@ func _on_credits_btn_pressed() -> void:
 func _on_exit_btn_pressed() -> void:
 	AudioManager.play_button()
 	get_tree().quit()
-
 
 func _on_options_btn_pressed() -> void:
 	var scene = OPTIONS_PANEL.instantiate()

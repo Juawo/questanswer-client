@@ -33,7 +33,7 @@ var clock_player: AudioStreamPlayer
 
 var lowpass_effect_idx: int = 0
 var music_bus_idx: int = 0
-
+	
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS # Garante que o som toca mesmo se o jogo for pausado
 	music_bus_idx = AudioServer.get_bus_index("Music")

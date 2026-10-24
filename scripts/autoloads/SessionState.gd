@@ -2,6 +2,7 @@ extends Node
 
 signal player_win(player_name : String)
 signal new_guesser_time(guesser_name : String)
+signal new_questioner_time(questioner_name : String)
 
 var cards_from_database: Array[CardData]
 var num_cards : int
@@ -40,6 +41,7 @@ func setup(players_names : Array[String]) -> bool :
 	
 	# Reset questioner and guesser
 	questioner_idx = 0
+	new_questioner_time.emit(get_questioner_name())
 	guesser_idx = 1
 	used_tips_count = 0
 	return true
@@ -89,6 +91,7 @@ func _on_player_hit() -> void :
 	
 	# The player that have hit the term will become the questioner now
 	questioner_idx = guesser_idx
+	new_questioner_time.emit(get_questioner_name())
 	
 	# Check if anybody have win the round
 	if check_victory_condition() :
@@ -114,6 +117,7 @@ func _on_all_player_missed() -> void :
 		return
 	
 	questioner_idx = (questioner_idx + 1) % order_of_players.size()
+	new_questioner_time.emit(get_questioner_name())
 	guesser_idx = (questioner_idx + 1) % order_of_players.size()
 
 func next_guesser_time() -> void :
